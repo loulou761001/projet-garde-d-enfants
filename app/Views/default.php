@@ -6,6 +6,8 @@
     <title>Ticrocos</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="<?= base_url('/assets/css/style.css'); ?>" />
+    <link rel="stylesheet" href="<?= base_url('/assets/css/flexslider-rtl.css'); ?>" type="text/css">
+    <link rel="stylesheet" href="<?= base_url('/assets/css/flexslider.css'); ?>" type="text/css">
 </head>
 <body>
 
@@ -25,4 +27,5 @@
 </header>
 <?= $this->renderSection('content') ?>
 </body>
+<?= $this->renderSection('js') ?>
 </html>

@@ -1,13 +1,13 @@
 :root {
     --vert: #4f805d;
-    --vertclair: #8bb092;
+    --vertclair: #00CE15;
 }
 * {
     margin: 0; padding: 0;
     box-sizing: border-box;
 }
 
-
+a{text-decoration: none}
 
 body {
     background-color: lightgray;
@@ -46,6 +46,10 @@ img {
 
 
 
+/*HEADER*/
+header{
+    background-color:white;
+}
 
 /*FOOTER*/
 footer .separator {
@@ -56,10 +60,10 @@ footer .diagVerte{
     width: 0;
     height: 0;
     border-bottom: 100px solid var(--vertclair);
-    border-left: 1980px solid transparent;
+    border-left: 2560px solid transparent;
 }
 footer .footerContent{
-    padding:1rem 0;
+    padding:2rem 0;
     background-color:var(--vertclair) ;
 }
 footer .navFooter a{
@@ -67,7 +71,7 @@ footer .navFooter a{
 }
 footer .wrap{
     justify-content: center;
-    gap:2rem;
+    gap:5rem;
 }
 footer .reseauxFooter{
     display:flex;
@@ -75,7 +79,4 @@ footer .reseauxFooter{
 }
 footer .logoFooter a img{
     width:200px;
-}
-footer .reseauxFooter{
-
 }

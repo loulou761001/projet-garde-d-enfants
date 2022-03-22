@@ -88,7 +88,16 @@ footer .reseauxFooter{
 
 
  /*ACCEUIL*/
-
+.flexslider {
+    width: 100%;
+    max-width: 1220px;
+    height: 600px;
+    overflow: hidden;
+    margin: 0 auto 5rem auto;
+}
+.flexslider img {
+    transform: translateY(-15%);
+}
 #flexsliderTexte {
     padding: 3rem;
     border-radius: 10px;

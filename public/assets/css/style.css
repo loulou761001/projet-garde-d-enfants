@@ -80,3 +80,63 @@ footer .reseauxFooter{
 footer .logoFooter a img{
     width:200px;
 }
+
+footer .reseauxFooter{
+
+}
+
+
+
+ /*ACCEUIL*/
+
+#flexsliderTexte {
+    padding: 3rem;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: white;
+    bottom: -35px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-top: 4px solid var(--vertclair);
+    border-right: 4px solid var(--vertclair);
+    border-left: 4px solid var(--vertclair);
+    text-align: center;
+}
+#flexsliderTexte .moitieTexte {
+    width: 45%;
+}
+#flexsliderTexte .moitieTexte h3 {
+    text-decoration: underline;
+}
+#flexsliderTexte .moitieTexte a {
+    text-decoration: none;
+}
+#flexsliderTexte .moitieTexte a p {
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+    background: var(--vertclair);
+}
+
+#sectionCentrale .boite {
+    background-color: white;
+    width: 31%;
+    border-top: 4px solid var(--vertclair);
+    border-right: 4px solid var(--vertclair);
+    border-left: 4px solid var(--vertclair);
+    text-align: center;
+    border-radius: 10px;
+}
+#sectionCentrale .boite i {
+    color: var(--vertclair);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    font-size: 2rem;
+}
+#sectionCentrale .boite:nth-of-type(2) i {
+    color: #F4DE18;
+}
+.avis img {
+    width: 100px;
+}
+

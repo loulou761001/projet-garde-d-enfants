@@ -6,6 +6,10 @@ $(window).on('load',function() {
         directionNav: false,
         controlNav: false,
     });
+
+    $('.avisSlider').flexslider({
+        animation: "slide",
+        slideshowSpeed: 7000,
+        animationSpeed: 1000,
+    });
 });
-
-

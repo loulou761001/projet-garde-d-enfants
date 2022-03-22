@@ -43,8 +43,8 @@
 
             <div class="navFooter">
                 <ul>
-                    <li><a href="">Mentions Légales</a></li>
-                    <li><a href="">Vie privée</a></li>
+                    <li><a href="conditions">Mentions Légales</a></li>
+                    <li><a href="vieprive">Vie privée</a></li>
                     <li><a href="">S'inscire / Se connecter</a></li>
                 </ul>
             </div>

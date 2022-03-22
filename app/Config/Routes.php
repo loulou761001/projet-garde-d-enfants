@@ -33,6 +33,8 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/inscription/utilisateur', 'InscriptionUtilisateur::index');
+$routes->get('vieprive', 'vieprive::index');
+$routes->get('conditions', 'conditions::index');
 
 /*
  * --------------------------------------------------------------------

@@ -4,19 +4,24 @@
 <section class="wrap">
 
 
-    <div class="flexslider">
-        <ul class="slides">
-            <li>
-                <img src="<?= base_url('assets/imgs/slide1.jpg'); ?>" />
-            </li>
-            <li>
-                <img src="<?= base_url('assets/imgs/slide2.jpg'); ?>" />
-            </li>
-            <li>
-                <img src="<?= base_url('assets/imgs/slide3.jpg'); ?>" />
-            </li>
+    <div class="relative">
+        <div class="flexslider">
+            <ul class="slides">
+                <li>
+                    <img src="<?= base_url('assets/imgs/slide1.jpg'); ?>" />
+                </li>
+                <li>
+                    <img src="<?= base_url('assets/imgs/slide2.jpg'); ?>" />
+                </li>
+                <li>
+                    <img src="<?= base_url('assets/imgs/slide3.jpg'); ?>" />
+                </li>
 
-        </ul>
+            </ul>
+        </div>
+        <div class="absolute" id="flexsliderTexte">
+            <h2><i class="fa-solid fa-magnifying-glass"></i>Que recherchez-vous?</h2>
+        </div>
     </div>
 
 <?php

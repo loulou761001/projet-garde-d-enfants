@@ -1,11 +1,13 @@
 :root {
     --vert: #4f805d;
-    --vertclair: #8bb092
+    --vertclair: #8bb092;
 }
 * {
     margin: 0; padding: 0;
     box-sizing: border-box;
 }
+
+
 
 body {
     background-color: lightgray;
@@ -39,6 +41,41 @@ img {
 .sb {justify-content: space-between}
 .sa {justify-content: space-around}
 .bold {font-weight: bold}
-
 .relative {position: relative}
 .absolute {position: absolute}
+
+
+
+
+/*FOOTER*/
+footer .separator {
+    border-left:solid 1px white;
+    height:70px;
+}
+footer .diagVerte{
+    width: 0;
+    height: 0;
+    border-bottom: 100px solid var(--vertclair);
+    border-left: 1980px solid transparent;
+}
+footer .footerContent{
+    padding:1rem 0;
+    background-color:var(--vertclair) ;
+}
+footer .navFooter a{
+    color:white;
+}
+footer .wrap{
+    justify-content: center;
+    gap:2rem;
+}
+footer .reseauxFooter{
+    display:flex;
+    align-items: center;
+}
+footer .logoFooter a img{
+    width:200px;
+}
+footer .reseauxFooter{
+
+}

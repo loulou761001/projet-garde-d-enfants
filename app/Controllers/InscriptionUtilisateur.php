@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class Inscription extends BaseController
+class InscriptionUtilisateur extends BaseController
 {
 
     private $parentsModel;
@@ -14,9 +14,6 @@ class Inscription extends BaseController
 
     public function index()
     {
-        $data = [
-            'parents' => $this->parentsModel->recupParents()
-        ];
-        return view('home',$data);
+        return view('Inscription/InscriptionUtilisateur');
     }
 }

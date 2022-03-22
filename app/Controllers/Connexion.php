@@ -78,7 +78,7 @@ class Connexion extends BaseController
                     'description' =>$utilActuel['pro_description'],
                 );
             }
-            var_dump($_SESSION);
+            return redirect()->to('/');
 
         }
         $data = [

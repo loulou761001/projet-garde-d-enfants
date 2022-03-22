@@ -108,7 +108,7 @@
         </div>
     </div>
 <!--    AVIS DES PARENTS-->
-    <div class="avisNounous">
+    <div class="avisParents">
         <div class="avisSlider">
             <ul class="slides">
                 <li class="avis">
@@ -177,6 +177,7 @@ $this->endSection() ;
     </script>
     <script src="<?= base_url('assets/js/jquery.flexslider-min.js'); ?>"></script>
     <script src="<?= base_url('assets/js/flexslider.js'); ?>"></script>
+    <script src="<?= base_url('assets/js/home.js'); ?>"></script>
 
 
 <?php

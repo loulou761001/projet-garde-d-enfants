@@ -10,6 +10,16 @@ debug($_POST);
 
 <section id="formulaire">
     <div class="wrap">
+
+
+        <div class="filAriane flex">
+            <button class="btnEtape1">1</button>
+            <div class="arianeSep"></div>
+            <button class="btnEtape2">2</button>
+            <div class="arianeSep"></div>
+            <button class="btnEtape3">3</button>
+            <div class="arianeSep"></div>
+        </div>
         <h2>Inscription :</h2>
         <form action="" method="post" class="wrapform" novalidate>
 
@@ -70,10 +80,22 @@ debug($_POST);
         <div class="form3 hidden">
 
             <div class="info_box">
-                <label for="adresse">Adresse :</label>
-                <input type="text" placeholder="" id="adresse" name="adresse" value="<?= recupInputValue('adresse');?>">
+                <label for="numAdresse">Numéro dans la voie :</label>
+                <input type="text" placeholder="Ex : 05, 05 BIS" id="numAdresse" name="numAdresse" value="<?= recupInputValue('numAdresse');?>">
+            </div>
+            <span data-champ="numAdresse"></span>
+
+            <div class="info_box">
+                <label for="adresse">libellé de la voie :</label>
+                <input type="text" placeholder="Ex : Rue Albert Premier" id="adresse" name="adresse" value="<?= recupInputValue('adresse');?>">
             </div>
             <span data-champ="adresse"></span>
+
+            <div class="info_box">
+                <label for="infosAdresse">Informations complémentaires (facultatif) :</label>
+                <input type="text" placeholder="Ex : Appartement 51" id="infosAdresse" name="infosAdresse" value="<?= recupInputValue('infosAdresse');?>">
+            </div>
+            <span data-champ="infosAdresse"></span>
 
             <div class="info_box">
                 <label for="ville">Ville :</label>
@@ -87,18 +109,14 @@ debug($_POST);
             </div>
             <span data-champ="codePostal"></span>
 
-
             <div class="info_box_button">
+<<<<<<< HEAD
                 <input class="button" type="submit" name="submitted" value="ENVOYER">
+=======
+                <input id="dernierSubmit" type="submit" name="submitted" value="ENVOYER">
+>>>>>>> louis
             </div>
-
-
-
         </div>
-
-
-
-
 
             <p>Les champs avec * sont requis</p>
             <a href="inscription/nourrice"><p>Vous souhaitez garder des enfants ? Inscrivez-vous <strong>ici</strong> !</p></a>

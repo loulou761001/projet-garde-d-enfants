@@ -99,11 +99,14 @@ footer .logoFooter a img{
 }
 
 footer .reseauxFooter{
-<<<<<<< HEAD
+    
 
 }
-
-
+footer .reseauxFooter i{
+    color: white;
+    margin-right: 20px;
+    font-size: 30px;
+}
 
  /*ACCEUIL*/
 
@@ -158,7 +161,3 @@ footer .reseauxFooter{
     width: 100px;
 }
 
-=======
-    
-}
->>>>>>> mathieu

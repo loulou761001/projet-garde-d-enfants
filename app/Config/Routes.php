@@ -40,6 +40,7 @@ $routes->get('vieprive', 'vieprive::index');
 $routes->get('conditions', 'conditions::index');
 $routes->post('/connexion', 'Connexion::loginVerif');
 $routes->get('/connexion', 'Connexion::index');
+$routes->get('/deconnexion', 'Connexion::deco');
 
 
 /*

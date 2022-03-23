@@ -99,17 +99,25 @@ footer .logoFooter a img{
 }
 
 footer .reseauxFooter{
-<<<<<<< HEAD
 
 }
 
 
 
  /*ACCEUIL*/
-
+.flexslider {
+    width: 100%;
+    max-width: 1220px;
+    height: 600px;
+    overflow: hidden;
+    margin: 0 auto 5rem auto;
+}
+.flexslider img {
+    transform: translateY(-15%);
+}
 #flexsliderTexte {
     padding: 3rem;
-    border-radius: 10px;
+    border-radius: 20px;
     z-index: 10;
     background-color: white;
     bottom: -35px;
@@ -130,7 +138,7 @@ footer .reseauxFooter{
     text-decoration: none;
 }
 #flexsliderTexte .moitieTexte a p {
-    border-radius: 10px;
+    border-radius: 20px;
     padding: 10px;
     color: white;
     background: var(--vertclair);
@@ -143,7 +151,7 @@ footer .reseauxFooter{
     border-right: 4px solid var(--vertclair);
     border-left: 4px solid var(--vertclair);
     text-align: center;
-    border-radius: 10px;
+    border-radius: 20px;
 }
 #sectionCentrale .boite i {
     color: var(--vertclair);
@@ -157,8 +165,21 @@ footer .reseauxFooter{
 .avis img {
     width: 100px;
 }
-
-=======
-    
+.avisNounous {
+    height: 0;
 }
->>>>>>> mathieu
+#btnNounous, #btnParents {
+    padding: 0.5rem;
+    border-radius: 20px;
+    background-color: white;
+    border-top: 4px solid var(--vertclair);
+    border-right: 4px solid var(--vertclair);
+    border-left: 4px solid var(--vertclair);
+    text-align: center;
+}
+.avisNounous, .avisParents  {
+    overflow: hidden;
+
+}
+
+

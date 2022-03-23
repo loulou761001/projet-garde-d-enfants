@@ -11,5 +11,7 @@ $(window).on('load',function() {
         animation: "slide",
         slideshowSpeed: 7000,
         animationSpeed: 1000,
+        directionNav: false,
+        controlNav: false,
     });
 });

@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class InscriptionUtilisateur extends BaseController
+class Inscription extends BaseController
 {
 
     private $parentsModel;
@@ -15,5 +15,12 @@ class InscriptionUtilisateur extends BaseController
     public function index()
     {
         return view('Inscription/InscriptionUtilisateur');
+    }
+
+    public function handlePost()
+    {
+
+        var_dump($_POST);
+
     }
 }

@@ -36,6 +36,7 @@ img {
     width: 100%;
 }
 
+.hidden{display:none;}
 .flex {display: flex;}
 .column {flex-direction: column}
 .sb {justify-content: space-between}

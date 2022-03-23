@@ -21,7 +21,7 @@
         </li>
         <li>
             <div class="flex">
-                <a href="">Inscription</a>
+                <a href="/inscription">Inscription</a>
                 <a href="">Connexion</a>
             </div>
         </li>

@@ -10,7 +10,7 @@
 a{text-decoration: none}
 
 body {
-    background-color: lightgray;
+    background-color: white;
     color: black;
     font: 400 13px/1.3 verdana, sans-serif;
     overflow-x: hidden;
@@ -59,12 +59,18 @@ header li .flex a{
     text-decoration: none;
     color: white;
     background-color: #00CE15;
-    padding: 5px;
-    border-radius: 15px;
-    margin-left: 1rem;
+    border-radius: 100px;
+    padding: 1rem;
+    width: 200px;
+    text-align: center;
+    font-size: 1rem;
+    margin-right: 2rem;
+    transition: 0.6s;
 }
 header li .flex a:hover{
     background-color: #00a711;
+    border-radius: 10px;
+
 }
 
 
@@ -117,7 +123,7 @@ footer .reseauxFooter{
     transform: translateY(-15%);
 }
 #flexsliderTexte {
-    padding: 3rem;
+    padding: 5rem;
     border-radius: 20px;
     z-index: 10;
     background-color: white;
@@ -128,12 +134,15 @@ footer .reseauxFooter{
     border-right: 4px solid var(--vertclair);
     border-left: 4px solid var(--vertclair);
     text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
 }
 #flexsliderTexte .moitieTexte {
     width: 45%;
 }
 #flexsliderTexte .moitieTexte h3 {
     text-decoration: underline;
+    padding : 1rem;
+    font-size: 0.9rem;
 }
 #flexsliderTexte .moitieTexte a {
     text-decoration: none;
@@ -153,6 +162,19 @@ footer .reseauxFooter{
     border-left: 4px solid var(--vertclair);
     text-align: center;
     border-radius: 20px;
+    height: auto;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+    padding: 2rem;
+
+
+}
+#sectionCentrale .boite h2{
+    padding: 1rem;
+
+}
+#sectionCentrale .boite p{
+   font-size: 1.5rem;
+
 }
 #sectionCentrale .boite i {
     color: var(--vertclair);
@@ -163,11 +185,18 @@ footer .reseauxFooter{
 #sectionCentrale .boite:nth-of-type(2) i {
     color: #F4DE18;
 }
+.recommendation{
+    margin-top: 3rem;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 400;
+}
 .avis img {
     width: 100px;
 }
 .avisNounous {
     height: 0;
+
 }
 #btnNounous, #btnParents {
     padding: 0.5rem;
@@ -177,10 +206,17 @@ footer .reseauxFooter{
     border-right: 4px solid var(--vertclair);
     border-left: 4px solid var(--vertclair);
     text-align: center;
+    margin-top: 2rem;
+    font-size: 1rem;
+}
+.boutonAccueil {
+    margin-right: 1rem;
 }
 .avisNounous, .avisParents  {
     overflow: hidden;
+    margin-top: 2rem;
 
 }
+
 
 

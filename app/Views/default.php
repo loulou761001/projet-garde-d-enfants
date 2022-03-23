@@ -1,4 +1,7 @@
-<?php session_start() ?>
+<?php
+
+session()->start();
+?>
 <!doctype html>
 <html>
 <head>
@@ -22,8 +25,12 @@
         </li>
         <li>
             <div class="flex">
-                <a href="/inscription">Inscription</a>
-                <a href="">Connexion</a>
+                <?php if (!isLogged()) { ?>
+                    <a href="/inscription">Inscription</a>
+                    <a href="">Connexion</a>
+                <?php } else {?>
+                    <a href="/deconnexion">Déconnexion</a>
+                <?php } ?>
             </div>
         </li>
     </ul>

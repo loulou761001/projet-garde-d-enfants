@@ -1,6 +1,7 @@
 <?= $this->extend('default') ?>
 
-<?= $this->section('content'); ?>
+<?= $this->section('content');
+require_once('inc/fonctions.php'); ?>
 <section class="wrap">
 
     <form action="" method="post">

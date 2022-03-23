@@ -132,3 +132,21 @@ function isAdmin()
     }
     return false;
 }
+function isParent()
+{
+    if(isLogged()) {
+        if($_SESSION['user']['status'] == 'parent') {
+            return true;
+        }
+    }
+    return false;
+}
+function isPro()
+{
+    if(isLogged()) {
+        if($_SESSION['user']['status'] == 'professionnel') {
+            return true;
+        }
+    }
+    return false;
+}

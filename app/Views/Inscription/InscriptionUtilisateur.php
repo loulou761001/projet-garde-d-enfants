@@ -110,11 +110,7 @@ debug($_POST);
             <span data-champ="codePostal"></span>
 
             <div class="info_box_button">
-<<<<<<< HEAD
-                <input class="button" type="submit" name="submitted" value="ENVOYER">
-=======
-                <input id="dernierSubmit" type="submit" name="submitted" value="ENVOYER">
->>>>>>> louis
+                <input id="dernierSubmit" class="button" type="submit" name="submitted" value="ENVOYER">
             </div>
         </div>
 

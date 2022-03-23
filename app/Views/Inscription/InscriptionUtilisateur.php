@@ -18,7 +18,6 @@ debug($_POST);
             <button class="btnEtape2">2</button>
             <div class="arianeSep"></div>
             <button class="btnEtape3">3</button>
-            <div class="arianeSep"></div>
         </div>
         <h2>Inscription :</h2>
         <form action="" method="post" class="wrapform" novalidate>

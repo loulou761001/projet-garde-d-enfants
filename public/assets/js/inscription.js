@@ -21,6 +21,7 @@ btn1.addEventListener('click',function (){
     form1.classList.toggle('hidden')
     btn1.classList.toggle('hidden')
     form2.classList.toggle('hidden')
+    // btn2.classList.toggle('hidden')
     ariane2Status = 1
     activeBtnAriane(ariane2)
 })
@@ -29,16 +30,13 @@ ariane1.addEventListener('click',function (){
     form1.classList.remove('hidden')
     btn1.classList.remove('hidden')
     form2.classList.add('hidden')
-    btn2.classList.add('hidden')
     form3.classList.add('hidden')
-    btnDernier.classList.add('hidden')
 })
 
 btn2.addEventListener('click',function (){
     event.preventDefault();
     console.log('click')
     form2.classList.toggle('hidden')
-    btn2.classList.toggle('hidden')
     form3.classList.toggle('hidden')
     ariane3Status = 1
     activeBtnAriane(ariane3)

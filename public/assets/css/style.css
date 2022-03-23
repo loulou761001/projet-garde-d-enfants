@@ -417,6 +417,29 @@ footer .logoFooter a img{
     flex-flow:column;
     align-items: center;
 }
+#formulaire .filAriane {
+    width: 50%;
+    margin: 0 auto;
+    justify-content: center;
+}
+#formulaire .btnEtape1, #formulaire .btnEtape2, #formulaire .btnEtape3 {
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    padding: 5px;
+}
+#formulaire .arianeSep {
+    margin: auto 0;
+    background-color: var(--vertclair);
+    width: 10%;
+    height: 2px;
+}
+#formulaire .btnEtape2, #formulaire .btnEtape3 {
+    background-color: grey;
+    cursor: default;
+
+}
 .form1{
     display:flex;
     flex-flow: column;

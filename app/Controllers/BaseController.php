@@ -46,6 +46,8 @@ class BaseController extends Controller
         parent::initController($request, $response, $logger);
 
         // Preload any models, libraries, etc, here.
+        require_once('inc/fonctions.php');
+        $this->session = \Config\Services::session();
 
         // E.g.: $this->session = \Config\Services::session();
     }

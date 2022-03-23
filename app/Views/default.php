@@ -1,3 +1,7 @@
+<?php
+
+session()->start();
+?>
 <!doctype html>
 <html>
 <head>
@@ -6,7 +10,6 @@
     <title>Ticrocos</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="<?= base_url('/assets/css/style.css'); ?>" />
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
     <link rel="stylesheet" href="<?= base_url('/assets/css/flexslider-rtl.css'); ?>" type="text/css">
     <link rel="stylesheet" href="<?= base_url('/assets/css/flexslider.css'); ?>" type="text/css">
@@ -17,12 +20,16 @@
 <header>
     <ul class="flex wrap sb">
         <li>
-            <a href="home"><img src="<?= base_url('assets/imgs/ticrocos_logo.svg'); ?>" alt="Logo Ticrocos"></a>
+            <a href="/home"><img src="<?= base_url('assets/imgs/ticrocos_logo.svg'); ?>" alt="Logo Ticrocos"></a>
         </li>
         <li>
             <div class="flex">
-                <a href="">Inscription</a>
-                <a href="">Connexion</a>
+                <?php if (!isLogged()) { ?>
+                    <a href="/inscription">Inscription</a>
+                    <a href="/connexion">Connexion</a>
+                <?php } else {?>
+                    <a href="/deconnexion">Déconnexion</a>
+                <?php } ?>
             </div>
         </li>
     </ul>
@@ -44,9 +51,14 @@
 
             <div class="navFooter">
                 <ul>
-                    <li><a href="conditions">Mentions Légales</a></li>
-                    <li><a href="vieprive">Vie privée</a></li>
-                    <li><a href="">S'inscire / Se connecter</a></li>
+                    <li><a href="/conditions">Mentions Légales</a></li>
+                    <li><a href="/vieprive">Vie privée</a></li>
+                    <?php if (!isLogged()) { ?>
+                       <li><a href="/inscription">Inscription</a></li>
+                       <li><a href="/connexion">Connexion</a></li>
+                    <?php } else {?>
+                       <li><a href="/deconnexion">Déconnexion</a></li>
+                    <?php } ?>
                 </ul>
             </div>
 

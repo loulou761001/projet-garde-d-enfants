@@ -1,6 +1,8 @@
-<?= $this->extend('default') ?>
+<?=
+$this->extend('default') ?>
 
-<?= $this->section('content'); ?>
+<?= $this->section('content');
+?>
 <section class="wrap">
 
 
@@ -21,6 +23,7 @@
         </div>
 
         <div class="absolute" id="flexsliderTexte">
+            <?php if (!isLogged()) {?>
             <h2><i class="fa-solid fa-magnifying-glass"></i> Que recherchez-vous?</h2>
             <p>Je cherche :</p>
             <div class="flex sb">
@@ -33,6 +36,11 @@
                     <a href=""><p>S'inscrire en tant que professionnel</p></a>
                 </div>
             </div>
+            <?php } elseif(isParent()) { ?>
+                <h2>Je suis parent</h2>
+            <?php } elseif(isPro()) { ?>
+                <h2>Je suis pro</h2>
+            <?php } ?>
         </div>
     </div>
     <div class="flex sb" id="sectionCentrale">
@@ -108,7 +116,7 @@
         </div>
     </div>
 <!--    AVIS DES PARENTS-->
-    <div class="avisNounous">
+    <div class="avisParents">
         <div class="avisSlider">
             <ul class="slides">
                 <li class="avis">
@@ -177,6 +185,7 @@ $this->endSection() ;
     </script>
     <script src="<?= base_url('assets/js/jquery.flexslider-min.js'); ?>"></script>
     <script src="<?= base_url('assets/js/flexslider.js'); ?>"></script>
+    <script src="<?= base_url('assets/js/home.js'); ?>"></script>
 
 
 <?php

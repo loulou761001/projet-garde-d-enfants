@@ -32,10 +32,19 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
+$routes->get('/inscription', 'Inscription::redirect');
+$routes->get('/inscription/parent', 'Inscription::index');
+$routes->post('/inscription/parent', 'Inscription::handlePost');
+$routes->get('/inscription/nourrice', 'Inscription::indexNourrice');
+$routes->post('/inscription/nourrice', 'Inscription::handlePostNourrice');
 $routes->get('errors', 'errors::index');
 $routes->get('/inscription/utilisateur', 'InscriptionUtilisateur::index');
 $routes->get('vieprive', 'vieprive::index');
 $routes->get('conditions', 'conditions::index');
+$routes->post('/connexion', 'Connexion::loginVerif');
+$routes->get('/connexion', 'Connexion::index');
+$routes->get('/deconnexion', 'Connexion::deco');
+
 
 /*
  * --------------------------------------------------------------------

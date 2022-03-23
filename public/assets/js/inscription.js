@@ -8,7 +8,6 @@ const form3=document.querySelector('.form3')
 
 btn1.addEventListener('click',function (){
     event.preventDefault();
-    console.log('click')
     form1.classList.toggle('hidden')
     btn1.classList.toggle('hidden')
     form2.classList.toggle('hidden')

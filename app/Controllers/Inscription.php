@@ -11,6 +11,10 @@ class Inscription extends BaseController
     {
         $this->parentsModel = model('App\Models\ParentsModel');
     }
+    public function redirect()
+    {
+        return view('Inscription/InscriptionChoix');
+    }
 
     public function index()
     {
@@ -23,6 +27,13 @@ class Inscription extends BaseController
     }
 
     public function handlePost()
+    {
+
+        var_dump($_POST);
+
+    }
+
+    public function handlePostNourrice()
     {
 
         var_dump($_POST);

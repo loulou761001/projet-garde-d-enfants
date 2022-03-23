@@ -8,9 +8,9 @@ debug($_POST);
 
 <?= $this->section('content'); ?>
 
-<section>
+<section id="formulaire">
     <div class="wrap">
-
+        <h2>Inscription :</h2>
         <form action="" method="post" class="wrapform" novalidate>
 
         <div class="form1">
@@ -21,7 +21,7 @@ debug($_POST);
             <span data-champ="email"></span>
 
             <div class="info_box">
-                <label for="password">Mot de passe</label>
+                <label for="password">Mot de passe :</label>
                 <input type="password" placeholder="" id="password" name="password" value="">
             </div>
 
@@ -31,9 +31,10 @@ debug($_POST);
             </div>
 
             <span data-champ="motDePasse"></span>
+            <button id="jsButton1">Suivant</button>
         </div>
 
-            <button id="jsButton1">Suivant</button>
+
 <!------------------------------------------------------------------------------------------------------------------------------>
 
         <div class="form2 hidden">
@@ -61,7 +62,6 @@ debug($_POST);
             </div>
             <span data-champ="dateDeNaissance"></span>
 
-    <!--SI RIEN SELECTIONNE -> ERREUR -->
             <button id="jsButton2">Suivant</button>
 
         </div>
@@ -82,14 +82,14 @@ debug($_POST);
             <span data-champ="ville"></span>
 
             <div class="info_box">
-                <label for="codePostal">Code Postal</label>
+                <label for="codePostal">Code Postal :</label>
                 <input type="text" placeholder="" id="codePostal" name="codePostal" value="<?= recupInputValue('codePostal');?>">
             </div>
             <span data-champ="codePostal"></span>
 
 
             <div class="info_box_button">
-                <input type="submit" name="submitted" value="ENVOYER">
+                <input class="button" type="submit" name="submitted" value="ENVOYER">
             </div>
 
 
@@ -114,6 +114,6 @@ $this->section('js');
 ?>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="assets/js/inscription.js"></script>
+    <script src="../assets/js/inscription.js"></script>
 <?php
 $this->endSection() ;

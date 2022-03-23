@@ -2,21 +2,27 @@
 
 <?= $this->section('content');
 require_once('inc/fonctions.php'); ?>
-<section class="wrap">
-
+<section id="connexion">
+<div class="wrap">
     <form action="" method="post">
-        <label for="email">Votre adresse eMail :</label>
-        <input type="email" name="email" id="email">
-        <label for="mdp">Votre mot de passe :</label>
-        <input type="password" name="mdp" id="mdp">
-        <input type="submit">
-    </form>
-    <a href="">Mot de passe oublié?</a>
+        <div class="photo"><img src="<?= base_url('assets/imgs/ticroco.png'); ?>" alt="Logo Ticrocos"></div>
+        <div class="infoBox">
+            <label for="email">Votre adresse Email :</label>
+            <input type="email" name="email" id="email">
+        </div>
 
-<?php
-//var_dump($parents);
-?>
+        <div class="infoBox">
+            <label for="mdp">Votre mot de passe :</label>
+            <input type="password" name="mdp" id="mdp">
+        </div>
+
+        <input type="submit">
+
+    </form>
+
+</div>
 </section>
+
 
 <?php
 $this->endSection() ;

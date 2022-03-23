@@ -47,9 +47,26 @@ img {
 
 
 /*HEADER*/
+
 header{
     background-color:white;
 }
+header ul{
+    align-items: center;
+}
+header li .flex a{
+    text-decoration: none;
+    color: white;
+    background-color: #00CE15;
+    padding: 5px;
+    border-radius: 15px;
+    margin-left: 1rem;
+}
+header li .flex a:hover{
+    background-color: #00a711;
+}
+
+
 
 /*FOOTER*/
 footer .separator {
@@ -82,6 +99,7 @@ footer .logoFooter a img{
 }
 
 footer .reseauxFooter{
+<<<<<<< HEAD
 
 }
 
@@ -140,3 +158,7 @@ footer .reseauxFooter{
     width: 100px;
 }
 
+=======
+    
+}
+>>>>>>> mathieu

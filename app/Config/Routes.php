@@ -34,6 +34,8 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->get('/inscription', 'Inscription::index');
 $routes->post('/inscription', 'Inscription::handlePost');
+$routes->get('/inscription/nourrice', 'Inscription::indexNourrice');
+$routes->post('/inscription/nourrice', 'Inscription::handlePostNourrice');
 $routes->get('errors', 'errors::index');
 $routes->get('/inscription/utilisateur', 'InscriptionUtilisateur::index');
 $routes->get('vieprive', 'vieprive::index');

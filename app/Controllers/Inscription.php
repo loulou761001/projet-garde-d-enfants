@@ -17,6 +17,11 @@ class Inscription extends BaseController
         return view('Inscription/InscriptionUtilisateur');
     }
 
+    public function indexNourrice()
+    {
+        return view('Inscription/InscriptionNourrice');
+    }
+
     public function handlePost()
     {
 

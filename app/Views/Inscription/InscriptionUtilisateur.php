@@ -31,7 +31,7 @@ debug($_POST);
             </div>
 
             <span data-champ="motDePasse"></span>
-            <button id="jsButton1">Suivant</button>
+            <button id="jsButton1">Suivant <i class="fa-solid fa-arrow-right"></i></button>
         </div>
 
 
@@ -62,7 +62,7 @@ debug($_POST);
             </div>
             <span data-champ="dateDeNaissance"></span>
 
-            <button id="jsButton2">Suivant</button>
+            <button id="jsButton2">Suivant <i class="fa-solid fa-arrow-right"></i></button>
 
         </div>
 

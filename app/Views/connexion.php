@@ -5,7 +5,8 @@ require_once('inc/fonctions.php'); ?>
 <section id="connexion">
 <div class="wrap">
     <form action="" method="post">
-        <div class="photo"><img src="<?= base_url('assets/imgs/ticroco.png'); ?>" alt="Logo Ticrocos"></div>
+        <h2>Connexion</h2>
+
         <div class="infoBox">
             <label for="email">Votre adresse Email :</label>
             <input type="email" name="email" id="email">
@@ -16,9 +17,18 @@ require_once('inc/fonctions.php'); ?>
             <input type="password" name="mdp" id="mdp">
         </div>
 
-        <input type="submit">
+        <a href="#">Mot de passe oublié ?</a>
 
+        <input class="button" type="submit" value="Se connecter">
     </form>
+
+    <div class="separator"></div>
+
+    <div class="textPart">
+        <div class="photo"><img src="<?= base_url('assets/imgs/ticroco_bulle.svg'); ?>" alt="Logo Ticrocos"></div>
+        <h3><a href="/inscription">Inscrivez-vous dès maintenant !</a></h3>
+
+    </div>
 
 </div>
 </section>

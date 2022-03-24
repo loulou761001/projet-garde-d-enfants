@@ -18,12 +18,29 @@ class Inscription extends BaseController
 
     public function index()
     {
-        return view('Inscription/InscriptionUtilisateur');
+        $data = [
+            'parents' => $this->parentsModel->recupParents()
+        ];
+        return view('Inscription/InscriptionUtilisateur',$data);
     }
 
     public function indexNourrice()
     {
         return view('Inscription/InscriptionNourrice');
+    }
+    public function uploadEmailParent()
+    {
+        $data = [
+            'parents' => $this->parentsModel->recupParents()
+        ];
+        $currentMail = $_POST['email'];
+        $indispo = 0;
+        foreach ($data['parents'] as $parent) {
+            if ($parent['parent_email'] == $currentMail) {
+                $indispo = 1;
+            }
+        }
+        echo $indispo;
     }
 
     public function handlePost()
@@ -31,6 +48,20 @@ class Inscription extends BaseController
 
         var_dump($_POST);
 
+        $data = [
+            'parent_nom' => $_POST['nom'],
+            'parent_prenom' => $_POST['prenom'],
+            'parent_email' => $_POST['email'],
+            'parent_password' => password_hash($_POST['password'], PASSWORD_DEFAULT ),
+            'parent_tel' => $_POST['phone'],
+            'parent_naissance' => $_POST['naissance'],
+            'parent_numAdresse' => $_POST['numAdresse'],
+            'parent_adresse' => $_POST['adresse'],
+            'parent_infosAdresse' => $_POST['infosAdresse'],
+        ];
+        $this->parentsModel->inserParent($data);
+
+        return redirect()->to('/');
     }
 
     public function handlePostNourrice()

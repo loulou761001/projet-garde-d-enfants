@@ -6,7 +6,7 @@ use function PHPUnit\Framework\isNull;
 class ParentsModel extends Model
 {
     protected $table = 'parents';
-    protected $allowedFields = ['id','parent_prenom', 'parent_nom','parent_email','parent_password', 'parent_token','parent_adresse','parent_tel','parent_photo'];
+    protected $allowedFields = ['id','parent_prenom', 'parent_nom','parent_email','parent_password', 'parent_token','parent_adresse','parent_tel','parent_photo','parent_numAdresse','parent_infosAdresse'];
     public function recupParents() {
         if (!empty($_GET['limit'])) {
             return $this->limit($_GET['limit'])->find();

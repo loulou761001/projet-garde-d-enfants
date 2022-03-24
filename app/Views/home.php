@@ -29,11 +29,11 @@ $this->extend('default') ?>
             <div class="flex sb">
                 <div class="moitieTexte">
                     <h3>Un professionnel</h3>
-                    <a href=""><p>S'inscrire en tant que parent</p></a>
+                    <a href="inscription/parent"><p>S'inscrire en tant que parent</p></a>
                 </div>
                 <div class="moitieTexte">
                     <h3>Des enfants à garder</h3>
-                    <a href=""><p>S'inscrire en tant que professionnel</p></a>
+                    <a href="inscription/nourrice"><p>S'inscrire en tant que professionnel</p></a>
                 </div>
             </div>
             <?php } elseif(isParent()) { ?>
@@ -57,7 +57,7 @@ $this->extend('default') ?>
             <p>Parce que nous estimons que la garde d'enfants doit être accessible à tous, l’inscription sur Ticrocos est TOTALEMENT gratuite !💸</p>
         </div>
     </div>
-    <h1>Des milliers de parents et de nounous recommendent notre site!</h1>
+    <h1 class="recommendation"> Des milliers de parents et de nounous recommendent notre site!</h1>
     <div class="flex boutonsAccueil">
         <div class="boutonAccueil" id="btnNounous">
             <p>Avis de nos nourices</p>

@@ -73,13 +73,33 @@ function validErreurs() {
 
 
     //VERIF EMAIL
-    const formatMail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    const formatMail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;7
+    let email = document.querySelector('input#email').value
 
-    if (document.querySelector('input#email').value.match(formatMail)) {
+
+
+     if (document.querySelector('input#email').value.match(formatMail)) {
         erreurs['email'] = ''
     } else {
         erreurs['email'] = 'Veuillez rentrer une adresse email valide.'
     }
+    if (erreurs['email'] === '') {
+        $.ajax({url: base_url+"/uploadEmailParent",
+            method: 'POST',
+            data: {email: email} ,
+            async: false,
+            beforeSend: function(){
+                console.log('loading')
+            },
+            success: function(result){
+                console.log(result)
+                if(result === '1') {
+                    erreurs['email'] = 'Cette adresse est déjà utilisée.'
+                }
+            }});
+    }
+
+
 
     //VERIF MDP
     if (document.querySelector('input#password').value.length>=50) {
@@ -164,6 +184,8 @@ btnDernier.addEventListener('click',function (){
                 if (erreur[1].length >1) {
                     aErreurs = 1;
                     event.preventDefault();
+                }
+                if (aErreurs === 0) {
                 }
             }
         })

@@ -16,24 +16,24 @@ debug($_POST);
 
                 <div class="form1">
                     <div class="info_box">
-                        <label for="email">Adresse mail :</label>
+                        <label for="email">Adresse mail* :</label>
                         <input type="email" placeholder="Ex : louis.dupont@gmail" id="email" name="email" value="<?= recupInputValue('email'); ?>">
                     </div>
                     <span data-champ="email"></span>
 
                     <div class="info_box">
-                        <label for="password">Mot de passe :</label>
+                        <label for="password">Mot de passe* :</label>
                         <input type="password" placeholder="*********" id="password" name="password" value="">
                     </div>
 
                     <div class="info_box">
-                        <label for="password2">Valider votre mot de passe :</label>
+                        <label for="password2">Valider votre mot de passe* :</label>
                         <input type="password" placeholder="*********" id="password2" name="password2" value="">
                     </div>
 
                     <span data-champ="motDePasse"></span>
 
-                    <button id="jsButton1">Suivant</button>
+                    <button id="jsButton1">Suivant <i class="fa-solid fa-arrow-right"></i></button>
 
                 </div>
 
@@ -41,13 +41,13 @@ debug($_POST);
 
                 <div class="form2 hidden">
                     <div class="info_box">
-                        <label for="nom">Nom :</label>
+                        <label for="nom">Nom* :</label>
                         <input type="text" placeholder="Ex: Dupont" id="nom" name="nom" value="<?= recupInputValue('nom');?>">
                     </div>
                     <span data-champ="nom"></span>
 
                     <div class="info_box">
-                        <label for="prenom">Prénom :</label>
+                        <label for="prenom">Prénom* :</label>
                         <input type="text" placeholder="Ex : Louis" id="prenom" name="prenom" value="<?= recupInputValue('prenom');?>">
                     </div>
                     <span data-champ="prenom"></span>
@@ -65,7 +65,7 @@ debug($_POST);
                     <span data-champ="dateDeNaissance"></span>
 
 
-                    <button id="jsButton2">Suivant</button>
+                    <button id="jsButton2">Suivant <i class="fa-solid fa-arrow-right"></i></button>
 
                 </div>
 

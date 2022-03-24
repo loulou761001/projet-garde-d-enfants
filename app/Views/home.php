@@ -25,7 +25,6 @@ $this->extend('default') ?>
         <div class="absolute" id="flexsliderTexte">
             <?php if (!isLogged()) {?>
             <h2><i class="fa-solid fa-magnifying-glass"></i> Que recherchez-vous?</h2>
-            <p>Je cherche :</p>
             <div class="flex sb">
                 <div class="moitieTexte">
                     <h3>Un professionnel</h3>

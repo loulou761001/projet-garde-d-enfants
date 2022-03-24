@@ -29,11 +29,11 @@ $this->extend('default') ?>
             <div class="flex sb">
                 <div class="moitieTexte">
                     <h3>Un professionnel</h3>
-                    <a href=""><p>S'inscrire en tant que parent</p></a>
+                    <a href="inscription/parent"><p>S'inscrire en tant que parent</p></a>
                 </div>
                 <div class="moitieTexte">
                     <h3>Des enfants à garder</h3>
-                    <a href=""><p>S'inscrire en tant que professionnel</p></a>
+                    <a href="inscription/nourrice"><p>S'inscrire en tant que professionnel</p></a>
                 </div>
             </div>
             <?php } elseif(isParent()) { ?>

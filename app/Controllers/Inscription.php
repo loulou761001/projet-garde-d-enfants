@@ -66,8 +66,6 @@ class Inscription extends BaseController
 
     public function handlePostNourrice()
     {
-
         var_dump($_POST);
-
     }
 }

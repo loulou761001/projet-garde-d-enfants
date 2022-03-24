@@ -36,7 +36,7 @@ $routes->get('/inscription', 'Inscription::redirect');
 $routes->get('/inscription/parent', 'Inscription::index');
 $routes->get('/inscription/photo/(:num)', 'Inscription::photo/$1');
 $routes->post('/inscription/parent', 'Inscription::handlePost');
-$routes->post('/inscription/photo', 'Inscription::handlePhoto');
+$routes->post('/inscription/photo/(:num)', 'Inscription::handlePhoto/$1');
 $routes->get('/inscription/nourrice', 'Inscription::indexNourrice');
 $routes->post('/inscription/nourrice', 'Inscription::handlePostNourrice');
 $routes->get('/errors', 'errors::index');

@@ -45,7 +45,7 @@ $this->extend('default') ?>
     <div class="flex sb" id="sectionCentrale">
         <div class="boite">
             <h2><i class="fa-solid fa-user-check"></i> Des profils confirmés!</h2>
-            <p>Nous vérifions tous les profils de nounouos enregistrés et garantissons la sécurité de nos utilisateurs ! 😉</p>
+            <p>Nous vérifions tous les profils des nounous enregistrées et garantissons la sécurité de nos utilisateurs ! 😉</p>
         </div>
         <div class="boite">
             <h2><i class="fa-solid fa-medal"></i> Rapide et efficace!</h2>

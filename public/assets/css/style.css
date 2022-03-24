@@ -1,11 +1,9 @@
 :root {
     --vert: #4f805d;
     --vertclair: #00CE15;
-<<<<<<< HEAD
     --bleu:#DDEEFFFF;
-=======
     --bleuclair: #DDEEFFFF;
->>>>>>> devluc
+
 }
 * {
     margin: 0; padding: 0;

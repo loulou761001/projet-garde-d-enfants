@@ -80,6 +80,31 @@ class Inscription extends BaseController
         } elseif (($_SESSION['user']['status'] == 'professionnel'))  {
 
         }
+    }
 
+    public function handlePhoto($id)
+    {
+        helper(['form', 'url']);
+        $file = $this->validate([
+            'file' => [
+                'uploaded[file]',
+                'max_size[file,4096]',
+            ]
+        ]);
+        if (!$file) {
+            print_r('Wrong file type selected');
+        } else {
+            $imageFile = $this->request->getFile('file');
+            $imageFile->move(PUBLIC_PATH . '/uploads/imgs');
+
+            $dataPic = [
+                'parent_photo' => $imageFile->getName()
+            ];
+            var_dump($dataPic);
+            if ($_SESSION['user']["status"] == 'parent') {
+                $this->parentsModel->editParent($dataPic, $id);
+            }
+            return redirect()->to('/');
+        }
     }
 }

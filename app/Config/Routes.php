@@ -44,6 +44,7 @@ $routes->get('conditions', 'conditions::index');
 $routes->post('/connexion', 'Connexion::loginVerif');
 $routes->get('/connexion', 'Connexion::index');
 $routes->get('/deconnexion', 'Connexion::deco');
+$routes->post('/uploadEmailParent', 'Inscription::uploadEmailParent');
 
 
 /*

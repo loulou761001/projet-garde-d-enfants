@@ -1,5 +1,6 @@
 :root {
     --vert: #4f805d;
+    --verthover: #00a711;
     --vertclair: #00CE15;
     --bleu:#DDEEFFFF;
 }
@@ -64,7 +65,7 @@ header li .flex a{
     margin-left: 1rem;
 }
 header li .flex a:hover{
-    background-color: #00a711;
+    background-color: var(--verthover);
 }
 
 
@@ -100,10 +101,6 @@ footer .logoFooter a img{
     width:200px;
 }
 
-footer .reseauxFooter{
-    
-
-}
 footer .reseauxFooter i{
     color: white;
     margin-right: 20px;
@@ -149,7 +146,9 @@ footer .reseauxFooter i{
     color: white;
     background: var(--vertclair);
 }
-
+#flexsliderTexte .moitieTexte a p:hover{
+    background-color: var(--verthover);
+}
 #sectionCentrale .boite {
     background-color: white;
     width: 31%;
@@ -503,6 +502,10 @@ footer .reseauxFooter i{
     padding:1rem 5rem;
     font-size:1rem;
     font-weight: bold;
+    cursor: pointer;
+}
+#formulaire button:hover{
+    background-color: var(--verthover) ;
 }
 #formulaire label{
     font-weight:bold;

@@ -54,9 +54,7 @@ img {
 
 header{
     background-color:white;
-    position: fixed;
-    z-index: 9999;
-    width: 100%;
+
     box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
 }
 header ul{
@@ -246,6 +244,26 @@ footer .reseauxFooter i{
     margin-top: 2rem;
     font-size: 2rem;
     font-weight: 100;
+    z-index: 9;
+
+}
+.palmier {
+    width: 360px;
+    position: absolute;
+    z-index: -1;
+    top: 600Px;
+    right: -31px;
+    transform: rotate(-10deg);
+}
+.palmier2 {
+    width: 360px;
+    position: absolute;
+    z-index: -2;
+    top: 600Px;
+    left: -31px;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1) rotate(-10deg);
+
 
 }
 

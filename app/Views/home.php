@@ -43,6 +43,8 @@ $this->extend('default') ?>
             <?php } ?>
         </div>
     </div>
+    <img  class="palmier" src="assets/imgs/palmier.svg" alt="">
+    <img  class="palmier2" src="assets/imgs/palmier.svg" alt="">
     <div class="flex sb" id="sectionCentrale">
         <div class="boite">
             <h2><i class="fa-solid fa-user-check"></i> Des profils confirmés!</h2>

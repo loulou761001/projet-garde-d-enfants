@@ -48,9 +48,7 @@ ariane2.addEventListener('click',function (){
         form2.classList.remove('hidden')
         btn2.classList.remove('hidden')
         form1.classList.add('hidden')
-        btn1.classList.add('hidden')
         form3.classList.add('hidden')
-        btnDernier.classList.add('hidden')
     }
 })
 ariane3.addEventListener('click',function (){
@@ -59,9 +57,7 @@ ariane3.addEventListener('click',function (){
         form3.classList.remove('hidden')
         btnDernier.classList.remove('hidden')
         form1.classList.add('hidden')
-        btn1.classList.add('hidden')
         form2.classList.add('hidden')
-        btn2.classList.add('hidden')
     }
 })
 const errorSpans = document.querySelectorAll('span');
@@ -122,7 +118,7 @@ function validErreurs() {
         erreurs['nom'] = 'Veuillez moins de 50 caractères.'
     } else if (document.querySelector('input#nom').value.length<3) {
         erreurs['nom'] = 'Veuillez rentrer au moins 2 caractères.'
-    } else if (/[^a-zA-Z]/.test(document.querySelector('input#nom').value)) {
+    } else if (/[^A-zÀ-ú\-]/.test(document.querySelector('input#nom').value)) {
         erreurs['nom'] = 'Votre nom ne peut contenir que des lettres.'
     } else {
         erreurs['nom'] = ''
@@ -131,7 +127,7 @@ function validErreurs() {
         erreurs['prenom'] = 'Veuillez moins de 50 caractères.'
     } else if (document.querySelector('input#prenom').value.length<3) {
         erreurs['prenom'] = 'Veuillez rentrer au moins 2 caractères.'
-    } else if (/[^a-zA-Z]/.test(document.querySelector('input#prenom').value)) {
+    } else if (/[^A-zÀ-ú\-]/.test(document.querySelector('input#prenom').value)) {
         erreurs['prenom'] = 'Votre nom ne peut contenir que des lettres.'
     } else {
         erreurs['prenom'] = ''

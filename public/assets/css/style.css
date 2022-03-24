@@ -273,6 +273,26 @@ footer .reseauxFooter i:hover{
     margin-top: 2rem;
     font-size: 2rem;
     font-weight: 100;
+    z-index: 9;
+
+}
+.palmier {
+    width: 360px;
+    position: absolute;
+    z-index: -1;
+    top: 600Px;
+    right: -31px;
+    transform: rotate(-10deg);
+}
+.palmier2 {
+    width: 360px;
+    position: absolute;
+    z-index: -2;
+    top: 600Px;
+    left: -31px;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1) rotate(-10deg);
+
 
 }
 

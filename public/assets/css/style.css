@@ -140,7 +140,9 @@ footer .reseauxFooter i{
     margin-right: 20px;
     font-size: 30px;
 }
-
+footer .reseauxFooter i:hover{
+    color: var(--verthover);
+}
 
  /*ACCEUIL*/
 .flexslider {
@@ -668,7 +670,9 @@ footer .reseauxFooter i{
     margin-bottom:2rem;
     font-weight:bold;
 }
-
+#connexion .button:hover{
+    background-color: var(--verthover);
+}
 #connexion .textPart{
     display:flex;
     flex-flow:column;
@@ -686,6 +690,9 @@ footer .reseauxFooter i{
     cursor:pointer;
     margin-bottom:2rem;
 
+}
+#connexion .textPart a:hover{
+    background-color: var(--verthover);
 }
 
 .hidden{display:none;}

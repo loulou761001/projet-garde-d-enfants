@@ -101,7 +101,7 @@ footer .navFooter a{
 .hover-underline-animation {
     display: inline-block;
     position: relative;
-    color: var(--verthover);
+    color: white;
 }
 
 .hover-underline-animation:after {
@@ -112,7 +112,7 @@ footer .navFooter a{
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: var(--verthover);
+  background-color: white;
   transform-origin: bottom right;
   transition: transform 0.25s ease-out;
 }
@@ -140,7 +140,9 @@ footer .reseauxFooter i{
     margin-right: 20px;
     font-size: 30px;
 }
-
+footer .reseauxFooter i:hover{
+    color: var(--verthover);
+}
 
  /*ACCEUIL*/
 .flexslider {
@@ -271,6 +273,26 @@ footer .reseauxFooter i{
     margin-top: 2rem;
     font-size: 2rem;
     font-weight: 100;
+    z-index: 9;
+
+}
+.palmier {
+    width: 360px;
+    position: absolute;
+    z-index: -1;
+    top: 600Px;
+    right: -31px;
+    transform: rotate(-10deg);
+}
+.palmier2 {
+    width: 360px;
+    position: absolute;
+    z-index: -2;
+    top: 600Px;
+    left: -31px;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1) rotate(-10deg);
+
 
 }
 .fa-star{color:yellow;}
@@ -668,7 +690,9 @@ footer .reseauxFooter i{
     margin-bottom:2rem;
     font-weight:bold;
 }
-
+#connexion .button:hover{
+    background-color: var(--verthover);
+}
 #connexion .textPart{
     display:flex;
     flex-flow:column;
@@ -686,6 +710,9 @@ footer .reseauxFooter i{
     cursor:pointer;
     margin-bottom:2rem;
 
+}
+#connexion .textPart a:hover{
+    background-color: var(--verthover);
 }
 
 .hidden{display:none;}

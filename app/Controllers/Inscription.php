@@ -58,6 +58,8 @@ class Inscription extends BaseController
             'parent_numAdresse' => $_POST['numAdresse'],
             'parent_adresse' => $_POST['adresse'],
             'parent_infosAdresse' => $_POST['infosAdresse'],
+            'parent_postal' => $_POST['codePostal'],
+            'parent_ville' => $_POST['ville'],
         ];
         $this->parentsModel->inserParent($data);
 
@@ -67,5 +69,17 @@ class Inscription extends BaseController
     public function handlePostNourrice()
     {
         var_dump($_POST);
+    }
+
+    public function photo($id){
+        if ($_SESSION['user']['status'] == 'parent') {
+            $parent = $this->parentsModel->recupUnParents($id);
+            echo view('photoParent', [
+                "parent" => $parent,
+            ]);
+        } elseif (($_SESSION['user']['status'] == 'professionnel'))  {
+
+        }
+
     }
 }

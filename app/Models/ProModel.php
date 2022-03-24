@@ -6,7 +6,7 @@ use function PHPUnit\Framework\isNull;
 class ProModel extends Model
 {
     protected $table = 'professionnels';
-    protected $allowedFields = ['id','pro_prenom', 'pro_nom','pro_email','pro_password', 'pro_token','pro_adresse','pro_telephone','pro_photo','pro_taux_horaire','pro_categorie','pro_description','pro_entreprise'];
+    protected $allowedFields = ['id','pro_prenom', 'pro_nom','pro_email','pro_password', 'pro_token','pro_adresse','pro_telephone','pro_photo','pro_taux_horaire','pro_categorie','pro_description','pro_entreprise','pro_numAdresse','pro_infosAdresse','pro_ville','pro_postal'];
     public function recupPro() {
         if (!empty($_GET['limit'])) {
             return $this->limit($_GET['limit'])->find();

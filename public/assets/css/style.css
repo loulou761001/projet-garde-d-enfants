@@ -4,7 +4,6 @@
     --vertclair: #00CE15;
     --bleu:#DDEEFFFF;
     --bleuclair: #DDEEFFFF;
-
 }
 * {
     margin: 0; padding: 0;
@@ -99,6 +98,33 @@ footer .footerContent{
 footer .navFooter a{
     color:white;
 }
+
+/* Underline styles */
+.hover-underline-animation {
+    display: inline-block;
+    position: relative;
+    color: var(--verthover);
+}
+
+.hover-underline-animation:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--verthover);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+/* ---------- */
+
 footer .wrap{
     justify-content: center;
     gap:5rem;
@@ -116,6 +142,7 @@ footer .reseauxFooter i{
     margin-right: 20px;
     font-size: 30px;
 }
+
 
  /*ACCEUIL*/
 .flexslider {
@@ -163,7 +190,6 @@ footer .reseauxFooter i{
 
 }
 
-
 #flexsliderTexte .moitieTexte h3 {
 
     padding : 1rem;
@@ -180,6 +206,7 @@ footer .reseauxFooter i{
 #flexsliderTexte .moitieTexte a p:hover{
     background-color: var(--verthover);
 }
+
 #sectionCentrale .boite {
     background-color: white;
     width: 31%;

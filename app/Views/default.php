@@ -51,13 +51,13 @@ session()->start();
 
             <div class="navFooter">
                 <ul>
-                    <li><a href="/conditions">Mentions Légales</a></li>
-                    <li><a href="/vieprive">Vie privée</a></li>
+                    <li><a href="/conditions" class="hover-underline-animation">Mentions Légales</a></li>
+                    <li><a href="/vieprive" class="hover-underline-animation">Vie privée</a></li>
                     <?php if (!isLogged()) { ?>
-                       <li><a href="/inscription">Inscription</a></li>
-                       <li><a href="/connexion">Connexion</a></li>
+                       <li><a href="/inscription" class="hover-underline-animation">Inscription</a></li>
+                       <li><a href="/connexion" class="hover-underline-animation">Connexion</a></li>
                     <?php } else {?>
-                       <li><a href="/deconnexion">Déconnexion</a></li>
+                       <li><a href="/deconnexion" class="hover-underline-animation">Déconnexion</a></li>
                     <?php } ?>
                 </ul>
             </div>

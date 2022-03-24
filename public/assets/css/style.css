@@ -1,7 +1,11 @@
 :root {
     --vert: #4f805d;
     --vertclair: #00CE15;
+<<<<<<< HEAD
     --bleu:#DDEEFFFF;
+=======
+    --bleuclair: #DDEEFFFF;
+>>>>>>> devluc
 }
 * {
     margin: 0; padding: 0;
@@ -13,7 +17,7 @@ a{text-decoration: none}
 body {
     background-color: #DDEEFFFF;
     color: black;
-    font: 400 13px/1.3 verdana, sans-serif;
+    font: 400 13px/1.3 "Source Sans Pro", sans-serif;
     overflow-x: hidden;
 }
 
@@ -51,6 +55,10 @@ img {
 
 header{
     background-color:white;
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
 }
 header ul{
     align-items: center;
@@ -59,12 +67,18 @@ header li .flex a{
     text-decoration: none;
     color: white;
     background-color: #00CE15;
-    padding: 5px;
-    border-radius: 15px;
-    margin-left: 1rem;
+    border-radius: 100px;
+    padding: 1rem;
+    width: 200px;
+    text-align: center;
+    font-size: 1rem;
+    margin-right: 2rem;
+
 }
 header li .flex a:hover{
     background-color: #00a711;
+
+
 }
 
 
@@ -122,7 +136,7 @@ footer .reseauxFooter i{
     transform: translateY(-15%);
 }
 #flexsliderTexte {
-    padding: 3rem;
+    padding: 5rem;
     border-radius: 20px;
     z-index: 10;
     background-color: white;
@@ -133,18 +147,39 @@ footer .reseauxFooter i{
     border-right: 4px solid var(--vertclair);
     border-left: 4px solid var(--vertclair);
     text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+}
+#flexsliderTexte h2{
+    font-size: 2rem;
+    color:#00CE15;
+
+}
+#flexsliderTexte > p {
+    font-size: 2rem;
+    font-weight: 100;
+}
+
+#flexsliderTexte h3 {
+    font-weight: 400;
 }
 #flexsliderTexte .moitieTexte {
     width: 45%;
+    font-size: 1rem;
+    height: auto;
+    padding: 1rem;
+
 }
+
+
 #flexsliderTexte .moitieTexte h3 {
-    text-decoration: underline;
+
+    padding : 1rem;
 }
 #flexsliderTexte .moitieTexte a {
     text-decoration: none;
 }
 #flexsliderTexte .moitieTexte a p {
-    border-radius: 20px;
+    border-radius: 60px;
     padding: 10px;
     color: white;
     background: var(--vertclair);
@@ -158,6 +193,20 @@ footer .reseauxFooter i{
     border-left: 4px solid var(--vertclair);
     text-align: center;
     border-radius: 20px;
+    height: auto;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+    padding: 2rem;
+
+
+}
+#sectionCentrale .boite h2{
+    padding: 1rem;
+
+}
+#sectionCentrale .boite p{
+   font-size: 1.5rem;
+    font-weight: 100;
+
 }
 #sectionCentrale .boite i {
     color: var(--vertclair);
@@ -168,12 +217,20 @@ footer .reseauxFooter i{
 #sectionCentrale .boite:nth-of-type(2) i {
     color: #F4DE18;
 }
+.recommendation{
+    margin-top: 3rem;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 400;
+}
 .avis img {
-    width: 100px;
+    width: 10%;
+    margin-right: 6rem;
 }
 
 .avisNounous {
     height: 0;
+
 }
 #btnNounous, #btnParents {
     padding: 0.5rem;
@@ -183,13 +240,22 @@ footer .reseauxFooter i{
     border-right: 4px solid var(--vertclair);
     border-left: 4px solid var(--vertclair);
     text-align: center;
+    margin-top: 2rem;
+    font-size: 1rem;
+}
+.boutonAccueil {
+    margin-right: 1rem;
 }
 .avisNounous, .avisParents  {
     overflow: hidden;
+    margin-top: 2rem;
+    font-size: 2rem;
+    font-weight: 100;
 
 }
 
 /*PAGE CHOIX CREATION COMPTE*/
+
 
 #inscriptionChoix{
     padding-top:3rem;
@@ -550,3 +616,4 @@ footer .reseauxFooter i{
 
 
 .hidden{display:none;}
+

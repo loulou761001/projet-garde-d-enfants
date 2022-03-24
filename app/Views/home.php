@@ -57,7 +57,7 @@ $this->extend('default') ?>
             <p>Parce que nous estimons que la garde d'enfants doit être accessible à tous, l’inscription sur Ticrocos est TOTALEMENT gratuite !💸</p>
         </div>
     </div>
-    <h1>Des milliers de parents et de nounous recommendent notre site!</h1>
+    <h1 class="recommendation"> Des milliers de parents et de nounous recommendent notre site!</h1>
     <div class="flex boutonsAccueil">
         <div class="boutonAccueil" id="btnNounous">
             <p>Avis de nos nourices</p>

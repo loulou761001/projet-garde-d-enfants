@@ -42,6 +42,9 @@ class ParentsModel extends Model
                 ->delete();
         }
     }
+
+
+
     public function inserParent(array $data)
     {
         return $this->insert($data);

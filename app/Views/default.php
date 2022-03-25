@@ -1,6 +1,7 @@
 <?php
 
 session()->start();
+
 ?>
 <!doctype html>
 <html>
@@ -28,6 +29,7 @@ session()->start();
                     <a href="/inscription">Inscription</a>
                     <a href="/connexion">Connexion</a>
                 <?php } else {?>
+                    <a href="/profil">Mon profil</a>
                     <a href="/deconnexion">Déconnexion</a>
                 <?php } ?>
             </div>

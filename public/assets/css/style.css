@@ -715,5 +715,62 @@ footer .reseauxFooter i:hover{
     background-color: var(--verthover);
 }
 
+
+/*PROFIL*/
+#profil{
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+#profil .wrap{
+    display:flex;
+    flex-flow:column;
+    align-items: center;
+    gap:5rem;
+}
+#profil .profil_top{
+    display:flex;
+    align-items: center;
+    gap:5rem;
+}
+#profil .titre{
+    font-size:1.5rem;
+}
+
+#profil .profil_pp .img{
+    width:200px;
+    height:200px;
+    border-radius:50%;
+    background-color:white;
+}
+#profil .profil_pp .img:hover{
+filter: grayscale(90%);
+}
+#profil .separator{
+    width:80%;
+    border-bottom:solid 5px white;
+}
+#profil .profil_mid{
+    display:flex;
+    flex-flow:column;
+    align-items: center;
+    gap:3rem;
+}
+
+#profil .profil_mid p{
+    border:solid 1px #eed9c4;
+    padding:1rem ;
+    background-color:#eed9c4;
+    border-radius: 10px;
+    font-size:1.25rem;
+    width:48%;
+}
+#profil .mid_flex{
+    display:flex;
+    flex-flow:row wrap;
+    justify-content: space-around;
+    gap:2Rem;
+}
+
+
 .hidden{display:none;}
 

@@ -6,11 +6,14 @@ class Connexion extends BaseController
 {
 
     private $parentsModel;
+    private $enfantsModel;
+    private $proModel;
 
     public function __construct()
     {
         $this->parentsModel = model('App\Models\ParentsModel');
         $this->proModel = model('App\Models\ProModel');
+        $this->enfantsModel = model('App\Models\EnfantsModel');
     }
 
     public function index()
@@ -80,7 +83,7 @@ class Connexion extends BaseController
                         'description' =>$utilActuel['pro_description'],
                     );
                 }
-            return redirect()->to('/');
+            return redirect()->to('');
 
         }
         $data = [
@@ -93,6 +96,6 @@ class Connexion extends BaseController
     {
         echo view('connexion');
         session_destroy();
-        return redirect()->to('/');
+        return redirect()->to('');
     }
 }

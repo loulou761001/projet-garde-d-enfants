@@ -50,6 +50,11 @@ $routes->post('/uploadEmailParent', 'Inscription::uploadEmailParent');
 $routes->get('/profil', 'Profil::index');
 $routes->post('/uploadEmail', 'Inscription::uploadEmail');
 
+$routes->get('/gestionDispo', 'Dispo::index');
+$routes->get('/gestionDispo/ajout', 'Dispo::ajout');
+$routes->post('/gestionDispo/ajout', 'Dispo::HandlePost');
+
+
 
 
 /*

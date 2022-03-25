@@ -50,7 +50,7 @@ class Connexion extends BaseController
             echo 'ERREUR';
         } else {
             echo 'succes';
-                if ($status = 'parent') {
+                if ($status == 'parent') {
                     var_dump($utilActuel);
 
                     $_SESSION['user']=array(

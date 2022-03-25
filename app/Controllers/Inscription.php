@@ -30,10 +30,11 @@ class Inscription extends BaseController
     {
         return view('Inscription/InscriptionNourrice');
     }
-    public function uploadEmailParent()
+    public function uploadEmail()
     {
         $data = [
-            'parents' => $this->parentsModel->recupParents()
+            'parents' => $this->parentsModel->recupParents(),
+            'pros' => $this->prosModel->recupPro()
         ];
         $currentMail = $_POST['email'];
         $indispo = 0;
@@ -42,22 +43,16 @@ class Inscription extends BaseController
                 $indispo = 1;
             }
         }
-        echo $indispo;
-    }
-    public function uploadEmailPro()
-    {
-        $data = [
-            'pros' => $this->prosModel->recupPro()
-        ];
-        $currentMail = $_POST['email'];
-        $indispo = 0;
-        foreach ($data['pros'] as $pro) {
-            if ($pro['pro_email'] == $currentMail) {
-                $indispo = 1;
+        if ($indispo != 1) {
+            foreach ($data['pros'] as $pro) {
+                if ($pro['pro_email'] == $currentMail) {
+                    $indispo = 1;
+                }
             }
         }
         echo $indispo;
     }
+
 
     public function handlePost()
     {
@@ -91,7 +86,7 @@ class Inscription extends BaseController
             'pro_prenom' => $_POST['prenom'],
             'pro_email' => $_POST['email'],
             'pro_password' => password_hash($_POST['password'], PASSWORD_DEFAULT ),
-            'pro_tel' => $_POST['phone'],
+            'pro_telephone' => $_POST['phone'],
             'pro_naissance' => $_POST['naissance'],
             'pro_numAdresse' => $_POST['numAdresse'],
             'pro_adresse' => $_POST['adresse'],
@@ -101,6 +96,7 @@ class Inscription extends BaseController
             'pro_categorie' => $_POST['categorie'],
             'pro_description' => $_POST['description'],
             'pro_taux_horraire' => $_POST['tauxHorraire'],
+            'pro_entreprise' => $_POST['entreprise'],
         ];
         $this->prosModel->inserPro($data);
 
@@ -114,7 +110,10 @@ class Inscription extends BaseController
                 "parent" => $parent,
             ]);
         } elseif (($_SESSION['user']['status'] == 'professionnel'))  {
-
+            $pro = $this->prosModel->recupUnPro($id);
+            echo view('photoPro', [
+                "pro" => $pro,
+            ]);
         }
     }
 
@@ -139,6 +138,8 @@ class Inscription extends BaseController
             var_dump($dataPic);
             if ($_SESSION['user']["status"] == 'parent') {
                 $this->parentsModel->editParent($dataPic, $id);
+            } elseif (($_SESSION['user']['status'] == 'professionnel'))  {
+                $this->prosModel->editPro($dataPic, $id);
             }
             return redirect()->to('/');
         }

@@ -80,7 +80,7 @@ function validErreurs() {
         erreurs['email'] = 'Veuillez rentrer une adresse email valide.'
     }
     if (erreurs['email'] === '') {
-        $.ajax({url: base_url+"/uploadEmailPro",
+        $.ajax({url: base_url+"/uploadEmail",
             method: 'POST',
             data: {email: email} ,
             async: false,
@@ -180,8 +180,7 @@ function validErreurs() {
 
 
 btnDernier.addEventListener('click',function (){
-    event.preventDefault();
-    let aErreurs = 0
+        let aErreurs = 0
 
     validErreurs()
     let erreursArray = Object.entries(validErreurs())

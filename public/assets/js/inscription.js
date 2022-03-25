@@ -80,7 +80,7 @@ function validErreurs() {
         erreurs['email'] = 'Veuillez rentrer une adresse email valide.'
     }
     if (erreurs['email'] === '') {
-        $.ajax({url: base_url+"/uploadEmailParent",
+        $.ajax({url: base_url+"/uploadEmail",
             method: 'POST',
             data: {email: email} ,
             async: false,

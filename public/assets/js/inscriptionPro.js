@@ -80,7 +80,7 @@ function validErreurs() {
         erreurs['email'] = 'Veuillez rentrer une adresse email valide.'
     }
     if (erreurs['email'] === '') {
-        $.ajax({url: base_url+"/uploadEmailParent",
+        $.ajax({url: base_url+"/uploadEmailPro",
             method: 'POST',
             data: {email: email} ,
             async: false,
@@ -162,15 +162,25 @@ function validErreurs() {
     } else {
         erreurs['codePostal'] = ''
     }
+
+    //VERIF TAUX HORAIRE
+    if (document.querySelector('input#tauxHorraire').value.length===0) {
+        erreurs['tauxHorraire'] = 'Veuillez remplir ce champ.'
+    }
+
     //VERIF NAISSANCE
     if (document.querySelector('input#naissance').value.length===0) {
         erreurs['dateDeNaissance'] = 'Veuillez remplir ce champ.'
     }
+
+
+
     return erreurs
 }
 
 
 btnDernier.addEventListener('click',function (){
+    event.preventDefault();
     let aErreurs = 0
 
     validErreurs()

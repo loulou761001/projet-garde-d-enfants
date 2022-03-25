@@ -6,10 +6,12 @@ class Inscription extends BaseController
 {
 
     private $parentsModel;
+    private $prosModel;
 
     public function __construct()
     {
         $this->parentsModel = model('App\Models\ParentsModel');
+        $this->prosModel = model('App\Models\ProModel');
     }
     public function redirect()
     {
@@ -42,6 +44,20 @@ class Inscription extends BaseController
         }
         echo $indispo;
     }
+    public function uploadEmailPro()
+    {
+        $data = [
+            'pros' => $this->prosModel->recupPro()
+        ];
+        $currentMail = $_POST['email'];
+        $indispo = 0;
+        foreach ($data['pros'] as $pro) {
+            if ($pro['pro_email'] == $currentMail) {
+                $indispo = 1;
+            }
+        }
+        echo $indispo;
+    }
 
     public function handlePost()
     {
@@ -69,6 +85,26 @@ class Inscription extends BaseController
     public function handlePostNourrice()
     {
         var_dump($_POST);
+
+        $data = [
+            'pro_nom' => $_POST['nom'],
+            'pro_prenom' => $_POST['prenom'],
+            'pro_email' => $_POST['email'],
+            'pro_password' => password_hash($_POST['password'], PASSWORD_DEFAULT ),
+            'pro_tel' => $_POST['phone'],
+            'pro_naissance' => $_POST['naissance'],
+            'pro_numAdresse' => $_POST['numAdresse'],
+            'pro_adresse' => $_POST['adresse'],
+            'pro_infosAdresse' => $_POST['infosAdresse'],
+            'pro_postal' => $_POST['codePostal'],
+            'pro_ville' => $_POST['ville'],
+            'pro_categorie' => $_POST['categorie'],
+            'pro_description' => $_POST['description'],
+            'pro_taux_horraire' => $_POST['tauxHorraire'],
+        ];
+        $this->prosModel->inserPro($data);
+
+        return redirect()->to('/');
     }
 
     public function photo($id){

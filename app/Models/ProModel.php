@@ -50,7 +50,7 @@ class ProModel extends Model
                 ->delete();
         }
     }
-    public function inserParent(array $data)
+    public function inserPro(array $data)
     {
         return $this->insert($data);
     }

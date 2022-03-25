@@ -162,16 +162,25 @@ function validErreurs() {
     } else {
         erreurs['codePostal'] = ''
     }
+
+    //VERIF TAUX HORAIRE
+    if (document.querySelector('input#tauxHorraire').value.length===0) {
+        erreurs['tauxHorraire'] = 'Veuillez remplir ce champ.'
+    }
+
     //VERIF NAISSANCE
     if (document.querySelector('input#naissance').value.length===0) {
         erreurs['dateDeNaissance'] = 'Veuillez remplir ce champ.'
     }
+
+
+
     return erreurs
 }
 
 
 btnDernier.addEventListener('click',function (){
-    let aErreurs = 0
+        let aErreurs = 0
 
     validErreurs()
     let erreursArray = Object.entries(validErreurs())

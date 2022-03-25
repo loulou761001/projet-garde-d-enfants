@@ -24,13 +24,12 @@ class ProModel extends Model
             return redirect()->to('/');
         }
     }
-    public function recupUnParents($id) {
+    public function recupUnPro($id) {
         if (empty($id)) {
             return redirect()->to('/');
         } else {
-            return $this->select('eleves.*, classes.nom_classe')
-                ->where('eleves.id', $id)
-                ->join('classes', 'eleves.id_classe = classes.id')
+            return $this->select('professionnels.*')
+                ->where('professionnels.id', $id)
                 ->find();
         }
     }
@@ -50,14 +49,14 @@ class ProModel extends Model
                 ->delete();
         }
     }
-    public function inserParent(array $data)
+    public function inserPro(array $data)
     {
         return $this->insert($data);
     }
-    public function editParent(array $data, $id)
+    public function editPro(array $data, $id)
     {
         var_dump($data);
-        return $this->select('eleves')
+        return $this->select('professionnels')
             ->where('id', $id)
             ->set($data)
             ->update($id,$data);

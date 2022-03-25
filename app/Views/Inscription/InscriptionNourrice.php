@@ -11,6 +11,14 @@ debug($_POST);
     <section id="formulaire">
         <div class="wrap">
 
+            <div class="filAriane flex">
+                <button class="btnEtape1">1</button>
+                <div class="arianeSep"></div>
+                <button class="btnEtape2">2</button>
+                <div class="arianeSep"></div>
+                <button class="btnEtape3">3</button>
+            </div>
+
             <h2>Inscription :</h2>
             <form action="" method="post" class="wrapform" novalidate>
 
@@ -71,12 +79,23 @@ debug($_POST);
 
                 <!------------------------------------------------------------------------------------------------------------------------------>
                 <div class="form3 hidden">
+                    <div class="info_box">
+                        <label for="numAdresse">Numéro dans la voie :</label>
+                        <input type="text" placeholder="Ex : 05, 05 BIS" id="numAdresse" name="numAdresse" value="<?= recupInputValue('numAdresse');?>">
+                    </div>
+                    <span data-champ="numAdresse"></span>
 
                     <div class="info_box">
-                        <label for="adresse">Adresse :</label>
-                        <input type="text" placeholder="" id="adresse" name="adresse" value="<?= recupInputValue('adresse');?>">
+                        <label for="adresse">libellé de la voie :</label>
+                        <input type="text" placeholder="Ex : Rue Albert Premier" id="adresse" name="adresse" value="<?= recupInputValue('adresse');?>">
                     </div>
                     <span data-champ="adresse"></span>
+
+                    <div class="info_box">
+                        <label for="infosAdresse">Informations complémentaires (facultatif) :</label>
+                        <input type="text" placeholder="Ex : Appartement 51" id="infosAdresse" name="infosAdresse" value="<?= recupInputValue('infosAdresse');?>">
+                    </div>
+                    <span data-champ="infosAdresse"></span>
 
                     <div class="info_box">
                         <label for="ville">Ville :</label>
@@ -91,7 +110,7 @@ debug($_POST);
                     <span data-champ="codePostal"></span>
 
                     <div class="info_box">
-                        <label for="entreprise">Entreprise :</label>
+                        <label for="entreprise">Nom de l'entreprise (facultatif) :</label>
                         <input type="text" placeholder="" id="entreprise" name="entreprise" value="<?= recupInputValue('entreprise');?>">
                     </div>
                     <span data-champ="entreprise"></span>
@@ -101,7 +120,7 @@ debug($_POST);
                         <select name="categorie" id="categorie">
                             <option value="Nourrice">Nourrice</option>
                             <option value="Garderie">Garderie</option>
-                            <option value="Crèche">Crèche</option>
+                            <option value="Creche">Crèche</option>
                         </select>
                     </div>
                     <span data-champ="categorie"></span>
@@ -118,13 +137,13 @@ debug($_POST);
                     <span data-champ="tauxHorraire"></span>
 
                     <div class="info_box">
-                        <label for="description">Description : </label>
+                        <label for="description">Description (facultatif, recommandé) : </label>
                         <textarea name="description" id="description"></textarea>
                     </div>
                     <span data-champ="description"></span>
 
 
-                        <input class="button" type="submit" name="submitted" value="ENVOYER">
+                        <input id="dernierSubmit" class="button" type="submit" name="submitted" value="ENVOYER">
 
 
                 </div>
@@ -141,7 +160,8 @@ $this->endSection() ;
 
 $this->section('js');
 ?>
+    <script>var base_url = '<?php echo base_url() ?>';</script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="../assets/js/inscription.js"></script>
+    <script src="../assets/js/inscriptionPro.js"></script>
 <?php
 $this->endSection() ;

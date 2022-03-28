@@ -2,6 +2,7 @@
 $this->extend('default') ?>
 
 <?= $this->section('content');
+
 ?>
 <section class="wrap">
     <div class="relative">
@@ -34,9 +35,11 @@ $this->extend('default') ?>
                 </div>
             </div>
             <?php } elseif(isParent()) { ?>
-                <h2>Je suis parent</h2>
+                <h2>Je cherche des profils pour garder mes enfants :</h2>
+                <a href=""></a>
             <?php } elseif(isPro()) { ?>
-                <h2>Je suis pro</h2>
+                <h2>Je mets à jour mes disponibilités :</h2>
+                <a href="/gestionDispo">Gestion des disponibilités</a>
             <?php } ?>
         </div>
     </div>
@@ -45,7 +48,7 @@ $this->extend('default') ?>
     <div class="flex sb" id="sectionCentrale">
         <div class="boite">
             <h2><i class="fa-solid fa-user-check"></i> Des profils confirmés!</h2>
-            <p>Nous vérifions tous les profils de nounouos enregistrés et garantissons la sécurité de nos utilisateurs ! 😉</p>
+            <p>Nous vérifions tous les profils des nounous enregistrées et garantissons la sécurité de nos utilisateurs ! 😉</p>
         </div>
         <div class="boite">
             <h2><i class="fa-solid fa-medal"></i> Rapide et efficace!</h2>
@@ -171,9 +174,6 @@ $this->extend('default') ?>
 <?php
 $this->endSection() ;
 ?>
-
-
-
 
 
 <?= $this->section('js'); ?>

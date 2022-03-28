@@ -34,9 +34,9 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->get('/inscription', 'Inscription::redirect');
 $routes->get('/inscription/parent', 'Inscription::index');
-$routes->get('/inscription/photo/(:num)', 'Inscription::photo/$1');
+$routes->get('/profil/photo/(:num)', 'Inscription::photo/$1');
 $routes->post('/inscription/parent', 'Inscription::handlePost');
-$routes->post('/inscription/photo', 'Inscription::handlePhoto');
+$routes->post('/profil/photo/(:num)', 'Inscription::handlePhoto/$1');
 $routes->get('/inscription/nourrice', 'Inscription::indexNourrice');
 $routes->post('/inscription/nourrice', 'Inscription::handlePostNourrice');
 $routes->get('/errors', 'errors::index');
@@ -47,6 +47,14 @@ $routes->post('/connexion', 'Connexion::loginVerif');
 $routes->get('/connexion', 'Connexion::index');
 $routes->get('/deconnexion', 'Connexion::deco');
 $routes->post('/uploadEmailParent', 'Inscription::uploadEmailParent');
+$routes->get('/profil', 'Profil::index');
+$routes->post('/uploadEmail', 'Inscription::uploadEmail');
+
+$routes->get('/gestionDispo', 'Dispo::index');
+$routes->get('/gestionDispo/ajout', 'Dispo::ajout');
+$routes->post('/gestionDispo/ajout', 'Dispo::HandlePost');
+
+
 
 
 /*

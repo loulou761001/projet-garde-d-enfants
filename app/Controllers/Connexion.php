@@ -6,11 +6,14 @@ class Connexion extends BaseController
 {
 
     private $parentsModel;
+    private $enfantsModel;
+    private $proModel;
 
     public function __construct()
     {
         $this->parentsModel = model('App\Models\ParentsModel');
         $this->proModel = model('App\Models\ProModel');
+        $this->enfantsModel = model('App\Models\EnfantsModel');
     }
 
     public function index()
@@ -47,7 +50,7 @@ class Connexion extends BaseController
             echo 'ERREUR';
         } else {
             echo 'succes';
-                if ($status = 'parent') {
+                if ($status == 'parent') {
                     var_dump($utilActuel);
 
                     $_SESSION['user']=array(
@@ -56,6 +59,10 @@ class Connexion extends BaseController
                         'email' =>$utilActuel['parent_email'],
                         'ip'     =>$_SERVER['REMOTE_ADDR'],
                         'adresse' =>$utilActuel['parent_adresse'],
+                        'numAdresse' =>$utilActuel['parent_numAdresse'],
+                        'infosAdresse' =>$utilActuel['parent_infosAdresse'],
+                        'ville' =>$utilActuel['parent_ville'],
+                        'postal' =>$utilActuel['parent_postal'],
                         'telephone' =>$utilActuel['parent_tel'],
                         'photo' =>$utilActuel['parent_photo'],
                         'naissance' =>$utilActuel['parent_naissance'],
@@ -69,6 +76,10 @@ class Connexion extends BaseController
                         'email' =>$utilActuel['pro_email'],
                         'ip'     =>$_SERVER['REMOTE_ADDR'],
                         'adresse' =>$utilActuel['pro_adresse'],
+                        'numAdresse' =>$utilActuel['pro_numAdresse'],
+                        'infosAdresse' =>$utilActuel['pro_infosAdresse'],
+                        'ville' =>$utilActuel['pro_ville'],
+                        'postal' =>$utilActuel['pro_postal'],
                         'telephone' =>$utilActuel['pro_telephone'],
                         'photo' =>$utilActuel['pro_photo'],
                         'naissance' =>$utilActuel['pro_naissance'],
@@ -80,7 +91,7 @@ class Connexion extends BaseController
                         'description' =>$utilActuel['pro_description'],
                     );
                 }
-            return redirect()->to('/');
+            return redirect()->to('');
 
         }
         $data = [
@@ -93,6 +104,6 @@ class Connexion extends BaseController
     {
         echo view('connexion');
         session_destroy();
-        return redirect()->to('/');
+        return redirect()->to('');
     }
 }

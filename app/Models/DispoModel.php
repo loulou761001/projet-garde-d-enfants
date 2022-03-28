@@ -3,26 +3,31 @@ namespace App\Models;
 use CodeIgniter\Model;
 use function PHPUnit\Framework\isNull;
 
-class ProModel extends Model
+class DispoModel extends Model
 {
-    protected $table = 'professionnels';
-    protected $allowedFields = ['id','pro_prenom', 'pro_nom','pro_email','pro_password', 'pro_token','pro_adresse','pro_telephone','pro_photo','pro_taux_horaire','pro_categorie','pro_description','pro_entreprise','pro_numAdresse','pro_infosAdresse','pro_ville','pro_postal'];
-    public function recupPro() {
+    protected $table = 'disponibilites';
+    protected $allowedFields = ['id','dispo_id_pro', 'dispo_jour','dispo_matin_aprem','dispo_heure_debut', 'dispo_heure_fin','dispo_places'];
+    public function recupDispos() {
         if (!empty($_GET['limit'])) {
             return $this->limit($_GET['limit'])->find();
         } else {
             return $this->findAll();
         }
     }
-    public function recupRechercheParents() {
+    public function recupRechercheDispo() {
 
-        if (!empty($_GET['classe'])) {
-            return $this->select('eleves.*')
-                ->where('id_classe', $_GET['classe'])
+        if (!empty($_GET['jour'])) {
+            return $this->select('disponibilites.*')
+                ->where('dispo_jour', $_GET['jour'])
                 ->find();
         } else {
             return redirect()->to('/');
         }
+    }
+    public function recupPropreDispos() {
+        return $this->select('disponibilites.*')
+            ->where('dispo_id_pro', $_SESSION['user']["id"])
+            ->find();
     }
     public function recupUnPro($id) {
         if (empty($id)) {
@@ -49,7 +54,7 @@ class ProModel extends Model
                 ->delete();
         }
     }
-    public function inserPro(array $data)
+    public function inserDispo(array $data)
     {
         return $this->insert($data);
     }

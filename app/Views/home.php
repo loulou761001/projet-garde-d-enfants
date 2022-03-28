@@ -4,8 +4,6 @@ $this->extend('default') ?>
 <?= $this->section('content');
 ?>
 <section class="wrap">
-
-
     <div class="relative">
         <div class="flexslider">
             <ul class="slides">

@@ -53,6 +53,11 @@ $routes->post('/profil', 'Profil::ajoutEnfant');
 $routes->get('/profil/supprimer/(:num)', 'Profil::supprEnfant/$1');
 $routes->post('/uploadEmail', 'Inscription::uploadEmail');
 
+$routes->get('/gestionDispo', 'Dispo::index');
+$routes->get('/gestionDispo/ajout', 'Dispo::ajout');
+$routes->post('/gestionDispo/ajout', 'Dispo::HandlePost');
+
+
 
 
 /*

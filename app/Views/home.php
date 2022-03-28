@@ -2,6 +2,7 @@
 $this->extend('default') ?>
 
 <?= $this->section('content');
+
 ?>
 <section class="wrap">
 
@@ -36,9 +37,11 @@ $this->extend('default') ?>
                 </div>
             </div>
             <?php } elseif(isParent()) { ?>
-                <h2>Je suis parent</h2>
+                <h2>Je cherche des profils pour garder mes enfants :</h2>
+                <a href=""></a>
             <?php } elseif(isPro()) { ?>
-                <h2>Je suis pro</h2>
+                <h2>Je mets à jour mes disponibilités :</h2>
+                <a href="/gestionDispo">Gestion des disponibilités</a>
             <?php } ?>
         </div>
     </div>

@@ -81,4 +81,38 @@ class Dispo extends BaseController
         }
     return redirect()->to('/gestionDispo');
     }
+    public function disposParents() {
+        {
+            $data = [
+                'parents' => $this->parentsModel->recupParents(),
+                'pro' => $this->proModel->recupPro(),
+                'dispos' => $this->dispoModel->recupDisposLibres(),
+            ];
+            return view('dispos/parents/dispos',$data);
+        }
+    }
+    public function dispoDetails() {
+        {
+            $data = [
+                'parents' => $this->parentsModel->recupParents(),
+                'pro' => $this->proModel->recupUnPro($this->dispoModel->recupDisposParID(explode('-',$_GET["dispoNbr"]))[0]['dispo_id_pro']),
+                'dispos' => $this->dispoModel->recupDispos(),
+                'dispoActuelleID' => explode('-',$_GET["dispoNbr"]),
+                'disposActuelles' => $this->dispoModel->recupDisposParID(explode('-',$_GET["dispoNbr"]))
+            ];
+            return view('dispos/parents/disposDetails',$data);
+        }
+    }
+    public function postChoix() {
+        {
+            $data = [
+                'parents' => $this->parentsModel->recupParents(),
+                'pro' => $this->proModel->recupUnPro($this->dispoModel->recupDisposParID(explode('-',$_GET["dispoNbr"]))[0]['dispo_id_pro']),
+                'dispos' => $this->dispoModel->recupDispos(),
+                'dispoActuelleID' => explode('-',$_GET["dispoNbr"]),
+                'disposActuelles' => $this->dispoModel->recupDisposParID(explode('-',$_GET["dispoNbr"]))
+            ];
+            return view('dispos/parents/disposDetails',$data);
+        }
+    }
 }

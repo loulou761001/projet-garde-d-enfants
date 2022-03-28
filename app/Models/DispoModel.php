@@ -14,6 +14,22 @@ class DispoModel extends Model
             return $this->findAll();
         }
     }
+    public function recupDisposParID($id) {
+        if (gettype($id)=='string' OR gettype($id)=='integer') {
+            return $this->select('disponibilites.*')
+                ->where('id', $id)
+                ->find();
+        } elseif (gettype($id)=='array') {
+            $arrayList = [];
+            for ($i = 0; $i < count($id)-1; $i++) {
+                $singleID = $this->select('disponibilites.*')
+                    ->where('id', $id[$i])
+                    ->find();
+                array_push($arrayList,$singleID[0]);
+            }
+            return $arrayList;
+        }
+    }
     public function recupRechercheDispo() {
 
         if (!empty($_GET['jour'])) {
@@ -27,6 +43,11 @@ class DispoModel extends Model
     public function recupPropreDispos() {
         return $this->select('disponibilites.*')
             ->where('dispo_id_pro', $_SESSION['user']["id"])
+            ->find();
+    }
+    public function recupDisposLibres() {
+        return $this->select('disponibilites.*')
+            ->where('dispo_places >', 0)
             ->find();
     }
     public function recupUnPro($id) {

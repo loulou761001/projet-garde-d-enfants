@@ -18,7 +18,9 @@ body {
     font: 400 13px/1.3 "Source Sans Pro", sans-serif;
     overflow-x: hidden;
 }
-
+html{
+    position:relative;
+}
 
 ul, ol {
     list-style: none;
@@ -721,8 +723,7 @@ footer .reseauxFooter i:hover{
 
 /*PROFIL*/
 #profil{
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding:5rem 0;
 }
 #profil .wrap{
     display:flex;
@@ -811,7 +812,13 @@ display:flex;
     flex-flow:column;
     gap:1rem;
 }
+#profil .erreur_enfant{
+    color:red;
+    font-size:1rem;
+}
 
+
+ /*POPUP PROFIL*/
 #popup{
     z-index:9999999999999;
     top:0;
@@ -823,6 +830,86 @@ display:flex;
     justify-content:center;
     align-items:center;
 }
+
+#popup form{
+    display:flex;
+    flex-flow:column;
+    border:solid 3px white ;
+    border-radius:10px;
+    background-color: white;
+    padding:1Rem;
+    gap:2Rem;
+    width:25%;
+}
+#popup .popup_box{
+    display:flex;
+    flex-flow:column;
+}
+#popup form i{
+    font-size:2rem;
+}
+#popup form i:hover{
+    color:var(--vertclair);
+}
+#popup .popup_box input{
+   border:solid 3px var(--vertclair);
+    border-radius:10px;
+    padding:.7rem;
+}
+
+#popup select{
+    border:solid 3px var(--vertclair);
+    border-radius:10px;
+    padding:.7rem;
+}
+#popup .button{
+    border:solid 3px var(--vertclair);
+    background-color: white;
+    border-radius:10px;
+    padding:.7rem;
+    color:var(--vertclair);
+}
+
+.custom-file-input {
+    color: transparent;
+}
+.custom-file-input::-webkit-file-upload-button {
+    visibility: hidden;
+}
+.custom-file-input::before {
+    content: 'Choisir le carnet de santé';
+    color: black;
+    display: inline-block;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    padding: 5px 8px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    text-shadow: 1px 1px #fff;
+    font-weight: 700;
+    font-size: 10pt;
+}
+.custom-file-input:hover::before {
+    border-color: black;
+}
+
+#popup .button:hover{
+    background-color: var(--vertclair);
+    color:white;
+}
+#popup .popup_box textarea{
+    resize:none;
+    border:solid 3px var(--vertclair);
+    border-radius:10px;
+    padding:.7rem;
+    height:100px;
+}
+#popup .erreur{
+    color:red;
+}
+
 
 .hidden{display:none;}
 
@@ -864,3 +951,4 @@ display:flex;
 .formAjoutDispo .listeHeures div label {
     margin: 3px;
 }
+

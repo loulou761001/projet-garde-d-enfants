@@ -6,7 +6,7 @@ use function PHPUnit\Framework\isNull;
 class EnfantsModel extends Model
 {
     protected $table = 'enfants';
-    protected $allowedFields = ['id','enfant_prenom', 'enfant_nom','enfant_sexe','enfant_parent','enfant_photo','enfant_carnet','enfant_naissance','enfant_infos'];
+    protected $allowedFields = ['id','enfant_prenom', 'enfant_nom','enfant_sexe','enfant_parent','enfant_photo','enfant_carnet','enfant_naissance','enfants_infos'];
 
     public function insertEnfant(array $data)
     {

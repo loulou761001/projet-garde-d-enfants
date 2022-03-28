@@ -4,10 +4,12 @@
 
 
 
-
     <section id="profil">
         <div class="wrap">
-
+            <?php
+            if(!empty($erreurs)){ ?>
+                <div class="erreur_enfant"><p>Il y a eu une erreur lors de l'ajout de votre enfant sur votre compte, vérifiez les erreurs sur le formulaire d'inscription.</p></div>
+            <?php  } ?>
            <div class="profil_top">
                <div class="profil_pp">
                    <?php if(!empty($parent[0]['parent_photo'])){
@@ -79,6 +81,8 @@
                         foreach($enfants as $enfant){ ?>
                     <div class="box_enfant">
 
+
+
                             <?php if ($enfant['enfant_sexe']=='F'){ ?>
                               <img class="img" src="<?= base_url('assets/imgs/girl.png'); ?>">
                            <?php }elseif ($enfant['enfant_sexe']=='M'){ ?>
@@ -89,12 +93,12 @@
                         <div class="right_part">
                             <p><strong><?= $enfant['enfant_prenom'].' '.$enfant['enfant_nom'] ?></strong></p>
                             <p><strong>Date de naissance :</strong> <?php $myDateTime = DateTime::createFromFormat('Y-m-d', $enfant['enfant_naissance']); $date = $myDateTime->format('d-m-Y'); echo $date; ?></p>
-                            <p><strong>Informations :</strong> <?= $enfant['enfants_infos'] ?> blablabalbalablabalabalbalablabalablabalablabalablabala</p>
+                            <p><strong>Informations :</strong> <?= $enfant['enfants_infos'] ?></p>
                         </div>
 
                         <div class="link">
-                            <a href="/profil/supprimer/<?= $enfant['id'] ?>">Enlever l'enfant</a>
-                            <a href="">Détail</a>
+                            <a href="/profil/supprimer/<?= $enfant['id'] ?>">Supprimer</a>
+
                         </div>
 
                     </div>
@@ -105,9 +109,13 @@
                             <p>Vous n'avez pas ajouté d'enfants à garder</p>
                             <p>Cliquez ici pour en ajouter</p>
                         </div>
-                     <?php   }}?>
 
-                    <i id="js_btn" style="font-size:3rem;" class="fa-solid fa-circle-plus"></i>
+                     <?php   }}?>
+                    <?php if($_SESSION['user']['status']=='parent'){ ?>
+                        <i id="js_btn" style="font-size:3rem;" class="fa-solid fa-circle-plus"></i>
+                  <?php  } ?>
+
+
             </div>
         </div>
     </section>
@@ -119,23 +127,61 @@
 
             <div class="popup_box">
                 <label for="nom">Nom* :</label>
-                <input type="nom" placeholder="Ex : Dupont" id="nom" name="nom" value="">
+                <input type="text" placeholder="Ex : Dupont" id="nom" name="nom" value="<?php if (!empty($form['enfant_nom'])){echo $form['enfant_nom'];} ?>">
+                <?php if(!empty($erreurs['nom'])){ ?>
+                    <span class="erreur"> <?= $erreurs['nom'] ?></span>
+                <?php } ?>
             </div>
+
 
 
             <div class="popup_box">
-                <label for="prenom">Mot de passe* :</label>
-                <input type="prenom" placeholder="Ex: Louise" id="prenom" name="prenom" value="">
+                <label for="prenom">Prenom* :</label>
+                <input type="text" placeholder="Ex : Louise" id="prenom" name="prenom" value="<?php if (!empty($form['enfant_prenom'])){echo $form['enfant_prenom'];} ?>">
+                <?php if(!empty($erreurs['prenom'])){ ?>
+                    <span class="erreur"> <?= $erreurs['prenom'] ?></span>
+                <?php } ?>
             </div>
+
+
+
+            <label for="sexe">Sexe* :</label>
+            <select name="sexe" id="sexe">
+                <option value="M">Masculin</option>
+                <option value="F">Feminin</option>
+            </select>
+
+             <div class="popup_box">
+                <label for="naissance">Date de naissance* :</label>
+                <input type="date" placeholder="Ex: Louise" id="naissance" name="naissance" value="<?php if (!empty($form['enfant_naissance'])){echo $form['enfant_naissance'];} ?>">
+                 <?php if(!empty($erreurs['naissance'])){ ?>
+                     <span class="erreur"> <?= $erreurs['naissance'] ?></span>
+                 <?php } ?>
+             </div>
+
+
+
+        <div class="popup_box">
+            <label for="carnet">Carnet de santé* : </label>
+            <input type="file"  class="custom-file-input" id="carnet" name="carnet" value="">
+            <?php if(!empty($erreurs['carnet'])){ ?>
+                <span class="erreur"> <?= $erreurs['carnet'] ?></span>
+            <?php } ?>
+        </div>
+
+
 
             <div class="popup_box">
-                <label for="password2">Valider votre mot de passe* :</label>
-                <input type="password" placeholder="*********" id="password2" name="password2" value="">
+                <label for="infos">Infos complémentaires* :</label>
+                <textarea name="infos" id="infos" placeholder="Allergies, passions, caractère, ect..." ><?php if (!empty($form['enfant_infos'])){echo $form['enfant_infos'];} ?></textarea>
+                <?php if(!empty($erreurs['infos'])){ ?>
+                    <span class="erreur"> <?= $erreurs['infos'] ?></span>
+                <?php } ?>
             </div>
 
 
 
-            <input id="dernierSubmit" class="button" type="submit" name="submitted" value="ENVOYER">
+            <input class="button" type="submit" name="submitted" value="ENVOYER">
 
 
         <p>Les champs avec * sont requis</p>

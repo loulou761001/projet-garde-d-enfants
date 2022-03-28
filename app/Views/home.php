@@ -38,7 +38,7 @@ $this->extend('default') ?>
             </div>
             <?php } elseif(isParent()) { ?>
                 <h2>Je cherche des profils pour garder mes enfants :</h2>
-                <a href=""></a>
+                <a href="/voirDispos">Voir les créneaux disponibles</a>
             <?php } elseif(isPro()) { ?>
                 <h2>Je mets à jour mes disponibilités :</h2>
                 <a href="/gestionDispo">Gestion des disponibilités</a>

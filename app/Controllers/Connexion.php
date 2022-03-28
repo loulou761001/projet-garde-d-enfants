@@ -49,7 +49,8 @@ class Connexion extends BaseController
         if ($check == 0) {
             echo 'ERREUR';
         } else {
-            echo 'succes';
+
+            echo 'success';
                 if ($status == 'parent') {
                     var_dump($utilActuel);
 

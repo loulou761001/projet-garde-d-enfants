@@ -26,7 +26,7 @@ class ParentsModel extends Model
     }
     public function recupUnParents($id) {
         if (empty($id)) {
-            return redirect()->to('/');
+            return redirect()->to('');
         } else {
             return $this->select('parents.*')
                 ->where('parents.id', $id)

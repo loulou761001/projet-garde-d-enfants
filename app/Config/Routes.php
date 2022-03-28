@@ -48,6 +48,9 @@ $routes->get('/connexion', 'Connexion::index');
 $routes->get('/deconnexion', 'Connexion::deco');
 $routes->post('/uploadEmailParent', 'Inscription::uploadEmailParent');
 $routes->get('/profil', 'Profil::index');
+$routes->post('/profil', 'Profil::ajoutEnfant');
+
+$routes->get('/profil/supprimer/(:num)', 'Profil::supprEnfant/$1');
 $routes->post('/uploadEmail', 'Inscription::uploadEmail');
 
 $routes->get('/gestionDispo', 'Dispo::index');

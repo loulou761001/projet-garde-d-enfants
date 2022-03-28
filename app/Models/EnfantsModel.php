@@ -23,6 +23,17 @@ class EnfantsModel extends Model
         }
     }
 
+    public function recupUnEnfant($id) {
+        if (empty($id)) {
+            return redirect()->to('');
+        } else {
+            return $this->select('enfants.*')
+                ->where('id', $id)
+                ->find();
+        }
+    }
+
+
     public function recupEnfantsDeParent($id) {
         if (empty($id)) {
             return redirect()->to('');

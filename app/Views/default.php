@@ -4,8 +4,9 @@ session()->start();
 
 ?>
 <!doctype html>
-<html>
+<html lang="fr">
 <head>
+
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Ticrocos</title>

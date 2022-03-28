@@ -1,8 +1,6 @@
 <?=
-$this->extend('default') ?>
-
-<?= $this->section('content');
-debug($_GET);
+$this->extend('default');
+$this->section('content');
 ?>
 <section class="wrap">
     <form action="" method="post" class="formAjoutDispo">
@@ -66,9 +64,8 @@ debug($_GET);
                 <label for="23-24">23h-Minuit</label>
             </div>
         </div>
-
-        <input type="number" min="1" name="places">
-
+        <label for="places"> Nombre de places disponibles :</label>
+        <input type="number" min="1" name="places" id="places">
         <input type="submit">
     </form>
 

@@ -25,15 +25,31 @@ for ($i = 0; $i < count($dispos); $i++) {
 }
 foreach ($dispoTotale as $dispo) { ?>
 <div class="dispo" >
-<?php for ($i = 0; $i < count($dispo); $i++) {
+<?php
+foreach ($pro as $unPro) {
+    if($unPro['id'] == $dispo['0']['dispo_id_pro']) {
+        $proActuel['taux'] = $unPro['pro_taux_horaire'];
+        $proActuel['nom'] = $unPro['pro_nom'];
+        $proActuel['prenom'] = $unPro['pro_prenom'];
+        $proActuel['entreprise'] = $unPro['pro_entreprise'];
+        $proActuel['categorie'] = $unPro['pro_categorie'];
+    }
+}
+for ($i = 0; $i < count($dispo); $i++) {
     if ($i == 0) {
+        if (!empty($proActuel['entreprise'])) { ?>
+            <h2><?= $proActuel['entreprise'] ?></h2>
+        <?php } else { ?>
+            <h2><?= $proActuel['nom'] ?> <?= $proActuel['prenom'] ?></h2>
+        <?php }
     ?>
+
     <h2><?= date('l d/m/Y',strtotime($dispo[$i]['dispo_jour']))  ?></h2>
     <div class="flex sb">
-
         <h2>
             <?php echo date('H',strtotime($dispo[0]['dispo_heure_debut'])).'h - ';
-            echo date('H',strtotime($dispo[count($dispo)-1]['dispo_heure_fin'])).'h'; ?>
+            echo date('H',strtotime($dispo[count($dispo)-1]['dispo_heure_fin'])).'h'; ?> |
+            <?= $proActuel['taux'] ?>.00€/heure
         </h2>
         <p>
             Places disponibles : <?php $placesMinNb = 999;
@@ -51,8 +67,8 @@ foreach ($dispoTotale as $dispo) { ?>
             ?>
         </p>
     </div>
-
 <?php }} ?>
+<p class="categorie"></p>
 <a href="/dispoDetails?dispoNbr=<?php for ($i = 0; $i < count($dispo); $i++) {echo $dispo[$i]['id'].'-';} ?>">DETAILS</a>
 </div>
 <?php } ?>

@@ -66,10 +66,12 @@ document.querySelector('select#categorie').addEventListener('change',function() 
     if (document.querySelector('select#categorie').value !== 'Nourrice') {
         document.querySelector('div.entreprise').classList.remove('hidden')
         document.querySelector('div.siret').classList.remove('hidden')
+        document.querySelector('div.identite').classList.add('hidden')
         entreprise = 1
     } else {
         document.querySelector('div.siret').classList.add('hidden')
         document.querySelector('div.entreprise').classList.add('hidden')
+        document.querySelector('div.identite').classList.remove('hidden')
         entreprise = 0
     }
 })
@@ -204,6 +206,14 @@ function validErreurs() {
         }
     }
 
+    //VERIF IDENTITE
+    if(entreprise === 0) {
+        if(document.querySelector('input#identite').value.length===0) {
+            erreurs['identite'] = 'Veuillez fournir une pièce d\'identité.'
+        } else {
+            erreurs['identite'] = ''
+        }
+    }
     return erreurs
 }
 

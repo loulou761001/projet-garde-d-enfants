@@ -57,7 +57,6 @@ class Inscription extends BaseController
     public function handlePost()
     {
         var_dump($_POST);
-
         $data = [
             'parent_nom' => $_POST['nom'],
             'parent_prenom' => $_POST['prenom'],
@@ -72,13 +71,20 @@ class Inscription extends BaseController
             'parent_ville' => $_POST['ville'],
         ];
         $this->parentsModel->inserParent($data);
-
-        return redirect()->to('/');
+        return redirect()->to('/connexion');
     }
 
     public function handlePostNourrice()
     {
-        var_dump($_POST);
+        debug($_POST);
+        helper(['form', 'url']);
+        $File = $this->request->getFile('identite');
+        debug($File);
+        $File->move(PUBLIC_PATH . '/uploads/identite');
+        $dataFile = [
+            'pro_identite' => $File->getName()
+        ];
+        var_dump($dataFile);
 
         $data = [
             'pro_nom' => $_POST['nom'],
@@ -97,13 +103,20 @@ class Inscription extends BaseController
             'pro_taux_horraire' => $_POST['tauxHorraire'],
             'pro_entreprise' => $_POST['entreprise'],
             'pro_siret' => $_POST['siret'],
+            'pro_identite' => $File->getName(),
         ];
+        debug($data);
         $this->prosModel->inserPro($data);
 
-        return redirect()->to('/');
+
+
+        return redirect()->to('/connexion');
     }
 
     public function photo($id){
+        if ($id != $_SESSION['user']['id']) {
+            return redirect()->to('/profil');
+        }
         if ($_SESSION['user']['status'] == 'parent') {
             $parent = $this->parentsModel->recupUnParents($id);
             echo view('photoParent', [
@@ -131,10 +144,17 @@ class Inscription extends BaseController
         } else {
             $imageFile = $this->request->getFile('file');
             $imageFile->move(PUBLIC_PATH . '/uploads/imgs');
+            if ($_SESSION['user']["status"] == 'parent') {
+                $dataPic = [
+                    'parent_photo' => $imageFile->getName()
+                ];
+            }  else {
+                $dataPic = [
+                    'pro_photo' => $imageFile->getName()
+                ];
+            }
 
-            $dataPic = [
-                'parent_photo' => $imageFile->getName()
-            ];
+
             var_dump($dataPic);
             if ($_SESSION['user']["status"] == 'parent') {
                 $this->parentsModel->editParent($dataPic, $id);

@@ -4,7 +4,7 @@ $this->extend('default') ?>
 <?= $this->section('content');
 setlocale(LC_TIME, "fr_FR");
 ?>
-<section class="wrap">
+<section id="disponibilites" class="wrap">
     <h1>Disponibilités de nos professionnels :</h1>
 <?php
 $n = 0;

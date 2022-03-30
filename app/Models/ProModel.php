@@ -6,7 +6,7 @@ use function PHPUnit\Framework\isNull;
 class ProModel extends Model
 {
     protected $table = 'professionnels';
-    protected $allowedFields = ['id','pro_prenom', 'pro_nom','pro_email','pro_password', 'pro_token','pro_adresse','pro_telephone','pro_photo','pro_taux_horaire','pro_categorie','pro_description','pro_entreprise','pro_numAdresse','pro_infosAdresse','pro_ville','pro_postal'];
+    protected $allowedFields = ['id','pro_prenom', 'pro_nom','pro_email','pro_password', 'pro_token','pro_adresse','pro_telephone','pro_photo','pro_taux_horaire','pro_categorie','pro_description','pro_entreprise','pro_numAdresse','pro_infosAdresse','pro_ville','pro_postal','pro_siret','pro_identite','pro_approuve'];
     public function recupPro() {
         if (!empty($_GET['limit'])) {
             return $this->limit($_GET['limit'])->find();
@@ -21,12 +21,12 @@ class ProModel extends Model
                 ->where('id_classe', $_GET['classe'])
                 ->find();
         } else {
-            return redirect()->to('/');
+            return redirect()->to('');
         }
     }
     public function recupUnPro($id) {
         if (empty($id)) {
-            return redirect()->to('/');
+            return redirect()->to('');
         } else {
             return $this->select('professionnels.*')
                 ->where('professionnels.id', $id)
@@ -38,11 +38,10 @@ class ProModel extends Model
             ->where('parents.parents_email', $email)
             ->join('classes', 'eleves.id_classe = classes.id')
             ->find();
-
     }
     public function suppUnParent($id) {
         if (empty($id)) {
-            return redirect()->to('/');
+            return redirect()->to('');
         } else {
             return $this->select('eleves.*')
                 ->where('id', $id)

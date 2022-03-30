@@ -1,9 +1,9 @@
 <?= $this->extend('default') ?>
 
 <?= $this->section('content'); ?>
-
-
-
+<?php
+debug($pro);
+?>
     <section id="profil">
         <div class="wrap">
             <?php
@@ -12,15 +12,20 @@
             <?php  } ?>
            <div class="profil_top">
                <div class="profil_pp">
-                   <?php if(!empty($parent[0]['parent_photo'])){
-                       echo'afficher photo';
-                   } else {?>
-                       <a href=""><img class="img" src="<?= base_url('assets/imgs/pp_basique.svg'); ?>"></a>
-                   <?php } ?>
+                   <?php if ($_SESSION['user']['status']=='parent'){
+                   if(!empty($parent[0]['parent_photo'])){ ?>
+                       <a href="/profil/photo/<?= $_SESSION['user']['id'] ?>"><img class="img" src="<?= base_url('uploads/imgs/').'/'.$parent[0]['parent_photo']; ?>"></a>
+                   <?php } else {?>
+                       <a href="/profil/photo/<?= $_SESSION['user']['id'] ?>"><img class="img" src="<?= base_url('assets/imgs/pp_basique.svg'); ?>"></a>
+                   <?php }} else {
+                       if(!empty($pro[0]['pro_photo'])){ ?>
+                       <a href="/profil/photo/<?= $_SESSION['user']['id'] ?>"><img class="img" src="<?= base_url('uploads/imgs/').'/'.$pro[0]['pro_photo']; ?>"></a>
+                   <?php } else {?>
+                       <a href="/profil/photo/<?= $_SESSION['user']['id'] ?>"><img class="img" src="<?= base_url('assets/imgs/pp_basique.svg'); ?>"></a>
+                   <?php }
+                   } ?>
                </div>
                <div class="profil_intro">
-
-
                    <?php if ($_SESSION['user']['status']=='parent'){ ?>
 
                        <h2 class="titre">Bienvenue sur votre profil <?= $parent[0]['parent_prenom']?> !</h2>
@@ -28,29 +33,24 @@
                    <?php }elseif ($_SESSION['user']['status']=='professionnel'){ ?>
 
                        <h2 class="titre">Bienvenue sur votre profil <?= $pro[0]['pro_prenom']?> !</h2>
-
-                   <?php   } ?>
-
+                   <?php } ?>
                </div>
            </div>
 
             <div class="separator"></div>
 
             <div class="profil_mid">
-
                 <h2 class="titre">Informations :</h2>
-
                 <?php if ($_SESSION['user']['status']=='parent'){ ?>
-
                     <div class="mid_flex">
                         <p><strong>Nom :</strong> <?= $parent[0]['parent_nom']?></p>
                         <p><strong>Prénom :</strong> <?= $parent[0]['parent_prenom']?></p>
                         <p><strong>Email:</strong> <?= $parent[0]['parent_email']?></p>
-                        <p><strong>Mot de passe :</strong> ****</p>
+                        <p><strong>Téléphone :</strong> <?php echo wordwrap('0'.$parent[0]['parent_tel'],2," ",1)?></p>
                         <p><strong>Adresse :</strong> <?= $parent[0]['parent_numAdresse'].' '. $parent[0]['parent_adresse'].' '.$parent[0]['parent_ville'].' '.$parent[0]['parent_postal'] ?> </p>
                         <p><strong>Informations supplémentaires :</strong> <?php if(!empty($parent[0]['parent_infosAdresse'])){echo $parent[0]['parent_infosAdresse'];}else{ echo 'Non renseigné';} ?></p>
                     </div>
-                    <p><strong>Téléphone :</strong> <?php echo wordwrap('0'.$parent[0]['parent_tel'],2," ",1)?></p>
+                    <a href="/profil/modifier">Modifier</a>
 
                 <?php }elseif ($_SESSION['user']['status']=='professionnel'){ ?>
 
@@ -58,20 +58,26 @@
                         <p><strong>Nom :</strong> <?= $pro[0]['pro_nom']?></p>
                         <p><strong>Prénom :</strong> <?= $pro[0]['pro_prenom']?></p>
                         <p><strong>Email:</strong> <?= $pro[0]['pro_email']?></p>
-                        <p><strong>Mot de passe :</strong> ****</p>
+                        <p><strong>Téléphone :</strong> <?php echo wordwrap('0'.$pro[0]['pro_telephone'],2," ",1)?></p>
                         <p><strong>Adresse :</strong> <?= $pro[0]['pro_numAdresse'].' '. $pro[0]['pro_adresse'].' '.$pro[0]['pro_ville'].' '.$pro[0]['pro_postal'] ?> </p>
                         <p><strong>Informations supplémentaires :</strong> <?php if(!empty($pro[0]['pro_infosAdresse'])){echo $pro[0]['pro_infosAdresse'];}else{ echo 'Non renseigné';} ?></p>
+                        <p><strong>Catégorie :</strong> <?= $pro[0]['pro_categorie']?></p>
+                        <p><strong>Tarif Horaire :</strong> <?= $pro[0]['pro_taux_horaire'].'€/h'?></p>
+                        <?php if($pro[0]['pro_categorie']!='Nourrice'){ ?>
+                            <p><strong>Entreprise:</strong> <?= $pro[0]['pro_entreprise']?></p>
+                            <p><strong>N° de Siret :</strong> <?= $pro[0]['pro_siret']?></p>
+                         <?php  }?>
+
+
                     </div>
-                    <p><strong>Téléphone :</strong> <?php echo wordwrap('0'.$pro[0]['pro_telephone'],2," ",1)?></p>
+                    <p><strong>Description :</strong> <?= $pro[0]['pro_description'] ?></p>
+                    <a href="/profil/modifier">Modifier</a>
 
                 <?php   } ?>
-
-
 
             </div>
 
             <div class="separator"></div>
-
 
             <?php if ($_SESSION['user']['status']=='parent'){ ?>
             <div class="bottom_part">
@@ -80,8 +86,6 @@
              <?php if(!empty($enfants)){
                         foreach($enfants as $enfant){ ?>
                     <div class="box_enfant">
-
-
 
                             <?php if ($enfant['enfant_sexe']=='F'){ ?>
                               <img class="img" src="<?= base_url('assets/imgs/girl.png'); ?>">
@@ -98,7 +102,6 @@
 
                         <div class="link">
                             <a href="/profil/supprimer/<?= $enfant['id'] ?>">Supprimer</a>
-
                         </div>
 
                     </div>

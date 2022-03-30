@@ -90,6 +90,7 @@ class Connexion extends BaseController
                         'categorie' =>$utilActuel['pro_categorie'],
                         'taux_horaire' =>$utilActuel['pro_taux_horaire'],
                         'description' =>$utilActuel['pro_description'],
+                        'approuve' =>$utilActuel['pro_approuve'],
                     );
                 }
             return redirect()->to('');

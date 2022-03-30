@@ -20,7 +20,7 @@ debug($_POST);
             </div>
 
             <h2>Inscription :</h2>
-            <form action="" method="post" class="wrapform" novalidate>
+            <form action="" method="post" class="wrapform" enctype="multipart/form-data" novalidate>
 
                 <div class="form1">
                     <div class="info_box">
@@ -110,21 +110,32 @@ debug($_POST);
                     <span data-champ="codePostal"></span>
 
                     <div class="info_box">
-                        <label for="entreprise">Nom de l'entreprise (facultatif) :</label>
-                        <input type="text" placeholder="" id="entreprise" name="entreprise" value="<?= recupInputValue('entreprise');?>">
-                    </div>
-                    <span data-champ="entreprise"></span>
-
-                    <div class="info_box">
                         <label for="categorie">Catégorie :</label>
                         <select name="categorie" id="categorie">
-                            <option value="Nourrice">Nourrice</option>
+                            <option value="Nourrice">Nourrice à domicile</option>
                             <option value="Garderie">Garderie</option>
                             <option value="Creche">Crèche</option>
                         </select>
                     </div>
                     <span data-champ="categorie"></span>
 
+                    <div class="info_box identite">
+                        <label for="identite">Piece d'identité (image ou pdf) :</label>
+                        <input type="file" placeholder="" id="identite" name="identite">
+                    </div>
+                    <span data-champ="entreprise"></span>
+
+                    <div class="info_box entreprise hidden">
+                        <label for="entreprise">Nom de l'entreprise :</label>
+                        <input type="text" placeholder="" id="entreprise" name="entreprise" value="<?= recupInputValue('entreprise');?>">
+                    </div>
+                    <span data-champ="entreprise"></span>
+
+                    <div class="info_box siret hidden">
+                        <label for="siret">Numéro de siret :</label>
+                        <input type="text" placeholder="" id="siret" name="siret" value="<?= recupInputValue('siret');?>">
+                    </div>
+                    <span data-champ="siret"></span>
 
                     <div class="info_box">
                         <label for="tauxHorraire">Taux Horaire</label>
@@ -132,7 +143,6 @@ debug($_POST);
                             <input type="number" id="tauxHorraire" name="tauxHorraire" min="0">
                             <p>€/h</p>
                         </div>
-
                     </div>
                     <span data-champ="tauxHorraire"></span>
 
@@ -142,9 +152,7 @@ debug($_POST);
                     </div>
                     <span data-champ="description"></span>
 
-
-                        <input id="dernierSubmit" class="button" type="submit" name="submitted" value="ENVOYER">
-
+                    <input id="dernierSubmit" class="button" type="submit" name="submitted" value="ENVOYER">
 
                 </div>
 

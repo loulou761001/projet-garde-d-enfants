@@ -120,8 +120,8 @@ debug($_POST);
                     <span data-champ="categorie"></span>
 
                     <div class="info_box identite">
-                        <label for="identite">Nom de l'entreprise :</label>
-                        <input type="file" placeholder="" id="identite" name="identite" value="<?= recupInputValue('identite');?>">
+                        <label for="identite">Piece d'identité (image ou pdf) :</label>
+                        <input type="file" placeholder="" id="identite" name="identite">
                     </div>
                     <span data-champ="entreprise"></span>
 

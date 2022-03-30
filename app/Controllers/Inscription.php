@@ -100,7 +100,7 @@ class Inscription extends BaseController
             'pro_ville' => $_POST['ville'],
             'pro_categorie' => $_POST['categorie'],
             'pro_description' => $_POST['description'],
-            'pro_taux_horraire' => $_POST['tauxHorraire'],
+            'pro_taux_horaire' => $_POST['tauxHorraire'],
             'pro_entreprise' => $_POST['entreprise'],
             'pro_siret' => $_POST['siret'],
             'pro_identite' => $File->getName(),

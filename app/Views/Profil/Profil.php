@@ -93,7 +93,6 @@
 
                         <div class="link">
                             <a href="/profil/supprimer/<?= $enfant['id'] ?>">Supprimer</a>
-
                         </div>
 
                     </div>

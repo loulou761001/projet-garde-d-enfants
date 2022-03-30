@@ -56,7 +56,6 @@ class Inscription extends BaseController
 
     public function handlePost()
     {
-
         var_dump($_POST);
 
         $data = [
@@ -97,6 +96,7 @@ class Inscription extends BaseController
             'pro_description' => $_POST['description'],
             'pro_taux_horraire' => $_POST['tauxHorraire'],
             'pro_entreprise' => $_POST['entreprise'],
+            'pro_siret' => $_POST['siret'],
         ];
         $this->prosModel->inserPro($data);
 

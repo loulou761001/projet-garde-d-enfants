@@ -106,8 +106,6 @@ class Profil extends BaseController
 
                     ]);
                 }
-
-
                 if(!$input){
                     $erreurs = $this->validator->getErrors();
                     $pro =$this->proModel->recupUnPro($_SESSION['user']['id']);
@@ -213,6 +211,7 @@ class Profil extends BaseController
                 'pro_telephone' => $request->getPost("tel"),
                 'pro_email' => $request->getPost("email"),
                 'pro_taux_horaire' => $request->getPost("infosAdresse"),
+                'pro_siret' => $request->getPost("siret"),
             ];
             return $data;
         }else{

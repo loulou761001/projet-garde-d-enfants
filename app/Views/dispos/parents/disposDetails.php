@@ -5,6 +5,7 @@ $this->extend('default') ?>
 setlocale(LC_TIME, "fr_FR");
 ?>
 <section class="wrap dispoDetails">
+    <div class="detailp">
     <h1>Détails : </h1>
     <?php if (!empty($pro[0]['pro_entreprise'])) { ?>
         <p>nom de la <?= strtolower($pro[0]['pro_categorie']) ?> : <?= $pro[0]['pro_entreprise'] ?>, par <?= $pro[0]['pro_nom'] ?> <?= $pro[0]['pro_prenom'] ?></p>
@@ -12,7 +13,9 @@ setlocale(LC_TIME, "fr_FR");
     <p>nom de la <?= strtolower($pro[0]['pro_categorie']) ?> : <?= $pro[0]['pro_nom'] ?> <?= $pro[0]['pro_prenom'] ?></p>
     <?php }?>
     <p>Taux horaire : <?= strtolower($pro[0]['pro_taux_horaire']) ?>.00€/heure.</p>
+    </div>
     <h2>choisissez les créneaux horaires que vous désirez :</h2>
+
 <form action="" method="post">
 <?php
 $i = 0;
@@ -37,7 +40,7 @@ foreach ($disposActuelles as $heure) { ?>
         </div>
         <?php $e++; } ?>
         <label for="infos" class="labelTextarea">Informations complémentaires :</label>
-        <textarea name="infos" id="infos" cols="30" rows="10"></textarea>
+        <textarea name="infos" id="infos" cols="30" rows="5" placeholder="Veuillez rentrer vos informations"></textarea>
         <input class="submit" type="submit">
         <p class="erreurSubmit"></p>
     </div>

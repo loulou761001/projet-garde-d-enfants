@@ -1,6 +1,7 @@
 <?php
 namespace App\Models;
 use CodeIgniter\Model;
+use phpDocumentor\Reflection\Types\Integer;
 use function PHPUnit\Framework\isNull;
 
 class DispoModel extends Model
@@ -79,10 +80,23 @@ class DispoModel extends Model
     {
         return $this->insert($data);
     }
-    public function editPro(array $data, $id)
+    public function editDispo(array $data, $id)
     {
         var_dump($data);
         return $this->select('professionnels')
+            ->where('id', $id)
+            ->set($data)
+            ->update($id,$data);
+    }
+    public function moinsPlace(Integer $nbr, $id)
+    {
+        $cetteDispo = $this->select('disponibilites.*')
+            ->where('disponibilites.id', $id)
+            ->find();
+        $data = [
+            'dispo_places' => $cetteDispo['dispo_places']-$nbr
+        ];
+        return $this->select('disponibilites')
             ->where('id', $id)
             ->set($data)
             ->update($id,$data);

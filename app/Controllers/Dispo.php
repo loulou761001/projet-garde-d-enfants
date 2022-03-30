@@ -93,14 +93,19 @@ class Dispo extends BaseController
         if (!isParent()) {
             return redirect()->to('');
         }
-        {
-            $data = [
-                'parents' => $this->parentsModel->recupParents(),
-                'pro' => $this->proModel->recupPro(),
-                'dispos' => $this->dispoModel->recupDisposLibres(),
-            ];
-            return view('dispos/parents/dispos',$data);
+        $data = [
+            'parents' => $this->parentsModel->recupParents(),
+            'pro' => $this->proModel->recupPro(),
+            'dispos' => $this->dispoModel->recupDisposLibres(),
+        ];
+        if(empty($data['dispos'])) {
+            return redirect()->to('dispoErreur');
         }
+        return view('dispos/parents/dispos',$data);
+    }
+    public function noDispo() {
+        return view('dispos/parents/noDispos');
+
     }
     public function dispoDetails() {
         if (!isParent()) {
@@ -184,6 +189,8 @@ class Dispo extends BaseController
                 "id_contrat" => $dernierId,
             ];
             $this->contratsDispoModel->insertContratDispo($contratDispo[$i]);
+            debug($data);
+//            $this->dispoModel->moinsPlace($contratDispo[$i],$data['dispoActuelleID']);
         }
         return view('dispos/parents/disposDetails',$data);
     }

@@ -283,17 +283,17 @@ footer .reseauxFooter i:hover{
     position: absolute;
     z-index: -1;
     top: 600Px;
-    right: -31px;
-    transform: rotate(-10deg);
+    right: -40px;
+    transform: rotate(-20deg);
 }
 .palmier2 {
     width: 360px;
     position: absolute;
     z-index: -2;
     top: 600Px;
-    left: -31px;
+    left: -40px;
     -webkit-transform: scaleX(-1);
-    transform: scaleX(-1) rotate(-10deg);
+    transform: scaleX(-1) rotate(-20deg);
 
 
 }

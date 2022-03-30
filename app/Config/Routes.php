@@ -48,11 +48,17 @@ $routes->get('/connexion', 'Connexion::index');
 $routes->get('/deconnexion', 'Connexion::deco');
 $routes->post('/uploadEmailParent', 'Inscription::uploadEmailParent');
 $routes->get('/profil', 'Profil::index');
+$routes->get('/profil/modifier', 'Profil::modifProfil');
+$routes->post('/profil/modifier', 'Profil::modifiedProfil');
 $routes->post('/profil', 'Profil::ajoutEnfant');
-
+$routes->get('/motdepasse', 'Profil::motDePasse');
+$routes->post('/motdepasse', 'Profil::motDePassePost');
+$routes->get('/motdepasse/modifier', 'Profil::motDePasseModif');
+$routes->post('/motdepasse/modifier', 'Profil::motDePasseModifPost');
+$routes->get('/motdepasse/profil/modifier', 'Profil::motDePasseModifProfil');
+$routes->post('/motdepasse/profil/modifier', 'Profil::motDePasseModifProfilPost');
 $routes->get('/profil/supprimer/(:num)', 'Profil::supprEnfant/$1');
 $routes->post('/uploadEmail', 'Inscription::uploadEmail');
-
 $routes->get('/gestionDispo', 'Dispo::index');
 $routes->get('/gestionDispo/ajout', 'Dispo::ajout');
 $routes->post('/gestionDispo/ajout', 'Dispo::HandlePost');

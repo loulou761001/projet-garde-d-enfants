@@ -60,6 +60,20 @@ ariane3.addEventListener('click',function (){
         form2.classList.add('hidden')
     }
 })
+var entreprise = 0
+document.querySelector('select#categorie').addEventListener('change',function() {
+    console.log('CHANGE')
+    if (document.querySelector('select#categorie').value !== 'Nourrice') {
+        document.querySelector('div.entreprise').classList.remove('hidden')
+        document.querySelector('div.siret').classList.remove('hidden')
+        entreprise = 1
+    } else {
+        document.querySelector('div.siret').classList.add('hidden')
+        document.querySelector('div.entreprise').classList.add('hidden')
+        entreprise = 0
+    }
+})
+
 const errorSpans = document.querySelectorAll('span');
 function validErreurs() {
     function contientNombres(string) {
@@ -173,7 +187,22 @@ function validErreurs() {
         erreurs['dateDeNaissance'] = 'Veuillez remplir ce champ.'
     }
 
-
+    //VERIF SIRET
+    if(entreprise === 1) {
+        if(/^\d{14}$/.test(document.querySelector('input#siret').value)) {
+            erreurs['siret'] = 'Veuillez entrer un numéro de siret valide.'
+        } else {
+            erreurs['siret'] = ''
+        }
+    }
+    //VERIF ENTREPRISE
+    if(entreprise === 1) {
+        if(document.querySelector('input#entreprise').value.length===0) {
+            erreurs['entreprise'] = 'Veuillez entrer un nom d\'entreprise.'
+        } else {
+            erreurs['entreprise'] = ''
+        }
+    }
 
     return erreurs
 }

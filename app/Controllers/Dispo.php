@@ -30,6 +30,9 @@ class Dispo extends BaseController
             'pro' => $this->proModel->recupPro(),
             'dispos' => $this->dispoModel->recupPropreDispos(),
         ];
+        if(empty($data["dispos"])) {
+            return redirect()->to('/gestionDispo/ajout');
+        }
         return view('dispos/dispos',$data);
     }
     public function ajout()

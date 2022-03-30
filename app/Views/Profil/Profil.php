@@ -12,15 +12,20 @@ debug($pro);
             <?php  } ?>
            <div class="profil_top">
                <div class="profil_pp">
-                   <?php if(!empty($parent[0]['parent_photo'])){
-                       echo'afficher photo';
-                   } else {?>
-                       <a href=""><img class="img" src="<?= base_url('assets/imgs/pp_basique.svg'); ?>"></a>
-                   <?php } ?>
+                   <?php if ($_SESSION['user']['status']=='parent'){
+                   if(!empty($parent[0]['parent_photo'])){ ?>
+                       <a href="/profil/photo/<?= $_SESSION['user']['id'] ?>"><img class="img" src="<?= base_url('uploads/imgs/').'/'.$parent[0]['parent_photo']; ?>"></a>
+                   <?php } else {?>
+                       <a href="/profil/photo/<?= $_SESSION['user']['id'] ?>"><img class="img" src="<?= base_url('assets/imgs/pp_basique.svg'); ?>"></a>
+                   <?php }} else {
+                       if(!empty($pro[0]['pro_photo'])){ ?>
+                       <a href="/profil/photo/<?= $_SESSION['user']['id'] ?>"><img class="img" src="<?= base_url('uploads/imgs/').'/'.$pro[0]['pro_photo']; ?>"></a>
+                   <?php } else {?>
+                       <a href="/profil/photo/<?= $_SESSION['user']['id'] ?>"><img class="img" src="<?= base_url('assets/imgs/pp_basique.svg'); ?>"></a>
+                   <?php }
+                   } ?>
                </div>
                <div class="profil_intro">
-
-
                    <?php if ($_SESSION['user']['status']=='parent'){ ?>
 
                        <h2 class="titre">Bienvenue sur votre profil <?= $parent[0]['parent_prenom']?> !</h2>
@@ -28,20 +33,15 @@ debug($pro);
                    <?php }elseif ($_SESSION['user']['status']=='professionnel'){ ?>
 
                        <h2 class="titre">Bienvenue sur votre profil <?= $pro[0]['pro_prenom']?> !</h2>
-
-                   <?php   } ?>
-
+                   <?php } ?>
                </div>
            </div>
 
             <div class="separator"></div>
 
             <div class="profil_mid">
-
                 <h2 class="titre">Informations :</h2>
-
                 <?php if ($_SESSION['user']['status']=='parent'){ ?>
-
                     <div class="mid_flex">
                         <p><strong>Nom :</strong> <?= $parent[0]['parent_nom']?></p>
                         <p><strong>Prénom :</strong> <?= $parent[0]['parent_prenom']?></p>
@@ -75,12 +75,9 @@ debug($pro);
 
                 <?php   } ?>
 
-
-
             </div>
 
             <div class="separator"></div>
-
 
             <?php if ($_SESSION['user']['status']=='parent'){ ?>
             <div class="bottom_part">
@@ -89,8 +86,6 @@ debug($pro);
              <?php if(!empty($enfants)){
                         foreach($enfants as $enfant){ ?>
                     <div class="box_enfant">
-
-
 
                             <?php if ($enfant['enfant_sexe']=='F'){ ?>
                               <img class="img" src="<?= base_url('assets/imgs/girl.png'); ?>">

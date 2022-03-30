@@ -3,12 +3,12 @@ namespace App\Models;
 use CodeIgniter\Model;
 use function PHPUnit\Framework\isNull;
 
-class EnfantsModel extends Model
+class ContratsDispoModel extends Model
 {
-    protected $table = 'enfants';
-    protected $allowedFields = ['id','enfant_prenom', 'enfant_nom','enfant_sexe','enfant_parent','enfant_photo','enfant_carnet','enfant_naissance','enfants_infos'];
+    protected $table = 'contrat_dispo_pivot';
+    protected $allowedFields = ['id','id_contrat', 'id_dispo'];
 
-    public function insertEnfant(array $data)
+    public function insertContratDispo(array $data)
     {
         return $this->insert($data);
     }

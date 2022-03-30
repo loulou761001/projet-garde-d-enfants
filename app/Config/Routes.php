@@ -63,7 +63,9 @@ $routes->get('/gestionDispo', 'Dispo::index');
 $routes->get('/gestionDispo/ajout', 'Dispo::ajout');
 $routes->post('/gestionDispo/ajout', 'Dispo::HandlePost');
 
-
+$routes->get('/voirDispos', 'Dispo::disposParents');
+$routes->post('/dispoDetails', 'Dispo::postChoix');
+$routes->get('/dispoDetails', 'Dispo::dispoDetails');
 
 
 /*

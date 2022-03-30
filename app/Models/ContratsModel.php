@@ -3,14 +3,21 @@ namespace App\Models;
 use CodeIgniter\Model;
 use function PHPUnit\Framework\isNull;
 
-class EnfantsModel extends Model
+class ContratsModel extends Model
 {
-    protected $table = 'enfants';
-    protected $allowedFields = ['id','enfant_prenom', 'enfant_nom','enfant_sexe','enfant_parent','enfant_photo','enfant_carnet','enfant_naissance','enfants_infos'];
+    protected $table = 'contrats';
+    protected $allowedFields = ['id','contrat_pro', 'contrat_debut','contrat_fin','contrat_facture','contrat_infos'];
 
-    public function insertEnfant(array $data)
+    public function insertContrat(array $data)
     {
         return $this->insert($data);
+    }
+    public function recupDernierId()
+    {
+        return $this->select('contrats.id')
+            ->orderBy('id',"desc")
+            ->limit(1)
+            ->find();
     }
 
     public function suppUnEnfant($id) {

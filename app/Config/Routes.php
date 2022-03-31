@@ -59,13 +59,17 @@ $routes->get('/motdepasse/profil/modifier', 'Profil::motDePasseModifProfil');
 $routes->post('/motdepasse/profil/modifier', 'Profil::motDePasseModifProfilPost');
 $routes->get('/profil/supprimer/(:num)', 'Profil::supprEnfant/$1');
 $routes->post('/uploadEmail', 'Inscription::uploadEmail');
+
 $routes->get('/gestionDispo', 'Dispo::index');
 $routes->get('/gestionDispo/ajout', 'Dispo::ajout');
 $routes->post('/gestionDispo/ajout', 'Dispo::HandlePost');
 
 $routes->get('/voirDispos', 'Dispo::disposParents');
-$routes->post('/dispoDetails', 'Dispo::postChoix');
+$routes->get('/mesDispos', 'Dispo::mesDisposParents');
+$routes->get('/voirDispos', 'Dispo::disposParents');
 $routes->get('/dispoDetails', 'Dispo::dispoDetails');
+$routes->post('/dispoDetails', 'Dispo::postChoix');
+$routes->get('/dispoErreur', 'Dispo::noDispo');
 
 
 /*

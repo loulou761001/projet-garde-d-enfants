@@ -23,13 +23,30 @@ class ContratsEnfantsModel extends Model
         }
     }
 
-    public function recupUnEnfant($id) {
+    public function recupContratsEnfant($id) {
         if (empty($id)) {
             return redirect()->to('');
         } else {
-            return $this->select('enfants.*')
-                ->where('id', $id)
+            return $this->select('contrat_enfants_pivot.*')
+                ->where('id_enfant', $id)
                 ->find();
+        }
+    }
+    public function recupContratsEnfantParContrat($id) {
+        if (empty($id)) {
+            return redirect()->to('');
+        } else {
+            return $this->select('contrat_enfants_pivot.id_enfant')
+                ->where('id_contrat', $id)
+                ->find();
+        }
+    }
+
+    public function recupContratsDeParent($id) {
+        if (empty($id)) {
+            return redirect()->to('');
+        } else {
+            $enfants = $this->where(['id_enfants'=>$id])->find();
         }
     }
 

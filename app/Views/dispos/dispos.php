@@ -24,7 +24,10 @@ for ($i = 0; $i < count($dispos); $i++) {
         $t++;
     }
 }
-foreach ($dispoTotale as $dispo) { ?>
+foreach ($dispoTotale as $dispo) {
+
+    ?>
+
 <div class="dispo">
 <?php for ($i = 0; $i < count($dispo); $i++) {
     if ($i == 0) {

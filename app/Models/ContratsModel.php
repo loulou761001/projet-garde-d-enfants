@@ -19,6 +19,12 @@ class ContratsModel extends Model
             ->limit(1)
             ->find();
     }
+    public function recupContratParID($id)
+    {
+        return $this->select('contrats.*')
+            ->where('id',$id)
+            ->find();
+    }
 
     public function suppUnEnfant($id) {
         if (empty($id)) {
@@ -41,13 +47,7 @@ class ContratsModel extends Model
     }
 
 
-    public function recupEnfantsDeParent($id) {
-        if (empty($id)) {
-            return redirect()->to('');
-        } else {
-            return $this->where(['enfant_parent'=>$id])->find();
-        }
-    }
+
     public function editEnfant(array $data, $id)
     {
         var_dump($data);

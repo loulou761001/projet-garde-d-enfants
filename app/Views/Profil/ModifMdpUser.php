@@ -18,8 +18,8 @@
                 <input type="password"  id="mdp" name="mdp" value="">
             </div>
 
-            <span><p><?php if(!empty($erreur)){echo $erreur;} ?></p></span>
-            <span><p><?php if(!empty($erreurs)){echo 'Le nouveau mot de passe est trop court';} ?></p></span>
+            <span class="erreur"><p><?php if(!empty($erreurs)){echo 'Le nouveau mot de passe doit faire au minimum 8 caractères';} ?></p></span>
+
             <input class="button" type="submit" name="submitted" value="ENVOYER">
 
 
@@ -30,11 +30,7 @@
 
 
 
+
 <?php
 $this->endSection() ;
-$this->section('js');?>
-<script src="../assets/js/profil.js"></script>
-<?php $this->endSection() ;
-?>
-
 

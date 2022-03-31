@@ -1,6 +1,6 @@
 :root {
     --vert: #4f805d;
-    --verthover: #00a711;
+    --verthover: #187323;
     --vertclair: #00CE15;
     --bleu:#DDEEFFFF;
     --bleuclair: #DDEEFFFF;
@@ -75,6 +75,7 @@ header li .flex a{
 }
 header li .flex a:hover{
     background-color: var(--verthover);
+    border-color: var(--verthover);
 }
 
 
@@ -144,6 +145,7 @@ footer .reseauxFooter i{
 }
 footer .reseauxFooter i:hover{
     color: var(--verthover);
+
 }
 
  /*ACCEUIL*/
@@ -207,6 +209,7 @@ footer .reseauxFooter i:hover{
 }
 #flexsliderTexte .moitieTexte a p:hover{
     background-color: var(--verthover);
+    border-color: var(--verthover);
 }
 
 #sectionCentrale .boite {
@@ -624,7 +627,7 @@ footer .reseauxFooter i:hover{
 }
 #formulaire button:hover{
     background-color: var(--verthover) ;
-
+    border-color: var(--verthover);
 }
 #formulaire label{
     font-weight:bold;
@@ -718,6 +721,11 @@ footer .reseauxFooter i:hover{
 }
 #connexion .textPart a:hover{
     background-color: var(--verthover);
+    border: var(--verthover);
+}
+#connexion .button:hover{
+    background-color: var(--verthover);
+    border: var(--verthover);
 }
 
 
@@ -760,7 +768,7 @@ filter: grayscale(90%);
     gap:3rem;
 }
 
-#profil .profil_mid p{
+#profil .profil_mid .mid_txt{
     border:solid 1px #eee3d3;
     padding:1rem ;
     background-color:#eee3d3;
@@ -816,7 +824,18 @@ display:flex;
     color:red;
     font-size:1rem;
 }
+#profil .modif_button{
+    border:solid 1px black;
+    background-color:black;
+    color:white;
+    padding:1rem;
+    border-radius:50px;
+}
+#profil .modif_button:hover{
 
+    background-color:white;
+    color:black;
+}
 
  /*POPUP PROFIL*/
 #popup{
@@ -914,6 +933,49 @@ display:flex;
 .hidden{display:none;}
 
 
+/*MODIF PROFIL*/
+
+.profil_mid .wrapform{
+    display:flex;
+    flex-flow:column;
+    gap:1rem;
+    width:100%;
+}
+.profil_mid .modif_box{
+    display:flex;
+    flex-flow: column;
+}
+.profil_mid .modif_box input{
+    border:solid 1px black;
+    padding:1Rem;
+}
+.profil_mid .modif_box textarea{
+    border:solid 1px black;
+    resize: none;
+    padding:1Rem;
+}
+.profil_mid .tauxHoraire_modif{
+    display:flex;
+    align-items: center;
+}
+.profil_mid .tauxHoraire_modif .tauxHoraireTxt{
+    font-size:1rem;
+}
+.profil_mid .erreur{
+    color:red;
+}
+.profil_mid .button{
+    color:var(--vertclair);
+    border:solid 3px var(--vertclair);
+    background-color:white;
+    padding:1rem;
+}
+.profil_mid .button:hover{
+    border:solid 3px var(--vertclair);
+    background-color:var(--vertclair);
+    color:white;
+    padding:1rem;
+}
 
 /*FORMULAIRE AJOUT DE DISPO*/
 .formAjoutDispo input[type='radio'],.formAjoutDispo input[type='checkbox'] {
@@ -1123,4 +1185,86 @@ display:flex;
     border: 2px solid var(--vertclair);
     border-radius: 4px;
 
+}
+
+/*MOT DE PASSE OUBLIE*/
+#mdpOublie{
+    padding:5rem;
+    height:78vh;
+}
+#mdpOublie .wrap{
+    display:flex;
+    flex-flow:column;
+    align-items: center;
+    gap:5rem;
+}
+#mdpOublie .wrap .txt{
+    display:flex;
+    align-items:center;
+    flex-flow:column;
+    gap:2rem;
+}
+#mdpOublie form{
+    display:flex;
+    flex-flow:column;
+    align-items: center;
+    gap:2rem;
+    width:50%;
+}
+#mdpOublie .erreur{
+    color:red;
+}
+#mdpOublie .button{
+    border: solid 1px var(--vertclair);
+    border-radius:10px;
+    color:white;
+    background-color: var(--vertclair);
+    padding:1rem 2rem;
+    font-size:1rem;
+    font-weight: bold;
+    cursor:pointer;
+    margin-bottom:2rem;
+    display:flex;
+    gap:2rem
+
+}
+#mdpOublie .button:hover{
+    background-color: var(--verthover) ;
+}
+
+
+/*AJOUT*/
+#photo_add{
+    padding:5rem;
+    height:78vh;
+}
+#photo_add form{
+    display:flex;
+    flex-flow:column;
+    align-items: center;
+    justify-content: center;
+    gap:5rem;
+}
+#photo_add form div{
+    display:flex;
+    flex-flow:column;
+    align-items:center;
+    gap:1rem;
+}
+#photo_add .button{
+    border: solid 1px var(--vertclair);
+    border-radius:10px;
+    color:white;
+    background-color: var(--vertclair);
+    padding:1rem 2rem;
+    font-size:1rem;
+    font-weight: bold;
+    cursor:pointer;
+    margin-bottom:2rem;
+    display:flex;
+    gap:2rem
+
+}
+#photo_add .button:hover{
+    background-color: var(--verthover) ;
 }

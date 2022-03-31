@@ -1,4 +1,4 @@
-<?php
+  <?php
 
 //FONCTIONS BASIQUES DE BASE (Ne pas toucher)
 function debug($tableau){

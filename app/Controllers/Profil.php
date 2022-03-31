@@ -20,7 +20,9 @@ class Profil extends BaseController
 
     public function index()
     {
-        if ($_SESSION['user']['status']=='parent'){
+        if (empty($_SESSION['user'])){
+            return redirect()->to('');
+        } elseif ($_SESSION['user']['status']=='parent'){
             $enfants= $this->enfantsModel->recupEnfantsDeParent($_SESSION['user']['id']);
             $parent = $this->parentsModel->recupUnParents($_SESSION['user']['id']);
             echo view('Profil/Profil', ["parent" => $parent,"enfants"=>$enfants]);
@@ -29,11 +31,14 @@ class Profil extends BaseController
             echo view('Profil/Profil', ["pro" => $pro]);
         }
 
+
     }
 
     public function modifProfil()
     {
-        if ($_SESSION['user']['status']=='parent'){
+        if (empty($_SESSION['user'])){
+            return redirect()->to('');
+        }elseif ($_SESSION['user']['status']=='parent'){
             $enfants= $this->enfantsModel->recupEnfantsDeParent($_SESSION['user']['id']);
             $parent = $this->parentsModel->recupUnParents($_SESSION['user']['id']);
             echo view('Profil/ModifProfil', ["parent" => $parent,"enfants"=>$enfants]);
@@ -80,7 +85,7 @@ class Profil extends BaseController
         }elseif($_SESSION['user']['status']=='professionnel'){
             $pro=$this->proModel->recupUnPro($_SESSION['user']['id']);
             if (password_verify($_POST['password'], $pro[0]['pro_password'])){
-                if($pro[0]['pro_categorie']!='nourrice'){
+                if($pro[0]['pro_categorie']!='Nourrice'){
                     $input=$this->validate([
                         'nom'=> 'required|min_length[2]',
                         'prenom'=> 'required|min_length[2]',
@@ -119,7 +124,9 @@ class Profil extends BaseController
                 $pro =$this->proModel->recupUnPro($_SESSION['user']['id']);
                 echo view('Profil/ModifProfil', ["pro" => $pro,'erreurs'=>['mdp'=>'Mauvais mot de passe']]);
             }
-        }
+        }elseif (empty($_SESSION['user'])){
+        return redirect()->to('');
+     }
     }
 
 
@@ -153,10 +160,7 @@ class Profil extends BaseController
             $enfants= $this->enfantsModel->recupEnfantsDeParent($_SESSION['user']['id']);
             $parent = $this->parentsModel->recupUnParents($_SESSION['user']['id']);
             echo view('Profil/Profil', ["parent" => $parent,"enfants"=>$enfants,'erreurs'=>$erreurs,'form'=>$data]);
-
-
         }else{
-
             $this->enfantsModel->insert($data);
             return redirect()->to('/profil');
         }
@@ -197,12 +201,12 @@ class Profil extends BaseController
             return $data;
 
         }elseif($_SESSION['user']['status']=='professionnel'){
+
             $data = [
                 'pro_nom' => $request->getPost("nom"),
                 'pro_prenom' => $request->getPost("prenom"),
                 'pro_entreprise' => $request->getPost("entreprise"),
                 'pro_description' => $request->getPost("description"),
-                'pro_categorie' => $request->getPost("categorie"),
                 'pro_adresse' => $request->getPost("adresse"),
                 'pro_numAdresse' => $request->getPost("numAdresse"),
                 'pro_infosAdresse' => $request->getPost("infosAdresse"),
@@ -269,7 +273,7 @@ class Profil extends BaseController
     }
     public function motDePasseModifPost(){
         $input=$this->validate([
-            'mdp'=> 'required|min_length[5]',
+            'mdp'=> 'required|min_length[8]',
         ]);
 
         if(!$input){
@@ -316,7 +320,7 @@ class Profil extends BaseController
 
            if (password_verify($_POST['mdp'],$parent[0]['parent_password'])){
                $input=$this->validate([
-                   'newmdp'=> 'required|min_length[5]',
+                   'newmdp'=> 'required|min_length[8]',
                ]);
 
                if(!$input){
@@ -336,7 +340,7 @@ class Profil extends BaseController
 
            if (password_verify($_POST['mdp'],$pro[0]['pro_password'])){
                $input=$this->validate([
-                   'newmdp'=> 'required|min_length[5]',
+                   'newmdp'=> 'required|min_length[8]',
                ]);
 
                if(!$input){

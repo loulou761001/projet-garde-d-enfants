@@ -1,7 +1,10 @@
 <?php
 include_once ('inc/fonctions.php');
 $errors=[];
-debug($_POST);
+if (isLogged()==true){
+    header('Location: /');
+    exit();
+}
 ?>
 
 <?= $this->extend('default') ?>

@@ -3,23 +3,25 @@
 <?= $this->section('content'); ?>
 
 
-
 <section id="profil">
     <div class="wrap">
-        <?php
-        if (!empty($erreurs)){
-        if(!empty($erreurs == 'Mauvais mot de passe')){ ?>
-            <div class="erreur_enfant"><p>Il y a eu une erreur lors de l'ajout de votre enfant sur votre compte, vérifiez les erreurs sur le formulaire d'inscription.</p></div>
-        <?php  }}?>
+
 
 
         <div class="profil_top">
             <div class="profil_pp">
-                <?php if(!empty($parent[0]['parent_photo'])){
-                    echo'afficher photo';
-                } else {?>
-                    <a href=""><img class="img" src="<?= base_url('assets/imgs/pp_basique.svg'); ?>"></a>
-                <?php } ?>
+                <?php if ($_SESSION['user']['status']=='parent'){
+                    if(!empty($parent[0]['parent_photo'])){ ?>
+                        <a href="/profil/photo/<?= $_SESSION['user']['id'] ?>"><img class="img" src="<?= base_url('uploads/imgs/').'/'.$parent[0]['parent_photo']; ?>"></a>
+                    <?php } else {?>
+                        <a href="/profil/photo/<?= $_SESSION['user']['id'] ?>"><img class="img" src="<?= base_url('assets/imgs/pp_basique.svg'); ?>"></a>
+                    <?php }} else {
+                    if(!empty($pro[0]['pro_photo'])){ ?>
+                        <a href="/profil/photo/<?= $_SESSION['user']['id'] ?>"><img class="img" src="<?= base_url('uploads/imgs/').'/'.$pro[0]['pro_photo']; ?>"></a>
+                    <?php } else {?>
+                        <a href="/profil/photo/<?= $_SESSION['user']['id'] ?>"><img class="img" src="<?= base_url('assets/imgs/pp_basique.svg'); ?>"></a>
+                    <?php }
+                } ?>
             </div>
             <div class="profil_intro">
 
@@ -126,15 +128,15 @@
                        <div class="modif_box">
                            <label for="password">Confirmez les changements avec votre mot de passe :</label>
                            <input type="password" placeholder="Votre mot de passe..." id="password" name="password" value="">
-                           <?php if(!empty($erreurs['modifsAdresse'])){ ?>
-                               <span class="erreur"> <?= $erreurs['modifsAdresse'] ?></span>
-                           <?php } ?>
-                       </div>
 
+                       </div>
+                       <?php if(!empty($erreurs['mdp'])){ ?>
+                           <span class="erreur"> <?= $erreurs['mdp'] ?></span>
+                       <?php } ?>
                        <a href="/motdepasse/profil/modifier">Changer de mot de passe ?</a>
 
 
-                       <input class="button" type="submit" name="submitted" value="ENVOYER">
+                       <input class="button" type="submit" name="submitted" value="MODIFIER">
 
                        <p>Les champs avec * sont requis</p>
                    </form>
@@ -238,13 +240,11 @@
 
                         <?php }?>
 
-
-
-
                         <div class="modif_box">
                             <label for="tauxHorraire">Taux Horaire</label>
                             <div class="tauxHoraire_modif">
                                 <input type="number" id="tauxHorraire" name="tauxHorraire" min="0" value="<?= $pro[0]['pro_taux_horaire'] ?>">
+                                <p class="tauxHoraireTxt">€/h</p>
                                 <?php if(!empty($erreurs['pro_taux_horaire'])){ ?>
                                     <span class="erreur"> <?= $erreurs['pro_taux_horaire'] ?></span>
                                 <?php } ?>
@@ -259,14 +259,15 @@
 
                     <div class="modif_box">
                         <label for="password">Confirmez les changements avec votre mot de passe :</label>
-                        <input type="text" placeholder="Votre mot de passe..." id="password" name="password" value="">
+                        <input type="password" placeholder="Votre mot de passe..." id="password" name="password" value="">
                         <?php if(!empty($erreurs['modifsAdresse'])){ ?>
                             <span class="erreur"> <?= $erreurs['modifsAdresse'] ?></span>
                         <?php } ?>
                     </div>
+                    <a href="/motdepasse/profil/modifier">Changer de mot de passe ?</a>
 
-                        <input id="dernierSubmit" class="button" type="submit" name="submitted" value="ENVOYER">
-                    <p>Les champs avec * sont requis</p>
+                        <input class="button" type="submit" name="submitted" value="MODIFIER">
+                    <p class="form_txt">Les champs avec * sont requis</p>
                 </form>
             <?php   } ?>
         </div>

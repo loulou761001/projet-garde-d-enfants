@@ -1,9 +1,7 @@
 <?= $this->extend('default') ?>
 
 <?= $this->section('content'); ?>
-<?php
-debug($pro);
-?>
+
     <section id="profil">
         <div class="wrap">
             <?php
@@ -43,35 +41,33 @@ debug($pro);
                 <h2 class="titre">Informations :</h2>
                 <?php if ($_SESSION['user']['status']=='parent'){ ?>
                     <div class="mid_flex">
-                        <p><strong>Nom :</strong> <?= $parent[0]['parent_nom']?></p>
-                        <p><strong>Prénom :</strong> <?= $parent[0]['parent_prenom']?></p>
-                        <p><strong>Email:</strong> <?= $parent[0]['parent_email']?></p>
-                        <p><strong>Téléphone :</strong> <?php echo wordwrap('0'.$parent[0]['parent_tel'],2," ",1)?></p>
-                        <p><strong>Adresse :</strong> <?= $parent[0]['parent_numAdresse'].' '. $parent[0]['parent_adresse'].' '.$parent[0]['parent_ville'].' '.$parent[0]['parent_postal'] ?> </p>
-                        <p><strong>Informations supplémentaires :</strong> <?php if(!empty($parent[0]['parent_infosAdresse'])){echo $parent[0]['parent_infosAdresse'];}else{ echo 'Non renseigné';} ?></p>
+                        <p class="mid_txt"><strong>Nom :</strong> <?= $parent[0]['parent_nom']?></p>
+                        <p class="mid_txt"><strong>Prénom :</strong> <?= $parent[0]['parent_prenom']?></p>
+                        <p class="mid_txt"><strong>Email:</strong> <?= $parent[0]['parent_email']?></p>
+                        <p class="mid_txt"><strong>Téléphone :</strong> <?php echo wordwrap('0'.$parent[0]['parent_tel'],2," ",1)?></p>
+                        <p class="mid_txt"><strong>Adresse :</strong> <?= $parent[0]['parent_numAdresse'].' '. $parent[0]['parent_adresse'].' '.$parent[0]['parent_ville'].' '.$parent[0]['parent_postal'] ?> </p>
+                        <p class="mid_txt"><strong>Informations supplémentaires :</strong> <?php if(!empty($parent[0]['parent_infosAdresse'])){echo $parent[0]['parent_infosAdresse'];}else{ echo 'Non renseigné';} ?></p>
                     </div>
-                    <a href="/profil/modifier">Modifier</a>
+                    <a class="modif_button" href="/profil/modifier">Modifier</a>
 
                 <?php }elseif ($_SESSION['user']['status']=='professionnel'){ ?>
 
                     <div class="mid_flex">
-                        <p><strong>Nom :</strong> <?= $pro[0]['pro_nom']?></p>
-                        <p><strong>Prénom :</strong> <?= $pro[0]['pro_prenom']?></p>
-                        <p><strong>Email:</strong> <?= $pro[0]['pro_email']?></p>
-                        <p><strong>Téléphone :</strong> <?php echo wordwrap('0'.$pro[0]['pro_telephone'],2," ",1)?></p>
-                        <p><strong>Adresse :</strong> <?= $pro[0]['pro_numAdresse'].' '. $pro[0]['pro_adresse'].' '.$pro[0]['pro_ville'].' '.$pro[0]['pro_postal'] ?> </p>
-                        <p><strong>Informations supplémentaires :</strong> <?php if(!empty($pro[0]['pro_infosAdresse'])){echo $pro[0]['pro_infosAdresse'];}else{ echo 'Non renseigné';} ?></p>
-                        <p><strong>Catégorie :</strong> <?= $pro[0]['pro_categorie']?></p>
-                        <p><strong>Tarif Horaire :</strong> <?= $pro[0]['pro_taux_horaire'].'€/h'?></p>
+                        <p class="mid_txt"><strong>Nom :</strong> <?= $pro[0]['pro_nom']?></p>
+                        <p class="mid_txt"><strong>Prénom :</strong> <?= $pro[0]['pro_prenom']?></p>
+                        <p class="mid_txt"><strong>Email:</strong> <?= $pro[0]['pro_email']?></p>
+                        <p class="mid_txt"><strong>Téléphone :</strong> <?php echo wordwrap('0'.$pro[0]['pro_telephone'],2," ",1)?></p>
+                        <p class="mid_txt"><strong>Adresse :</strong> <?= $pro[0]['pro_numAdresse'].' '. $pro[0]['pro_adresse'].' '.$pro[0]['pro_ville'].' '.$pro[0]['pro_postal'] ?> </p>
+                        <p class="mid_txt"><strong>Informations supplémentaires :</strong> <?php if(!empty($pro[0]['pro_infosAdresse'])){echo $pro[0]['pro_infosAdresse'];}else{ echo 'Non renseigné';} ?></p>
+                        <p class="mid_txt"><strong>Catégorie :</strong> <?= $pro[0]['pro_categorie']?></p>
+                        <p class="mid_txt"><strong>Tarif Horaire :</strong> <?= $pro[0]['pro_taux_horaire'].'€/h'?></p>
                         <?php if($pro[0]['pro_categorie']!='Nourrice'){ ?>
-                            <p><strong>Entreprise:</strong> <?= $pro[0]['pro_entreprise']?></p>
-                            <p><strong>N° de Siret :</strong> <?= $pro[0]['pro_siret']?></p>
+                            <p class="mid_txt" ><strong>Entreprise:</strong> <?= $pro[0]['pro_entreprise']?></p>
+                            <p class="mid_txt"><strong>N° de Siret :</strong> <?= $pro[0]['pro_siret']?></p>
                          <?php  }?>
-
-
                     </div>
-                    <p><strong>Description :</strong> <?= $pro[0]['pro_description'] ?></p>
-                    <a href="/profil/modifier">Modifier</a>
+                    <p class="mid_txt"><strong>Description :</strong> <?= $pro[0]['pro_description'] ?></p>
+                    <a class="modif_button" href="/profil/modifier">Modifier</a>
 
                 <?php   } ?>
 

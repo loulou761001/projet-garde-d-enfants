@@ -104,7 +104,6 @@ class Connexion extends BaseController
     }
     public function deco()
     {
-        echo view('connexion');
         session_destroy();
         return redirect()->to('');
     }

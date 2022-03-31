@@ -15,19 +15,13 @@
             </div>
             <input class="button" type="submit" name="submitted" value="ENVOYER">
 
-            <span><p><?php if(!empty($erreurs)){echo'Mot de passe trop court';} ?></p></span>
+            <span class="erreur"><p><?php if(!empty($erreurs)){echo 'Le nouveau mot de passe doit faire au minimum 8 caractères';} ?></p></span>
 
         </form>
     </div>
 </section>
 
-
-
 <?php
 $this->endSection() ;
-$this->section('js');?>
-<script src="../assets/js/profil.js"></script>
-<?php $this->endSection() ;
-?>
 
 

@@ -161,7 +161,35 @@ class Inscription extends BaseController
             } elseif (($_SESSION['user']['status'] == 'professionnel'))  {
                 $this->prosModel->editPro($dataPic, $id);
             }
-            return redirect()->to('/');
+            return redirect()->to('/profil');
         }
     }
+}
+
+
+
+function clock(){
+    $m=0;
+      for ($s=0;$s<=59;$s++){
+          if ($s==59){
+              $s=0;
+              $m=$m+1;
+              echo $m.' : '.$s;
+              echo'</br>';
+          }elseif($m==23){
+              echo $m.' : '.$s;
+              echo'</br>';
+              exit;
+          }else{
+              echo $m.' : '.$s;
+              echo'</br>';
+          }
+      }
+}
+
+function clock_do(){
+    $m=0;
+    $s=0;
+
+
 }

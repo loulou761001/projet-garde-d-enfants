@@ -11,13 +11,16 @@ if ($parent['id'] != $_SESSION['user']['id']) {
     return redirect()->to('/');
 }
 if ($parent['id'] == $_SESSION['user']['id']) { ?>
-    <section class="wrap">
-        <form action="/profil/photo/<?= $parent['id'] ?>" method="post" enctype="multipart/form-data">
-            <h1>Ajouter une photo de profil</h1>
-            <label for="pfp">Votre photo (.jpg, .jpeg, .png)</label>
-            <input type="file" class="form-control" accept="image/*" name="file">
-            <input type="submit" name="submittedPhoto">
-        </form>
+    <section id="photo_add">
+        <div class="wrap">
+            <form action="/profil/photo/<?= $parent['id'] ?>" method="post" enctype="multipart/form-data">
+                <h1>Ajouter une photo de profil</h1>
+                <label for="pfp">Votre photo (.jpg, .jpeg, .png)</label>
+                <input type="file" class="form-control" accept="image/*" name="file">
+                <input type="submit" name="submittedPhoto">
+            </form>
+        </div>
+
     </section>
 <?php }
 $this->endSection() ;

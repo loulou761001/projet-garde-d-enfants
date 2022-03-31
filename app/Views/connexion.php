@@ -1,7 +1,12 @@
 <?= $this->extend('default') ?>
 
 <?= $this->section('content');
-require_once('inc/fonctions.php'); ?>
+
+if (isLogged()==true){
+    header('Location: /');
+    exit();
+}
+?>
 <section id="connexion">
 <div class="wrap">
     <form action="" method="post">
@@ -17,7 +22,7 @@ require_once('inc/fonctions.php'); ?>
             <input type="password" name="mdp" id="mdp">
         </div>
 
-        <a href="#">Mot de passe oublié ?</a>
+        <a href="/motdepasse">Mot de passe oublié ?</a>
 
         <input class="button" type="submit" value="Se connecter">
     </form>

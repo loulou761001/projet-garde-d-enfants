@@ -257,9 +257,14 @@ class Dispo extends BaseController
                 "id_contrat" => $dernierId,
             ];
             $this->contratsDispoModel->insertContratDispo($contratDispo[$i]);
-            debug($data);
-//            $this->dispoModel->moinsPlace($contratDispo[$i],$data['dispoActuelleID']);
-        }
-        return view('dispos/parents/disposDetails',$data);
+
+            foreach ($dispos as $dispo) {
+                $places = [
+                    'dispo_places'=>$this->dispoModel->recupDisposParID($dispo)[0]['dispo_places']-count($enfants)
+                ];
+                $this->dispoModel->editDispo($places,$dispo);
+            }
+        };
+        return redirect()->to('/mesDispos');
     }
 }

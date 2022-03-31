@@ -3,6 +3,7 @@ $this->extend('default') ?>
 
 <?= $this->section('content');
 setlocale(LC_TIME, "fr_FR");
+
 ?>
 <section id="disponibilites" class="wrap">
     <h1>Disponibilités de nos professionnels :</h1>
@@ -23,9 +24,11 @@ for ($i = 0; $i < count($dispos); $i++) {
         $t++;
     }
 }
+
 foreach ($dispoTotale as $dispo) { ?>
 <div class="dispo" >
 <?php
+
 foreach ($pro as $unPro) {
     if($unPro['id'] == $dispo['0']['dispo_id_pro']) {
         $proActuel['taux'] = $unPro['pro_taux_horaire'];

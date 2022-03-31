@@ -143,10 +143,14 @@ footer .reseauxFooter i{
     margin-right: 20px;
     font-size: 30px;
 }
-footer .reseauxFooter i:hover{
+/*footer .reseauxFooter i:hover{
     color: var(--verthover);
+<<<<<<< HEAD
 
 }
+=======
+}*/
+>>>>>>> 9373143bdd7a8fbdd50b8a1f6dd9d0525f5d0f51
 
  /*ACCEUIL*/
 .flexslider {
@@ -194,11 +198,10 @@ footer .reseauxFooter i:hover{
 
 }
 
-#flexsliderTexte .moitieTexte h3 {
-
+/*#flexsliderTexte .moitieTexte h3 {
     padding : 1rem;
-}
-#flexsliderTexte .moitieTexte a {
+}*/
+#flexsliderTexte  a {
     text-decoration: none;
 }
 #flexsliderTexte .moitieTexte a p {
@@ -212,6 +215,37 @@ footer .reseauxFooter i:hover{
     border-color: var(--verthover);
 }
 
+#flexsliderTexte  a {
+    /*width: 140px;*/
+    height: 45px;
+    font-size: 11px;
+    font-family: "Source Sans Pro" , sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    /*box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);*/
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    /*margin: 0 auto;*/
+    margin-top: 15px;
+    justify-content: center;
+    align-items: center;
+    /*margin-bottom: 5rem;*/
+}
+
+#flexsliderTexte  a:hover {
+    background-color: var(--vertclair);
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+} 
+
 #sectionCentrale .boite {
     background-color: white;
     width: 31%;
@@ -223,8 +257,6 @@ footer .reseauxFooter i:hover{
     height: auto;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
     padding: 2rem;
-
-
 }
 #sectionCentrale .boite h2{
     padding: 1rem;
@@ -252,6 +284,7 @@ footer .reseauxFooter i:hover{
 }
 .avis img {
     width: 10%;
+    height: 30%;
     margin-right: 6rem;
 }
 
@@ -1013,7 +1046,47 @@ display:flex;
 .formAjoutDispo .listeHeures div label {
     margin: 3px;
 }
+#date {
+    border-radius: 50px;
+    border-color: var(--vertclair);
+}
+#places {
+    text-align: center;
+    display: flex;
+    margin: 10px auto;
+    border-radius: 50px;
+    border-color: var(--vertclair);
+}
 
+.envoieDispo {
+    width: 140px;
+    height: 45px;
+    font-size: 11px;
+    font-family: "Source Sans Pro" , sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5rem;
+}
+
+.envoieDispo:hover {
+    background-color: var(--vertclair);
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+}
 
 
 /*DETAILS DE DISPOS*/
@@ -1059,9 +1132,6 @@ display:flex;
     margin-top: 100px;
     color: var(--vertclair);
     margin-bottom: 10px;
-
-
-
 }
 #disponibilites a{
     color: var(--vertclair);
@@ -1071,12 +1141,50 @@ display:flex;
     color: var(--vert);
 
 }
+
+#ajoutdispo h1{
+    margin-top: 50px;
+    color: var(--vertclair);
+    margin-bottom: 10px;
+}
+
+#ajoutdispo a {
+    width: 200px;
+    height: 45px;
+    font-size: 11px;
+    font-family: "Source Sans Pro" , sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    margin: 15px auto;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+#ajoutdispo a:hover {
+    background-color: var(--vertclair);
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+}
+
 .dispo {
     padding: 2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 4rem;
     border-radius: 10px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+
 
 }
 
@@ -1268,3 +1376,122 @@ display:flex;
 #photo_add .button:hover{
     background-color: var(--verthover) ;
 }
+
+/* RESPONSIVE */
+
+/* Accueil */
+
+@media screen and (max-width: 1000px) {
+   #sectionCentrale .boite {
+       margin:20px auto 0 auto;
+       width: 60%;
+       height: auto;
+
+
+
+   }
+    #sectionCentrale .flex .sb{
+        display: block;
+
+
+    }
+    #sectionCentrale {
+        display: block;
+
+    }
+    .palmier {
+        display:none;
+    }
+    .palmier2 {
+         display:none;
+     }
+
+    .diagVerte {
+        display: none;
+    }
+    .avis img {
+        width: 20%;
+        height: 30%;
+        margin-bottom: 2rem;
+
+    }
+
+}
+
+@media screen and (max-width: 1300px){
+    footer .diagVerte{
+        display: none;
+    }
+}
+@media screen and (max-width: 1400px){
+    #flexsliderTexte h3{
+        font-size: 14px;
+        padding: 0rem;
+    }
+    #flexsliderTexte a{
+        font-size: 15px;
+    }
+    #flexsliderTexte p{
+        font-size: xx-small;
+        
+    }
+    
+}
+@media screen and (max-width: 1100px){
+    #flexsliderTexte a{
+        width: 160px;
+    }
+    #flexsliderTexte{
+        padding: 3rem;
+    }
+}
+@media screen and (max-width: 915px){
+    #flexsliderTexte h2{
+        font-size: 1rem;
+    }
+    #flexsliderTexte a{
+        width: 160px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    /* header responsive */
+    
+    header li .flex a{
+        padding: 20px;
+        width: 70%;
+    }
+
+    footer .separator {
+        display: none;
+    }
+    footer .wrap{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+}
+@media screen and (max-width: 700px){
+    #flexsliderTexte a{
+        width: 100px;
+    }
+}
+@media screen and (max-width: 608px) {
+    header li .flex a{
+        padding: 8px;
+        width: 50%;
+        font-size: 10px;
+    }
+}
+@media screen and (max-width: 500px) {
+    header li{
+        width: 40%;
+    }
+    header li .flex a {
+        padding: 5px;
+        font-size: 6px;
+        margin-right: 10px;
+    }
+}
+>>>>>>> 9373143bdd7a8fbdd50b8a1f6dd9d0525f5d0f51

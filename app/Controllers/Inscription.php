@@ -77,14 +77,16 @@ class Inscription extends BaseController
     public function handlePostNourrice()
     {
         debug($_POST);
-        helper(['form', 'url']);
-        $File = $this->request->getFile('identite');
-        debug($File);
-        $File->move(PUBLIC_PATH . '/uploads/identite');
-        $dataFile = [
-            'pro_identite' => $File->getName()
-        ];
-        var_dump($dataFile);
+        if ($_POST['categorie'] == "Nourrice") {
+            helper(['form', 'url']);
+            $File = $this->request->getFile('identite');
+            debug($File);
+            $File->move(PUBLIC_PATH . '/uploads/identite');
+            $dataFile = [
+                'pro_identite' => $File->getName()
+            ];
+            var_dump($dataFile);
+        }
 
         $data = [
             'pro_nom' => $_POST['nom'],
@@ -107,8 +109,6 @@ class Inscription extends BaseController
         ];
         debug($data);
         $this->prosModel->inserPro($data);
-
-
 
         return redirect()->to('/connexion');
     }
@@ -153,8 +153,6 @@ class Inscription extends BaseController
                     'pro_photo' => $imageFile->getName()
                 ];
             }
-
-
             var_dump($dataPic);
             if ($_SESSION['user']["status"] == 'parent') {
                 $this->parentsModel->editParent($dataPic, $id);

@@ -65,8 +65,8 @@ $this->section('content');
             </div>
         </div>
         <label for="places"> Nombre de places disponibles :</label>
-        <input type="number" min="1" name="places" id="places">
-        <input type="submit">
+        <input type="number" min="1" name="places" id="places" placeholder="nombre de place">
+        <input type="submit" class="envoieDispo">
     </form>
 
 </section>

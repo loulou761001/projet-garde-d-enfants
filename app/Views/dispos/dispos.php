@@ -4,7 +4,7 @@ $this->extend('default') ?>
 <?= $this->section('content');
 setlocale(LC_TIME, "fr_FR");
 ?>
-<section class="wrap">
+<section class="wrap" id="ajoutdispo">
     <a href="/gestionDispo/ajout">Ajouter une date</a>
     <h1>Mes disponibilités actuelles : </h1>
 <?php

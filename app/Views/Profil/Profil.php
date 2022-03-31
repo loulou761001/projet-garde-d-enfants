@@ -2,7 +2,6 @@
 
 <?= $this->section('content'); ?>
 <?php
-debug($pro);
 ?>
     <section id="profil">
         <div class="wrap">

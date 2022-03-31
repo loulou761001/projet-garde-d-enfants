@@ -23,12 +23,21 @@ class ContratsDispoModel extends Model
         }
     }
 
-    public function recupUnEnfant($id) {
+    public function recupUneDispo($id) {
         if (empty($id)) {
             return redirect()->to('');
         } else {
-            return $this->select('enfants.*')
-                ->where('id', $id)
+            return $this->select('contrat_dispo_pivot.*')
+                ->where('id_contrat', $id)
+                ->find();
+        }
+    }
+    public function recupUnContratParDispo($id) {
+        if (empty($id)) {
+            return redirect()->to('');
+        } else {
+            return $this->select('contrat_dispo_pivot.*')
+                ->where('id_dispo', $id)
                 ->find();
         }
     }

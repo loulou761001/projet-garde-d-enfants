@@ -15,6 +15,11 @@ class DispoModel extends Model
             return $this->findAll();
         }
     }
+    public function recupDisposParIDString($id) {
+        return $this->select('disponibilites.*')
+            ->where('id', $id)
+            ->find();
+    }
     public function recupDisposParID($id) {
         if (gettype($id)=='string' OR gettype($id)=='integer') {
             return $this->select('disponibilites.*')

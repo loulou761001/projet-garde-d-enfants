@@ -103,6 +103,74 @@ class Dispo extends BaseController
         }
         return view('dispos/parents/dispos',$data);
     }
+
+    public function mesDisposParents() {
+        if (!isParent()) {
+            return redirect()->to('');
+        }
+        $enfants = $this->enfantsModel->recupEnfantsDeParent($_SESSION['user']['id']);
+        if(empty($enfants)) {
+            return redirect()->to('profil');
+        }
+        $contrats = [];
+        foreach ($enfants as $enfant) {
+            $contrat = $this->contratsEnfantsModel->recupContratsEnfant($enfant['id']);
+            array_push($contrats, $contrat);
+        }
+        $i =0;
+        foreach ($contrats as $contratList) {
+            foreach ($contratList as $contrat) {
+                $mesContrat[$i] = $this->contratsModel->recupContratParID($contrat['id_contrat']);
+                $i++;
+            }
+        }
+//        debug($mesContrat);
+        if(empty($mesContrat)) {
+            return redirect()->to('profil');
+        }
+        $i =0;
+        $e =0;
+        foreach ($mesContrat as $item) {
+            $id = $item[0]['id'];
+            $id_dispo = $this->contratsDispoModel->recupUneDispo($id);
+//            debug($id_dispo);
+            foreach ($id_dispo as $value) {
+                if (!empty($value)) {
+//                    debug($value);
+                    $datetest = date('Y-m-d',strtotime($this->dispoModel->recupDisposParID($value['id_dispo'])[0]['dispo_jour']));;
+
+                    if ($datetest > date('Y-m-d')) {
+                        $contratID = $this->contratsDispoModel->recupUnContratParDispo($value['id_dispo'])[0]['id_contrat'];
+//                        debug($contratID);
+                        $mesDispos[$e] = $this->dispoModel->recupDisposParID($value['id_dispo']);
+                        $mesDispos[$e]['enfants'] = $this->contratsEnfantsModel->recupContratsEnfantParContrat($contratID);
+                        $e++;
+                    }
+                }
+            }
+            $i++;
+        }
+        $i =0;
+//        debug($contrats);
+        $enfants = [];
+        foreach ($contrats as $contrat) {
+            if (!empty($contrat)) {
+                foreach ($contrat as $item) {
+                    $enfants[$i] = $this->enfantsModel->recupUnEnfant($item['id_enfant']);
+                    $i++;
+                }
+            }
+        }
+        $data = [
+            'parents' => $this->parentsModel->recupParents(),
+            'pro' => $this->proModel->recupPro(),
+            'contrats' => $contrats,
+            'dispos' => $mesDispos,
+            'enfants' => $enfants,
+        ];
+        return view('dispos/parents/mesDispos',$data);
+    }
+
     public function noDispo() {
         return view('dispos/parents/noDispos');
 

@@ -150,3 +150,12 @@ function isPro()
     }
     return false;
 }
+function isApprouve()
+{
+    if(isPro()) {
+        if($_SESSION['user']['approuve'] == '1') {
+            return true;
+        }
+    }
+    return false;
+}

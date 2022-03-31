@@ -20,7 +20,7 @@ debug($_POST);
             </div>
 
             <h2>Inscription :</h2>
-            <form action="" method="post" class="wrapform" novalidate>
+            <form action="" method="post" class="wrapform" enctype="multipart/form-data" novalidate>
 
                 <div class="form1">
                     <div class="info_box">
@@ -119,6 +119,12 @@ debug($_POST);
                     </div>
                     <span data-champ="categorie"></span>
 
+                    <div class="info_box identite">
+                        <label for="identite">Piece d'identité (image ou pdf) :</label>
+                        <input type="file" placeholder="" id="identite" name="identite">
+                    </div>
+                    <span data-champ="entreprise"></span>
+
                     <div class="info_box entreprise hidden">
                         <label for="entreprise">Nom de l'entreprise :</label>
                         <input type="text" placeholder="" id="entreprise" name="entreprise" value="<?= recupInputValue('entreprise');?>">
@@ -137,7 +143,6 @@ debug($_POST);
                             <input type="number" id="tauxHorraire" name="tauxHorraire" min="0">
                             <p>€/h</p>
                         </div>
-
                     </div>
                     <span data-champ="tauxHorraire"></span>
 

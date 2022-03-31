@@ -247,6 +247,7 @@ footer .reseauxFooter i:hover{
 }
 .avis img {
     width: 10%;
+    height: 30%;
     margin-right: 6rem;
 }
 
@@ -281,17 +282,17 @@ footer .reseauxFooter i:hover{
     position: absolute;
     z-index: -1;
     top: 600Px;
-    right: -31px;
-    transform: rotate(-10deg);
+    right: -40px;
+    transform: rotate(-20deg);
 }
 .palmier2 {
     width: 360px;
     position: absolute;
     z-index: -2;
     top: 600Px;
-    left: -31px;
+    left: -40px;
     -webkit-transform: scaleX(-1);
-    transform: scaleX(-1) rotate(-10deg);
+    transform: scaleX(-1) rotate(-20deg);
 
 
 }
@@ -1009,10 +1010,11 @@ display:flex;
 }
 .dispo {
     padding: 2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 4rem;
     border-radius: 10px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+
 
 }
 
@@ -1120,5 +1122,49 @@ display:flex;
     font-family: "Source Sans Pro", sans-serif;
     border: 2px solid var(--vertclair);
     border-radius: 4px;
+
+}
+
+
+
+
+/* RESPONSIVE */
+
+/* Accueil */
+
+@media screen and (max-width: 1000px) {
+   #sectionCentrale .boite {
+       margin:20px auto 0 auto;
+       width: 60%;
+       height: auto;
+
+
+
+   }
+    #sectionCentrale .flex .sb{
+        display: block;
+
+
+    }
+    #sectionCentrale {
+        display: block;
+
+    }
+    .palmier {
+        display:none;
+    }
+    .palmier2 {
+         display:none;
+     }
+
+    .diagVerte {
+        display: none;
+    }
+    .avis img {
+        width: 20%;
+        height: 30%;
+        margin-bottom: 2rem;
+
+    }
 
 }

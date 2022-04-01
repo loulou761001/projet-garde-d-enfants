@@ -31,7 +31,7 @@ if (!empty($_POST)){
 ?>
 <section id="profil">
     <div class="wrap">
-        <form action="paiementPost.php" method="POST">
+        <form action="" method="POST">
             <script
                 src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                 data-key="pk_test_51Kgr5DHwpow00Jhwb1OS9KRiMBEPPlaKY5nawfQLx1YiDlxL8SYL8oGQw2Bf5UBaKSt85URYXl8MxQsU70o6qRth004bCUa4Zh"

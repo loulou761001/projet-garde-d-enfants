@@ -52,17 +52,17 @@ $this->extend('default') ?>
         </div>
         <div class="boite">
             <h2><i class="fa-solid fa-medal"></i> Rapide et efficace!</h2>
-            <p>Des milliers d’annonces chaque jours, pour les nounous comme pour la garde d’enfants ! 💼</p>
+            <p>Des milliers d’annonces chaque jour, pour les nounous comme pour la garde d’enfants ! 💼</p>
         </div>
         <div class="boite">
             <h2><i class="fa-solid fa-money-bills"></i> Et gratuit!</h2>
             <p>Parce que nous estimons que la garde d'enfants doit être accessible à tous, l’inscription sur Ticrocos est TOTALEMENT gratuite !💸</p>
         </div>
     </div>
-    <h1 class="recommendation"> Des milliers de parents et de nounous recommendent notre site!</h1>
+    <h1 class="recommendation"> Des milliers de parents et de nounous recommandent notre site!</h1>
     <div class="flex boutonsAccueil">
         <div class="boutonAccueil" id="btnNounous">
-            <p>Avis de nos nourices</p>
+            <p>Avis de nos nourrices</p>
         </div>
         <div class="boutonAccueil" id="btnParents">
             <p>Avis de nos parents</p>
@@ -76,8 +76,8 @@ $this->extend('default') ?>
                     <div class="flex">
                         <img src="<?= base_url('assets/imgs/smilef.png'); ?>" />
                         <div>
-                            <p>Thérèse - nourice</p>
-                            <p>Service efficace, je rencontre grâce à Ticrocos des gens formidables.</p>
+                            <p>Thérèse - nourrice</p>
+                            <p>Service efficace, je rencontre des gens formidables grâce à Ticrocos .</p>
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
@@ -90,7 +90,7 @@ $this->extend('default') ?>
                     <div class="flex">
                         <img src="<?= base_url('assets/imgs/smilef.png'); ?>" />
                         <div>
-                            <p>Nicole - nourice</p>
+                            <p>Nicole - nourrice</p>
                             <p>Très bonne expérience, au niveau professionnel comme au personnel!</p>
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
@@ -104,7 +104,7 @@ $this->extend('default') ?>
                     <div class="flex">
                         <img src="<?= base_url('assets/imgs/smile.png'); ?>" />
                         <div>
-                            <p>Etienne - nourice</p>
+                            <p>Etienne - nourrice</p>
                             <p>J'utilise cette application pour donner facilement de mon temps libre tout en aidant les autres!</p>
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>

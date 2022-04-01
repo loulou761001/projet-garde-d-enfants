@@ -22,7 +22,7 @@ if (isLogged()==true){
             <div class="arianeSep"></div>
             <button class="btnEtape3">3</button>
         </div>
-        <h2>Inscription :</h2>
+        <h2>Inscription parent :</h2>
         <form action="" method="post" class="wrapform" novalidate>
 
         <div class="form1">

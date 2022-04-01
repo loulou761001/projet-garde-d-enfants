@@ -1,5 +1,5 @@
 <?=
-$this->extend('default') ?>
+$this->extend('default');  ?>
 
 <?= $this->section('content');
 setlocale(LC_TIME, "fr_FR");
@@ -14,6 +14,17 @@ setlocale(LC_TIME, "fr_FR");
     <?php }?>
     <p>Taux horaire : <?= strtolower($pro[0]['pro_taux_horaire']) ?>.00€/heure.</p>
     </div>
+
+    <iframe
+        width="600"
+        height="450"
+        style="border:0"
+        loading="lazy"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyB7Bd7FBAfcCuG-i0hKlQBpPX3ytXB0qg0&origin=<?= $_SESSION['user']['numAdresse'] ?>+<?= $_SESSION['user']['adresse'] ?>,<?= $_SESSION['user']['ville'] ?>&destination=<?= $pro[0]['pro_numAdresse'] ?>+<?= $pro[0]['pro_adresse'] ?>,<?= $pro[0]['pro_ville'] ?>">
+    </iframe>
+
     <h2>choisissez les créneaux horaires que vous désirez :</h2>
 
 <form action="" method="post">
@@ -34,7 +45,7 @@ foreach ($disposActuelles as $heure) { ?>
         <h2>Choisissez les enfants à inscrire :</h2>
         <?php $e = 0; foreach ($enfants as $enfant) { ?>
         <div>
-            <input data-jsName="inputEnfants" type="checkbox" value="<?= $enfant['id'] ?>" name="id_enfant<?= $i ?>" id="<?= $enfant['id'] ?>">
+            <input data-jsName="inputEnfants" type="checkbox" value="<?= $enfant['id'] ?>" name="id_enfant<?= $e ?>" id="<?= $enfant['id'] ?>">
             <label data-jsname="inputEnfants" for="<?= $enfant['id'] ?>"><?= $enfant['enfant_prenom'] ?> <?= $enfant['enfant_nom'] ?></label>
             <br>
         </div>
@@ -60,5 +71,6 @@ $this->section('js'); ?>
     </script>
 
     <script src="<?= base_url('assets/js/insertionDispo.js'); ?>"></script>
+    <script src="<?= base_url('assets/js/details.js'); ?>"></script>
 <?php
 $this->endSection() ;

@@ -25,6 +25,15 @@ class Dispo extends BaseController
         if (!isPro()) {
             return redirect()->to('');
         }
+        $dispos = $this->dispoModel->recupPropreDispos();
+        $i = 0;
+        foreach ($dispos as $dispo) {
+            $contrat =$this->contratsDispoModel->recupUnContratParDispo($dispo['id'])[0];
+            $enfants[$i] = $this->contratsEnfantsModel->recupContratsEnfantParContrat($contrat['id_contrat']);
+            $i++;
+        }
+        debug($enfants);
+
         $data = [
             'parents' => $this->parentsModel->recupParents(),
             'pro' => $this->proModel->recupPro(),

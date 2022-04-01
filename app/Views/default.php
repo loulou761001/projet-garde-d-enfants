@@ -15,6 +15,10 @@ session()->start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
     <link rel="stylesheet" href="<?= base_url('/assets/css/flexslider-rtl.css'); ?>" type="text/css">
     <link rel="stylesheet" href="<?= base_url('/assets/css/flexslider.css'); ?>" type="text/css">
+    <link
+            rel="stylesheet"
+            href="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.css"
+    />
 
 </head>
 <body>

@@ -32,7 +32,7 @@ class Dispo extends BaseController
             $enfants[$i] = $this->contratsEnfantsModel->recupContratsEnfantParContrat($contrat['id_contrat']);
             $i++;
         }
-        debug($enfants);
+
 
         $data = [
             'parents' => $this->parentsModel->recupParents(),

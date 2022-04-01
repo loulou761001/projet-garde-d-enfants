@@ -72,6 +72,10 @@ $routes->post('/dispoDetails', 'Dispo::postChoix');
 $routes->get('/dispoErreur', 'Dispo::noDispo');
 
 
+
+$routes->get('/paiement', 'Paiement::index');
+
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

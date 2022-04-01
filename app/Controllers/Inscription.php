@@ -163,31 +163,3 @@ class Inscription extends BaseController
         }
     }
 }
-
-
-
-function clock(){
-    $m=0;
-      for ($s=0;$s<=59;$s++){
-          if ($s==59){
-              $s=0;
-              $m=$m+1;
-              echo $m.' : '.$s;
-              echo'</br>';
-          }elseif($m==23){
-              echo $m.' : '.$s;
-              echo'</br>';
-              exit;
-          }else{
-              echo $m.' : '.$s;
-              echo'</br>';
-          }
-      }
-}
-
-function clock_do(){
-    $m=0;
-    $s=0;
-
-
-}

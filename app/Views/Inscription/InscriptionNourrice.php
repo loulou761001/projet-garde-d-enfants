@@ -24,6 +24,7 @@ if (isLogged()==true){
             </div>
 
             <h2>Inscription :</h2>
+
             <form action="" method="post" class="wrapform" enctype="multipart/form-data" novalidate>
 
                 <div class="form1">
@@ -175,5 +176,7 @@ $this->section('js');
     <script>var base_url = '<?php echo base_url() ?>';</script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="../assets/js/inscriptionPro.js"></script>
+
+    <script src="../assets/js/geosearchMap.js"></script>
 <?php
 $this->endSection() ;

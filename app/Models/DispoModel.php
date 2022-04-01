@@ -87,8 +87,7 @@ class DispoModel extends Model
     }
     public function editDispo(array $data, $id)
     {
-        var_dump($data);
-        return $this->select('professionnels')
+        return $this->select('disponibilites.*')
             ->where('id', $id)
             ->set($data)
             ->update($id,$data);

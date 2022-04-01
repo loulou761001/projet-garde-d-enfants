@@ -1,12 +1,8 @@
 <?= $this->extend('default') ?>
 
 <?= $this->section('content'); ?>
-<<<<<<< HEAD
 
-=======
-<?php
-?>
->>>>>>> 9373143bdd7a8fbdd50b8a1f6dd9d0525f5d0f51
+
     <section id="profil">
         <div class="wrap">
             <?php

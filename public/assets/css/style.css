@@ -1139,6 +1139,8 @@ display:flex;
     margin-top: 50px;
     color: var(--vertclair);
     margin-bottom: 10px;
+    margin-right: 1rem;
+    margin-left: 1rem;
 }
 
 #ajoutdispo a {
@@ -1177,6 +1179,8 @@ display:flex;
     border-radius: 10px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+    margin-right: 1rem;
+    margin-left: 1rem;
 
 
 }
@@ -1409,12 +1413,14 @@ display:flex;
 
     }
 
+
 }
 
 @media screen and (max-width: 1300px){
     footer .diagVerte{
         display: none;
     }
+
 }
 @media screen and (max-width: 1400px){
     #flexsliderTexte h3{

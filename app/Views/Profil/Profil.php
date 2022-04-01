@@ -2,10 +2,7 @@
 
 <?= $this->section('content'); ?>
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 448963e62746e1df2d4b4e7c124e4f931f888c43
     <section id="profil">
         <div class="wrap">
             <?php

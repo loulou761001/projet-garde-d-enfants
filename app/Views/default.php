@@ -59,7 +59,7 @@ session()->start();
 
             <div class="navFooter">
                 <ul>
-                    <li><a href="/conditions" class="hover-underline-animation">Mentions Légales</a></li>
+                    <li><a href="/conditions" class="hover-underline-animation">Mentions légales</a></li>
                     <li><a href="/vieprive" class="hover-underline-animation">Vie privée</a></li>
                     <?php if (!isLogged()) { ?>
                        <li><a href="/inscription" class="hover-underline-animation">Inscription</a></li>

@@ -23,7 +23,7 @@ if (isLogged()==true){
                 <button class="btnEtape3">3</button>
             </div>
 
-            <h2>Inscription :</h2>
+            <h2>Inscription Nourrice :</h2>
             <form action="" method="post" class="wrapform" enctype="multipart/form-data" novalidate>
 
                 <div class="form1">
@@ -124,7 +124,7 @@ if (isLogged()==true){
                     <span data-champ="categorie"></span>
 
                     <div class="info_box identite">
-                        <label for="identite">Piece d'identité (image ou pdf) :</label>
+                        <label for="identite">Pièce d'identité (image ou pdf) :</label>
                         <input type="file" placeholder="" id="identite" name="identite">
                     </div>
                     <span data-champ="entreprise"></span>

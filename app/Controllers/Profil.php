@@ -314,8 +314,8 @@ class Profil extends BaseController
 
 
     public function motDePasseModifProfilPost(){
-      $mdp=password_hash($_POST['newmdp'],PASSWORD_DEFAULT);
-       if ($_SESSION['user']['status']=='parent'){
+        $mdp=password_hash($_POST['newmdp'],PASSWORD_DEFAULT);
+        if ($_SESSION['user']['status']=='parent'){
            $parent=$this->parentsModel->recupUnParents($_SESSION['user']['id']);
 
            if (password_verify($_POST['mdp'],$parent[0]['parent_password'])){
@@ -337,7 +337,7 @@ class Profil extends BaseController
 
        }elseif($_SESSION['user']['status']=='professionnel'){
            $pro=$this->proModel->recupUnPro($_SESSION['user']['id']);
-
+        debug($mdp);
            if (password_verify($_POST['mdp'],$pro[0]['pro_password'])){
                $input=$this->validate([
                    'newmdp'=> 'required|min_length[8]',
@@ -347,7 +347,7 @@ class Profil extends BaseController
                    $erreurs = $this->validator->getErrors();
                    echo view('Profil/ModifMdpUser', ['erreurs'=>$erreurs,]);
                }else{
-                   $this->parentsModel->update($pro[0]['id'],['pro_password'=>$mdp]);
+                   $this->proModel->update($pro[0]['id'],['pro_password'=>$mdp]);
                    return redirect()->to('/deconnexion');
                }
            }else{

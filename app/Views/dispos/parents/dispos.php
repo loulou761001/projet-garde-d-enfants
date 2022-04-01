@@ -43,7 +43,7 @@ for ($i = 0; $i < count($dispo); $i++) {
         if (!empty($proActuel['entreprise'])) { ?>
             <h2><?= $proActuel['entreprise'] ?></h2>
         <?php } else { ?>
-            <h2><?= $proActuel['nom'] ?> <?= $proActuel['prenom'] ?></h2>
+            <h2><?= $proActuel['nom'].' '.$proActuel['prenom'] ?></h2>
         <?php }
     ?>
 

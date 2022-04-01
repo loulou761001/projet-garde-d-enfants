@@ -35,6 +35,7 @@ class Dispo extends BaseController
             }
         }
 
+
         $data = [
             'parents' => $this->parentsModel->recupParents(),
             'pro' => $this->proModel->recupPro(),

@@ -125,7 +125,7 @@ $this->extend('default') ?>
                         <img src="<?= base_url('assets/imgs/smilef.png'); ?>" />
                         <div>
                             <p>Lucile - mère de 2 enfants</p>
-                            <p>Service efficace, je rencontre grâce à Ticrocos des gens formidables.</p>
+                            <p class="textAvis">Service efficace, je rencontre grâce à Ticrocos des gens formidables.</p>
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
@@ -139,7 +139,7 @@ $this->extend('default') ?>
                         <img src="<?= base_url('assets/imgs/smile.png'); ?>" />
                         <div>
                             <p>Clovis - père de la France</p>
-                            <p>Très bonne expérience, au niveau professionnel comme au personnel!</p>
+                            <p class="textAvis">Très bonne expérience, au niveau professionnel comme au personnel!</p>
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
@@ -153,7 +153,7 @@ $this->extend('default') ?>
                         <img src="<?= base_url('assets/imgs/smilef.png'); ?>" />
                         <div>
                             <p>Louise - mère de 3 enfants</p>
-                            <p>J'utilise cette application pour donner facilement de mon temps libre tout en aidant les autres!</p>
+                            <p class="textAvis">J'utilise cette application pour donner facilement de mon temps libre tout en aidant les autres!</p>
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>

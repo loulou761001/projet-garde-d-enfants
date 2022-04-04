@@ -3,7 +3,7 @@
 <?= $this->section('content'); ?>
 <?php
 debug($prix);
-if (!empty($_POST)){
+if (!empty($_POST['stripeToken'])){
     require_once('../vendor/stripe/stripe-php/init.php');
 
     \Stripe\Stripe::setApiKey("sk_test_51Kgr5DHwpow00Jhwlm0Qx5BL8dkVLsg7zPAxjKMwBaw8b2C2NEvmSvT0vDUksCD9zKdzIMUjVAd6vrKlhWErq8Lb00MIgyvt9R");
@@ -25,10 +25,6 @@ if (!empty($_POST)){
     ));
 
 }
-
-
-
-
 
 ?>
 
@@ -63,7 +59,7 @@ if (!empty($_POST)){
             </div>
             <div>
                 <p>Facturation à </p>
-                <p>Adresse mail du client </p>
+                <p><?= $_SESSION['user']['email'] ?></p>
             </div>
         </div>
 
@@ -116,7 +112,7 @@ if (!empty($_POST)){
 
 <section id="profil">
     <div class="wrap">
-        <?php if(empty($_POST)){ ?>
+        <?php if(empty($_POST['stripeToken'])){ ?>
         <form action="" method="POST">
             <script
                 src="https://checkout.stripe.com/checkout.js" class="stripe-button"

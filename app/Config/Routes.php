@@ -73,7 +73,8 @@ $routes->get('/dispoErreur', 'Dispo::noDispo');
 
 
 
-$routes->get('/paiement', 'Paiement::index');
+//$routes->get('/paiement', 'Paiement::index');
+$routes->post('/paiement', 'Paiement::index');
 
 
 /*

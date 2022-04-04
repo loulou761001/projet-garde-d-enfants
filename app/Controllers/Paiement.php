@@ -14,7 +14,8 @@ class Paiement extends BaseController
 
     public function index()
     {
+        
+            return view('Paiement/Paiement',['prix'=>800]);
 
-        return view('Paiement/Paiement',['prix'=>850]);
     }
 }

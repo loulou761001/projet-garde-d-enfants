@@ -149,7 +149,7 @@ footer .reseauxFooter i{
 
 }
 }*/
->>>>>>> c9a34ab441344651598c3f0a2bd802a70fd18a9e
+
 
  /*ACCEUIL*/
 .flexslider {
@@ -1123,6 +1123,69 @@ display:flex;
 }
 .dispoDetails .listeHeures div label {
     margin: 3px;
+}
+
+/*FACTURE*/
+#facture .wrap{
+    display:flex;
+    flex-flow:column;
+    background: white;
+    border:solid 1px black;
+    padding:3rem;
+    max-width: 980px;
+    margin: auto;
+    width: 100%;
+}
+#facture .top{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#facture .top img{
+    width:100px;
+}
+#facture .top2{
+    padding-top:5rem;
+    display:flex;
+    gap:4rem;
+}
+#facture .top3{
+    padding-top:3rem;
+    display:flex;
+    gap:4rem;
+}
+#facture .prix{
+    padding-top:3rem;
+    display:flex;
+    flex-flow:column;
+}
+#facture .mid{
+    padding-top:3rem;
+    display:flex;
+    flex-flow:column;
+}
+#facture .table{
+    display:flex;
+    flex-flow:column;
+
+}
+#facture .col{
+    display:flex;
+    justify-content: space-between;
+}
+#facture .footer{
+    padding-top:5rem;
+    display:flex;
+    flex-flow:column;
+    align-items:center;
+    gap:2rem;
+}
+#facture .footer .info{
+    display:flex;
+}
+#facture .footer .separator{
+    border-bottom:solid 1px black;
+    width:80%;
 }
 
 

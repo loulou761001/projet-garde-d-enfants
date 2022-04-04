@@ -145,8 +145,6 @@ footer .reseauxFooter i{
 }
 
 
-
-
  /*ACCEUIL*/
 .flexslider {
     width: 100%;
@@ -1415,6 +1413,30 @@ display:flex;
     }
 
 
+}
+@media screen and (max-width: 590px) {
+    .avis .flex {
+        display: block;
+        margin: 1rem;
+    }
+    .textAvis{
+        font-size: 1.3rem;
+    }
+    .avis img{
+        width: 20%;
+    }
+}
+@media screen and (max-width: 380px) {
+    #flexsliderTexte .flex{
+        display: block;
+    }
+    #flexsliderTexte .moitieTexte{
+        width: auto;
+    }
+    #sectionCentrale .boite p{
+        font-size: 1rem;
+    }
+    
 }
 
 /* Connexion */

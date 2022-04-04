@@ -1523,13 +1523,29 @@ display:flex;
     }
 
     #inscriptionChoix .boutonChoix {
-        gap: 1rem;
+        gap: 0;
         margin-left: 2rem;
         margin-right: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 3rem;
+        font-size: 2rem;
+        height: auto;
+        width: 100px;
+
     }
     #inscriptionChoix > div > h2 {
         margin: 1rem;
         text-align: center;
+        font-size: 2rem;
+    }
+    #inscriptionChoix .wrap {
+      gap: 0;
+    }
+    #inscriptionChoix > div > div.boutonChoix > div > a {
+        padding: 3rem;
+        font-size: 2rem;
     }
 }
 

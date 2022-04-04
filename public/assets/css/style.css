@@ -145,11 +145,7 @@ footer .reseauxFooter i{
 }
 
 
-<<<<<<< HEAD
-=======
-}
-}*/
->>>>>>> 6aa30b359d99beefb4ea2d330909d6db39b30cb5
+
 
  /*ACCEUIL*/
 .flexslider {
@@ -1520,6 +1516,20 @@ display:flex;
         padding: 5px;
         font-size: 6px;
         margin-right: 10px;
+    }
+    .spring {
+        width: 20rem;
+        margin-bottom: 2rem;
+    }
+
+    #inscriptionChoix .boutonChoix {
+        gap: 1rem;
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+    #inscriptionChoix > div > h2 {
+        margin: 1rem;
+        text-align: center;
     }
 }
 

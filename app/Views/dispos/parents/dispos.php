@@ -5,8 +5,26 @@ $this->extend('default') ?>
 setlocale(LC_TIME, "fr_FR");
 
 ?>
+<div class="chargement absolute flex">
+    <h1>Veuillez patienter, nous chargeons les informations...</h1>
+</div>
 <section id="disponibilites" class="wrap">
     <h1>Disponibilités de nos professionnels :</h1>
+    <div>
+        <form class="flex filters" action="" autocomplete="off">
+            <label for="ville">Ville : </label>
+            <div class="relative">
+                <input type="text" name="ville" id="ville">
+            </div>
+            <label for="distance">Distance maximale (km) : </label>
+            <input type="number" name="distance" id="distance">
+            <label for="prix">Prix horaire maximal : </label>
+            <input type="number" name="prix" id="prix">
+            <label for="date">Date : </label>
+            <input type="date" name="date" id="date">
+            <input type="submit" id="filterBtn" value="appliquer les filtres">
+        </form>
+    </div>
 <?php
 $n = 0;
 $t = 0;
@@ -25,9 +43,8 @@ for ($i = 0; $i < count($dispos); $i++) {
     }
 }
 
-foreach ($dispoTotale as $dispo) { ?>
-<div class="dispo" >
-<?php
+foreach ($dispoTotale as $dispo) {
+
 
 foreach ($pro as $unPro) {
     if($unPro['id'] == $dispo['0']['dispo_id_pro']) {
@@ -36,8 +53,12 @@ foreach ($pro as $unPro) {
         $proActuel['prenom'] = $unPro['pro_prenom'];
         $proActuel['entreprise'] = $unPro['pro_entreprise'];
         $proActuel['categorie'] = $unPro['pro_categorie'];
+        $proActuel['adresse'] = $unPro['pro_numAdresse'].' '.$unPro['pro_adresse'];
+        $proActuel['ville'] = $unPro['pro_ville'];
     }
-}
+}?>
+    <div class="dispo" data-ville="<?= $proActuel['ville'] ?>" data-prix="<?= $proActuel['taux'] ?>" data-distance="<?= str_replace(" km","",$distance[$dispo[0]['id']]) ?>" data-date="<?= $dispo[0]['dispo_jour'] ?>">
+        <?php
 for ($i = 0; $i < count($dispo); $i++) {
     if ($i == 0) {
         if (!empty($proActuel['entreprise'])) { ?>
@@ -52,7 +73,8 @@ for ($i = 0; $i < count($dispo); $i++) {
         <h2>
             <?php echo date('H',strtotime($dispo[0]['dispo_heure_debut'])).'h - ';
             echo date('H',strtotime($dispo[count($dispo)-1]['dispo_heure_fin'])).'h'; ?> |
-            <?= $proActuel['taux'] ?>.00€/heure
+            <?= $proActuel['taux'] ?>.00€/heure <br>
+            <?= $proActuel['adresse'] ?> | à <?= str_replace('.',',',$distance[$dispo[0]['id']]) ?> de votre domicile
         </h2>
         <p>
             Places disponibles : <?php $placesMinNb = 999;
@@ -87,5 +109,6 @@ $this->endSection();
             integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
             crossorigin="anonymous">
     </script>
+    <script src="../assets/js/disposParents.js"></script>
 <?php
 $this->endSection() ;

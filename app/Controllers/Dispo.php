@@ -103,7 +103,17 @@ class Dispo extends BaseController
         if (!isParent()) {
             return redirect()->to('');
         }
+        $dispos = $this->dispoModel->recupDisposLibres();
+        $distance = [];
+        foreach ($dispos as $dispo) {
+            $pro = $this->proModel->recupUnPro($dispo['dispo_id_pro']);
+
+            $distance[$dispo['id']] = file_get_contents(str_replace(" ","+","https://maps.googleapis.com/maps/api/distancematrix/json?origins=".$_SESSION['user']['numAdresse']."+".$_SESSION['user']['adresse']."&destinations=".$pro[0]['pro_numAdresse']."+".$pro[0]['pro_adresse']."+".$pro[0]['pro_ville']."&units=metric&key=AIzaSyB7Bd7FBAfcCuG-i0hKlQBpPX3ytXB0qg0"));
+            $distance[$dispo['id']] = json_decode($distance[$dispo['id']],true)['rows'][0]['elements'][0]['distance']['text'];
+        }
+
         $data = [
+            'distance' => $distance,
             'parents' => $this->parentsModel->recupParents(),
             'pro' => $this->proModel->recupPro(),
             'dispos' => $this->dispoModel->recupDisposLibres(),
@@ -278,8 +288,6 @@ class Dispo extends BaseController
             ];
             $this->dispoModel->editDispo($places,$dispo);
         }
-
-
 
         return redirect()->to('/mesDispos');
     }

@@ -7,12 +7,21 @@ use function PHPUnit\Framework\isNull;
 class DispoModel extends Model
 {
     protected $table = 'disponibilites';
-    protected $allowedFields = ['id','dispo_id_groupe','dispo_id_pro', 'dispo_jour','dispo_matin_aprem','dispo_heure_debut', 'dispo_heure_fin','dispo_places'];
+    protected $allowedFields = ['id','dispo_id_groupe','dispo_id_pro', 'dispo_jour','dispo_matin_aprem','dispo_heure_debut', 'dispo_heure_fin','dispo_places','dispo_suppr'];
     public function recupDispos() {
         if (!empty($_GET['limit'])) {
-            return $this->limit($_GET['limit'])->find();
+            return $this->where('dispo_suppr', 0)->limit($_GET['limit'])->find();
+        }
+        else {
+            return $this->where('dispo_suppr', 0)->find();
+        }
+    }
+
+    public function recupDisposFutur() {
+        if (!empty($_GET['limit'])) {
+            return $this->where('dispo_suppr', 0)->limit($_GET['limit'])->find();
         } else {
-            return $this->findAll();
+            return $this->where('dispo_suppr', 0)->where('dispo_jour >', date('Y-m-d'))->where('dispo_places >', 0)->find();
         }
     }
     public function recupDisposParIDString($id) {
@@ -36,26 +45,22 @@ class DispoModel extends Model
             return $arrayList;
         }
     }
-    public function recupRechercheDispo() {
 
-        if (!empty($_GET['jour'])) {
-            return $this->select('disponibilites.*')
-                ->where('dispo_jour', $_GET['jour'])
-                ->find();
-        } else {
-            return redirect()->to('/');
-        }
-    }
     public function recupPropreDispos() {
         return $this->select('disponibilites.*')
             ->where('dispo_id_pro', $_SESSION['user']["id"])
+            ->where('dispo_suppr', 0)
+            ->orderBy('dispo_jour','ASC')
             ->find();
     }
-    public function recupDisposLibres() {
+    public function recupDisposLibres($offset=0) {
         return $this->select('disponibilites.*')
             ->where('dispo_places >', 0)
+            ->where('dispo_suppr', 0)
+            ->limit(10,$offset)
             ->find();
     }
+
     public function recupUnPro($id) {
         if (empty($id)) {
             return redirect()->to('/');

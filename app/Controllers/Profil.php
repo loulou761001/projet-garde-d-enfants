@@ -30,9 +30,18 @@ class Profil extends BaseController
             $pro =$this->proModel->recupUnPro($_SESSION['user']['id']);
             echo view('Profil/Profil', ["pro" => $pro]);
         }
-
-
     }
+    public function autreProfilPro($id)
+    {
+        if (empty($this->proModel->recupUnPro($id))) {
+            return redirect()->to('');
+        }
+        $data = [
+            'pro' =>$this->proModel->recupUnPro($id)[0]
+        ];
+        echo view('/Profil/ProfilAutre', $data);
+    }
+
 
     public function modifProfil()
     {

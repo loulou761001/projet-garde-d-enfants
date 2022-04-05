@@ -87,7 +87,9 @@ class Dispo extends BaseController
                 $finalArray[$i]['places'] = $places;
             }
             $i++;
+
         }
+        debug($finalArray);
         for ($n = 1; $n <= count($finalArray)-2; $n++) {
             $dispo = [
                 'dispo_id_pro' => $_SESSION['user']['id'],
@@ -97,6 +99,12 @@ class Dispo extends BaseController
                 'dispo_places' => $finalArray[count($finalArray)-1]['places'],
                 'dispo_id_groupe'=>$idGroupe,
             ];
+            if ($n>1) {
+                if ($finalArray[$n-1]['dispo_heure_fin'] != $finalArray[$n]['dispo_heure_debut']) {
+                    $idGroupe=generateRandomNumber(8);
+                }
+            }
+            debug($idGroupe);
             $this->dispoModel->inserDispo($dispo);
         }
     return redirect()->to('/gestionDispo');
@@ -107,7 +115,14 @@ class Dispo extends BaseController
         if (!isParent()) {
             return redirect()->to('');
         }
-        $dispos = $this->dispoModel->recupDisposLibres();
+        if (!empty($_GET['page'])) {
+            $offset = intval(10*$_GET['page']-10) ;
+        } else {
+            $offset =0;
+        }
+        $dispos = $this->dispoModel->recupDisposLibres($offset);
+
+
         $distance = [];
         foreach ($dispos as $dispo) {
             $pro = $this->proModel->recupUnPro($dispo['dispo_id_pro']);
@@ -116,11 +131,20 @@ class Dispo extends BaseController
             $distance[$dispo['id']] = json_decode($distance[$dispo['id']],true)['rows'][0]['elements'][0]['distance']['text'];
         }
 
+        $disposCount = 1;
+        for ($c=1;$c<count($this->dispoModel->recupDisposFutur());$c++) {
+
+            if ($this->dispoModel->recupDisposFutur()[$c-1]['dispo_id_groupe']!= $this->dispoModel->recupDisposFutur()[$c]['dispo_id_groupe'] ) {
+                $disposCount++;
+            }
+        }
+
         $data = [
             'distance' => $distance,
             'parents' => $this->parentsModel->recupParents(),
             'pro' => $this->proModel->recupPro(),
-            'dispos' => $this->dispoModel->recupDisposLibres(),
+            'dispos' => $this->dispoModel->recupDisposLibres($offset),
+            'disposCount' => $disposCount,
         ];
         if(empty($data['dispos'])) {
             return redirect()->to('dispoErreur');
@@ -290,8 +314,11 @@ class Dispo extends BaseController
     }
 
     public function deleteDispo($idGroupe){
+        $data = [
+            'dispo_suppr' => 1
+        ];
         if(isPro()){
-            $this->dispoModel->where('dispo_id_groupe',$idGroupe)->delete();
+            $this->dispoModel->where('dispo_id_groupe',$idGroupe)->set('dispo_suppr',$data['dispo_suppr'])->update();
             return redirect()->to('/gestionDispo');
         }else{
             return redirect()->to('');

@@ -10,7 +10,7 @@ setlocale(LC_TIME, "fr_FR");
 </div>
 <section id="disponibilites" class="wrap">
     <h1>Disponibilités de nos professionnels :</h1>
-    <div>
+    <div class="lieux">
         <form class="flex filters" action="" autocomplete="off">
             <label for="ville">Ville : </label>
             <div class="relative">

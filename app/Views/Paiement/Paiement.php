@@ -2,7 +2,7 @@
 
 <?= $this->section('content'); ?>
 <?php
-debug($prix);
+
 if (!empty($_POST['stripeToken'])){
     require_once('../vendor/stripe/stripe-php/init.php');
 
@@ -18,7 +18,7 @@ if (!empty($_POST['stripeToken'])){
 
     $charge = \Stripe\Charge::create(array(
         'customer' => $customer->id,
-        'amount' => $prix,
+        'amount' => $prix*100,
         'currency' => 'eur',
         'description' => 'Discover France Guide by Erasmus of Paris',
         'receipt_email' => $email
@@ -113,11 +113,15 @@ if (!empty($_POST['stripeToken'])){
 <section id="profil">
     <div class="wrap">
         <?php if(empty($_POST['stripeToken'])){ ?>
-        <form action="" method="POST">
+        <form action="" method="post">
+            <?php
+            foreach ($_POST as $key => $value) {
+            echo '<input type="text" class="hidden" value="'. $value .'" name="'. $key .'" id="'. $key .'">';
+            } ?>
             <script
                 src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                 data-key="pk_test_51Kgr5DHwpow00Jhwb1OS9KRiMBEPPlaKY5nawfQLx1YiDlxL8SYL8oGQw2Bf5UBaKSt85URYXl8MxQsU70o6qRth004bCUa4Zh"
-                data-amount="<?= $prix ?>>"
+                data-amount="<?= $prix*100 ?>"
                 data-name="Les Ticrocos"
                 data-description="Paiement garde d'enfant"
                 data-image="<?= base_url('assets/imgs/ticroco.png'); ?>"
@@ -127,8 +131,16 @@ if (!empty($_POST['stripeToken'])){
             </script>
         </form>
         <?php }else{ ?>
-            <div class="success_paiement"><h1>Paiement accepté !</h1></div>
-        <?php } ?>
+            <form action="/dispoDetails" method="post">
+                <?php
+                foreach ($_POST as $key => $value) {
+                    echo '<input type="text" class="hidden" value="'. $value .'" name="'. $key .'" id="'. $key .'">';
+                } ?>
+
+            <div class="success_paiement"><h1>Paiement accepté !</h1><h2><input type="submit" value="Cliquez ici pour accéder à vos réservations"></h2></div>
+            </form>
+        <?php
+        } ?>
     </div>
 </section>
 

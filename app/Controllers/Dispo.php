@@ -144,7 +144,6 @@ class Dispo extends BaseController
                 $i++;
             }
         }
-//        debug($mesContrat);
         if(empty($mesContrat)) {
             return redirect()->to('profil');
         }
@@ -153,15 +152,12 @@ class Dispo extends BaseController
         foreach ($mesContrat as $item) {
             $id = $item[0]['id'];
             $id_dispo = $this->contratsDispoModel->recupUneDispo($id);
-//            debug($id_dispo);
             foreach ($id_dispo as $value) {
                 if (!empty($value)) {
-//                    debug($value);
                     $datetest = date('Y-m-d',strtotime($this->dispoModel->recupDisposParID($value['id_dispo'])[0]['dispo_jour']));;
 
                     if ($datetest > date('Y-m-d')) {
                         $contratID = $this->contratsDispoModel->recupUnContratParDispo($value['id_dispo'])[0]['id_contrat'];
-//                        debug($contratID);
                         $mesDispos[$e] = $this->dispoModel->recupDisposParID($value['id_dispo']);
                         $mesDispos[$e]['enfants'] = $this->contratsEnfantsModel->recupContratsEnfantParContrat($contratID);
                         $e++;
@@ -171,7 +167,6 @@ class Dispo extends BaseController
             $i++;
         }
         $i =0;
-//        debug($contrats);
         $enfants = [];
         foreach ($contrats as $contrat) {
             if (!empty($contrat)) {
@@ -235,19 +230,18 @@ class Dispo extends BaseController
     }
 
     public function postChoix() {
-        $proActuel = $this->dispoModel->recupDisposParID(explode('-',$_GET["dispoNbr"]))[0]['dispo_id_pro'];
+        $proActuel = $this->dispoModel->recupDisposParID(explode('-',$_POST["dispoNbr"]))[0]['dispo_id_pro'];
         $data = [
             'parents' => $this->parentsModel->recupParents(),
             'enfants' => $this->enfantsModel->recupEnfantsDeParent($_SESSION['user']['id']),
             'pro' => $this->proModel->recupUnPro($proActuel),
             'dispos' => $this->dispoModel->recupDispos(),
-            'dispoActuelleID' => explode('-',$_GET["dispoNbr"]),
-            'disposActuelles' => $this->dispoModel->recupDisposParID(explode('-',$_GET["dispoNbr"]))
+            'dispoActuelleID' => explode('-',$_POST["dispoNbr"]),
+            'disposActuelles' => $this->dispoModel->recupDisposParID(explode('-',$_POST["dispoNbr"]))
         ];
         $i = 0;
         $d = 0;
         //            vérifie les formats des clés de données en POST
-        debug($_POST);
         foreach (array_keys($_POST) as $item) {
             $matchEnfants = preg_match("/^id_enfant[0-9]+$/i", $item);
             $matchDispo = preg_match("/^id_dispo[0-9]+$/i", $item);
@@ -272,7 +266,6 @@ class Dispo extends BaseController
             ];
             $this->contratsEnfantsModel->insertContratEnfants($contratEnfants[$i]);
         }
-        debug($enfants);
         for ($i = 0; $i<count($dispos);$i++) {
             $contratDispo[$i] = [
                 "id_dispo" => $dispos[$i],
@@ -280,8 +273,8 @@ class Dispo extends BaseController
             ];
             $this->contratsDispoModel->insertContratDispo($contratDispo[$i]);
         };
-        debug($contratDispo);
-        debug($contratEnfants);
+
+
         foreach ($dispos as $dispo) {
             $places = [
                 'dispo_places'=>$this->dispoModel->recupDisposParID($dispo)[0]['dispo_places']-count($enfants)

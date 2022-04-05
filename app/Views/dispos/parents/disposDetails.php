@@ -54,6 +54,7 @@ foreach ($disposActuelles as $heure) { ?>
         <textarea name="infos" id="infos" cols="30" rows="5" placeholder="Veuillez rentrer vos informations"></textarea>
         <input type="text" class="hidden" value="<?= $pro[0]['pro_taux_horaire'] ?>" name="taux" id="taux">
         <input type="text" class="hidden" value="<?= $pro[0]['id'] ?>" name="pro_id" id="pro_id">
+        <input type="text" class="hidden" value="<?= $_GET['dispoNbr'] ?>" name="dispoNbr" id="dispoNbr">
         <input class="submit" type="submit">
         <p class="erreurSubmit"></p>
     </div>

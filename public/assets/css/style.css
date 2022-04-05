@@ -781,7 +781,7 @@ footer .reseauxFooter i{
     background-color:white;
 }
 #profil .profil_pp .img:hover{
-filter: grayscale(90%);
+    filter: grayscale(90%);
 }
 #profil .separator{
     width:80%;
@@ -1095,6 +1095,7 @@ display:flex;
     padding: 10px 20px;
     outline: 2px solid var(--vertclair);
     margin-bottom: 2px;
+    margin-inline: 1rem;
 }
 .dispoDetails label:nth-of-type(1) {
 
@@ -1125,6 +1126,7 @@ display:flex;
     margin-top: 100px;
     color: var(--vertclair);
     margin-bottom: 10px;
+    margin-left: 2rem;
 }
 #disponibilites a{
     color: var(--vertclair);
@@ -1204,10 +1206,15 @@ display:flex;
 
 
 }
+.dispoDetails .dispoMap{
+    margin-left: 30%;
+    width: 40%;
+    margin-bottom: 2rem;
+}
 .dispoDetails h2 {
     text-transform: uppercase;
     color: var(--vertclair);
-
+    margin-left: 1rem;
 
 }
 
@@ -1357,21 +1364,34 @@ display:flex;
     gap:1rem;
 }
 #photo_add .button{
-    border: solid 1px var(--vertclair);
-    border-radius:10px;
-    color:white;
-    background-color: var(--vertclair);
-    padding:1rem 2rem;
-    font-size:1rem;
-    font-weight: bold;
-    cursor:pointer;
-    margin-bottom:2rem;
-    display:flex;
-    gap:2rem
+    width: 140px;
+    height: 45px;
+    font-size: 11px;
+    font-family: "Source Sans Pro" , sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    margin: 0 auto;
+    margin-top: 15px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5rem;
 
 }
 #photo_add .button:hover{
-    background-color: var(--verthover) ;
+    background-color: var(--vertclair);
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
 }
 
 
@@ -1554,4 +1574,33 @@ display:flex;
         text-align: center;
     }
 }
+
+/* page dispoDetail */
+@media screen and (max-width: 1190px){
+    .dispoDetails h2{
+        text-align: center;
+        margin-left: 0rem;
+    }
+}
+@media screen and (max-width: 950px) {
+    .dispoDetails h2{
+        font-size: 15px;
+    }
+}
+@media screen and (max-width: 900px){
+    .dispoDetails .dispoMap{
+        height: 290px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .dispoDetails h1{
+        font-size: 27px;
+    }
+    .detailp p{
+        font-size: 20px;
+    }
+    
+}
+
 

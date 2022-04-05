@@ -27,7 +27,7 @@ setlocale(LC_TIME, "fr_FR");
 
     <h2>choisissez les créneaux horaires que vous désirez :</h2>
 
-<form action="" method="post">
+<form action="/paiement" method="post">
 <?php
 $i = 0;
 $minPlaces = 999;
@@ -52,6 +52,8 @@ foreach ($disposActuelles as $heure) { ?>
         <?php $e++; } ?>
         <label for="infos" class="labelTextarea">Informations complémentaires :</label>
         <textarea name="infos" id="infos" cols="30" rows="5" placeholder="Veuillez rentrer vos informations"></textarea>
+        <input type="text" class="hidden" value="<?= $pro[0]['pro_taux_horaire'] ?>" name="taux" id="taux">
+        <input type="text" class="hidden" value="<?= $pro[0]['id'] ?>" name="pro_id" id="pro_id">
         <input class="submit" type="submit">
         <p class="erreurSubmit"></p>
     </div>

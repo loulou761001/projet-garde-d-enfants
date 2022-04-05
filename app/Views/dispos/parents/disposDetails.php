@@ -16,6 +16,7 @@ setlocale(LC_TIME, "fr_FR");
     </div>
 
     <iframe
+        class="dispoMap"
         width="600"
         height="450"
         style="border:0"

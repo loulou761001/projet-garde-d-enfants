@@ -4,7 +4,7 @@ $this->extend('default') ?>
 <?= $this->section('content');
 ?>
 <section id="mesContrats" class="wrap">
-    <h1>Mes contrats à venir :</h1>
+    <h1>Mes réservations à venir :</h1>
 <?php
 
 
@@ -25,8 +25,12 @@ for ($i = 0; $i < count($dispos); $i++) {
     }
 }
 foreach ($dispoTotale as $dispo) {
-    ?>
-    <div class="dispo flex">
+    if($dispo[0][0]['dispo_suppr']==0) {
+        $classes = 'dispo flex';
+    } else {
+        $classes = 'dispo flex redBG';
+    }?>
+    <div class="<?= $classes ?>">
         <?php for ($i = 0; $i < count($dispo); $i++) {
             if ($i == 0) {
         ?>
@@ -35,6 +39,9 @@ foreach ($dispoTotale as $dispo) {
             <div class="flex sb">
                 <h2><?= date('H',strtotime($dispo[$i][0]['dispo_heure_debut']))  ?>h - <?= date('H',strtotime($dispo[count($dispo)-1][0]['dispo_heure_fin'])) ?>h</h2>
             </div>
+            <?php if($dispo[0][0]['dispo_suppr']==1) {?>
+            <h2 class="red">Cette réservation a été annulée par le professionnel</h2>
+            <?php } ?>
         </div>
         <div>
             <?php

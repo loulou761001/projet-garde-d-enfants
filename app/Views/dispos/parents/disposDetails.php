@@ -8,9 +8,9 @@ setlocale(LC_TIME, "fr_FR");
     <div class="detailp">
     <h1>Détails : </h1>
     <?php if (!empty($pro[0]['pro_entreprise'])) { ?>
-        <p>nom de la <?= strtolower($pro[0]['pro_categorie']) ?> : <?= $pro[0]['pro_entreprise'] ?>, par <?= $pro[0]['pro_nom'] ?> <?= $pro[0]['pro_prenom'] ?></p>
+        <p>nom de la <?= strtolower($pro[0]['pro_categorie']) ?> : <a href="profil/pro/<?= $pro[0]['id'] ?>"><?= $pro[0]['pro_entreprise'] ?>, par <?= $pro[0]['pro_nom'] ?> <?= $pro[0]['pro_prenom'] ?></a></p>
     <?php } else  { ?>
-    <p>nom de la <?= strtolower($pro[0]['pro_categorie']) ?> : <?= $pro[0]['pro_nom'] ?> <?= $pro[0]['pro_prenom'] ?></p>
+        <p>nom de la <?= strtolower($pro[0]['pro_categorie']) ?> : <a href="profil/pro/<?= $pro[0]['id'] ?>"><?= $pro[0]['pro_nom'] ?> <?= $pro[0]['pro_prenom'] ?></a></p>
     <?php }?>
     <p>Taux horaire : <?= strtolower($pro[0]['pro_taux_horaire']) ?>.00€/heure.</p>
     </div>

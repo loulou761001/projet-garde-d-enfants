@@ -5,7 +5,7 @@ $this->section('content');
 <section class="wrap">
     <form action="" method="post" class="formAjoutDispo">
         <label for="date">Date de disponibilité :</label>
-        <input type="date" id="date" name="date">
+        <input type="date" id="date" name="date" required>
         <div class="flex listeHeures">
              <div>
                 <input type="checkbox" value="00-01" name="00-01" id="00-01">
@@ -65,7 +65,7 @@ $this->section('content');
             </div>
         </div>
         <label for="places"> Nombre de places disponibles :</label>
-        <input type="number" min="1" name="places" id="places" placeholder="nombre de place">
+        <input type="number" min="1" name="places" id="places" placeholder="nombre de place" required>
         <input type="submit" class="envoieDispo">
     </form>
 

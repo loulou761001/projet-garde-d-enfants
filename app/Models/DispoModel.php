@@ -7,7 +7,7 @@ use function PHPUnit\Framework\isNull;
 class DispoModel extends Model
 {
     protected $table = 'disponibilites';
-    protected $allowedFields = ['id','dispo_id_pro', 'dispo_jour','dispo_matin_aprem','dispo_heure_debut', 'dispo_heure_fin','dispo_places'];
+    protected $allowedFields = ['id','dispo_id_groupe','dispo_id_pro', 'dispo_jour','dispo_matin_aprem','dispo_heure_debut', 'dispo_heure_fin','dispo_places'];
     public function recupDispos() {
         if (!empty($_GET['limit'])) {
             return $this->limit($_GET['limit'])->find();

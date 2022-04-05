@@ -3,6 +3,7 @@ $this->extend('default') ?>
 
 <?= $this->section('content');
 setlocale(LC_TIME, "fr_FR");
+
 ?>
 <section class="wrap" id="ajoutdispo">
     <a href="/gestionDispo/ajout">Ajouter une date</a>
@@ -39,8 +40,10 @@ foreach ($dispoTotale as $dispo) {
         <p>
             Places disponibles : <?= $dispo[$i]['dispo_places'] ?>
         </p>
+
     </div>
 <?php } ?>
+    <a href="/gestionDispo/supprimer/<?= $dispo[0]['dispo_id_groupe'] ?>">Supprimer</a>
 </div>
 <?php    }
 ?>

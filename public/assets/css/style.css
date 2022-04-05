@@ -800,7 +800,7 @@ footer .reseauxFooter i{
 #profil .profil_mid .mid_txt{
     border:solid 1px #eee3d3;
     padding:1rem ;
-    background-color:#eee3d3;
+    background-color:#2bc0002e;
     border-radius: 10px;
     font-size:1.25rem;
     width:48%;
@@ -1508,13 +1508,6 @@ display:flex;
 
 
 
-
-
-
-
-
-
-
 /*DISPOS PARENTS*/
 .autocomplete-items {
     position: absolute;
@@ -1557,8 +1550,14 @@ display:flex;
     color: white;
 }
 
-
-
+/* page vie privée */
+.vieprivée{
+    margin-top: 2rem;
+}
+/* page mentions legales */
+.condition{
+    margin-top: 2rem;
+}
 
 
 

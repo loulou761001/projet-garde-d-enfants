@@ -1044,6 +1044,9 @@ display:flex;
 #date {
     border-radius: 50px;
     border-color: var(--vertclair);
+    display: flex;
+    margin: 0 auto;
+    margin-top: 1rem;
 }
 #places {
     text-align: center;

@@ -67,6 +67,7 @@ class Dispo extends BaseController
         $regex = '/^[0-9]{2}-[0-9]{2}$/';
         $regexDate = '/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/';
         $i = 0;
+        $idGroupe=generateRandomNumber(8);
         $finalArray = [
             $i => []
         ];
@@ -94,11 +95,14 @@ class Dispo extends BaseController
                 'dispo_heure_debut' => $finalArray[$n]['dispo_heure_debut'],
                 'dispo_heure_fin' => $finalArray[$n]['dispo_heure_fin'],
                 'dispo_places' => $finalArray[count($finalArray)-1]['places'],
+                'dispo_id_groupe'=>$idGroupe,
             ];
             $this->dispoModel->inserDispo($dispo);
         }
     return redirect()->to('/gestionDispo');
     }
+
+
     public function disposParents() {
         if (!isParent()) {
             return redirect()->to('');
@@ -283,5 +287,14 @@ class Dispo extends BaseController
         }
 
         return redirect()->to('/mesDispos');
+    }
+
+    public function deleteDispo($idGroupe){
+        if(isPro()){
+            $this->dispoModel->where('dispo_id_groupe',$idGroupe)->delete();
+            return redirect()->to('/gestionDispo');
+        }else{
+            return redirect()->to('');
+        }
     }
 }

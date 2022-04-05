@@ -135,7 +135,6 @@ class Profil extends BaseController
     public function supprEnfant($id)
     {
         $check=$this->enfantsModel->recupUnEnfant($id);
-        debug($check);
         if($_SESSION['user']['id']==$check[0]['enfant_parent']){
             $this->enfantsModel->suppUnEnfant($id);
         }else{

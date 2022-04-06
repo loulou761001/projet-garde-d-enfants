@@ -8,14 +8,15 @@ setlocale(LC_TIME, "fr_FR");
     <div class="detailp">
     <h1>Détails : </h1>
     <?php if (!empty($pro[0]['pro_entreprise'])) { ?>
-        <p>nom de la <?= strtolower($pro[0]['pro_categorie']) ?> : <?= $pro[0]['pro_entreprise'] ?>, par <?= $pro[0]['pro_nom'] ?> <?= $pro[0]['pro_prenom'] ?></p>
+        <p>nom de la <?= strtolower($pro[0]['pro_categorie']) ?> : <a href="profil/pro/<?= $pro[0]['id'] ?>"><?= $pro[0]['pro_entreprise'] ?>, par <?= $pro[0]['pro_nom'] ?> <?= $pro[0]['pro_prenom'] ?></a></p>
     <?php } else  { ?>
-    <p>nom de la <?= strtolower($pro[0]['pro_categorie']) ?> : <?= $pro[0]['pro_nom'] ?> <?= $pro[0]['pro_prenom'] ?></p>
+        <p>nom de la <?= strtolower($pro[0]['pro_categorie']) ?> : <a href="profil/pro/<?= $pro[0]['id'] ?>"><?= $pro[0]['pro_nom'] ?> <?= $pro[0]['pro_prenom'] ?></a></p>
     <?php }?>
     <p>Taux horaire : <?= strtolower($pro[0]['pro_taux_horaire']) ?>.00€/heure.</p>
     </div>
 
     <iframe
+        class="dispoMap"
         width="600"
         height="450"
         style="border:0"
@@ -54,6 +55,7 @@ foreach ($disposActuelles as $heure) { ?>
         <textarea name="infos" id="infos" cols="30" rows="5" placeholder="Veuillez rentrer vos informations"></textarea>
         <input type="text" class="hidden" value="<?= $pro[0]['pro_taux_horaire'] ?>" name="taux" id="taux">
         <input type="text" class="hidden" value="<?= $pro[0]['id'] ?>" name="pro_id" id="pro_id">
+        <input type="text" class="hidden" value="<?= $_GET['dispoNbr'] ?>" name="dispoNbr" id="dispoNbr">
         <input class="submit" type="submit">
         <p class="erreurSubmit"></p>
     </div>

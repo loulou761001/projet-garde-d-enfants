@@ -17,7 +17,7 @@ if ($parent['id'] == $_SESSION['user']['id']) { ?>
                 <h1>Ajouter une photo de profil</h1>
                 <label for="pfp">Votre photo (.jpg, .jpeg, .png)</label>
                 <input type="file" class="form-control" accept="image/*" name="file">
-                <input type="submit" name="submittedPhoto">
+                <input class="button" type="submit" name="submittedPhoto">
             </form>
         </div>
 

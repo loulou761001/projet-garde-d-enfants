@@ -51,7 +51,8 @@ btnSubmit.addEventListener('click', function () {
     } else if(inputEnfantsChecked.length > minPlaces) {
         event.preventDefault()
         erreurSubmit.textContent = "Veuillez selectionner jusqu'à "+minPlaces+" enfant(s)."
-    } else {
+    }
+    else {
         erreurSubmit.textContent = ""
     }
 })

@@ -10,7 +10,7 @@ setlocale(LC_TIME, "fr_FR");
 </div>
 <section id="disponibilites" class="wrap">
     <h1>Disponibilités de nos professionnels :</h1>
-    <div>
+    <div class="lieux">
         <form class="flex filters" action="" autocomplete="off">
             <label for="ville">Ville : </label>
             <div class="relative">
@@ -48,6 +48,7 @@ foreach ($dispoTotale as $dispo) {
 
 foreach ($pro as $unPro) {
     if($unPro['id'] == $dispo['0']['dispo_id_pro']) {
+        $proActuel['id'] = $unPro['id'];
         $proActuel['taux'] = $unPro['pro_taux_horaire'];
         $proActuel['nom'] = $unPro['pro_nom'];
         $proActuel['prenom'] = $unPro['pro_prenom'];
@@ -62,9 +63,9 @@ foreach ($pro as $unPro) {
 for ($i = 0; $i < count($dispo); $i++) {
     if ($i == 0) {
         if (!empty($proActuel['entreprise'])) { ?>
-            <h2><?= $proActuel['entreprise'] ?></h2>
+            <a href="profil/pro/<?= $proActuel['id'] ?>"><h2><?= $proActuel['entreprise'] ?></h2></a>
         <?php } else { ?>
-            <h2><?= $proActuel['nom'].' '.$proActuel['prenom'] ?></h2>
+            <a href="profil/pro/<?= $proActuel['id'] ?>"><h2><?= $proActuel['nom'].' '.$proActuel['prenom'] ?></h2></a>
         <?php }
     ?>
 
@@ -96,7 +97,16 @@ for ($i = 0; $i < count($dispo); $i++) {
 <p class="categorie"></p>
 <a href="/dispoDetails?dispoNbr=<?php for ($i = 0; $i < count($dispo); $i++) {echo $dispo[$i]['id'].'-';} ?>">DETAILS</a>
 </div>
-<?php } ?>
+<?php }
+if ($disposCount/10 > 1) {
+    echo '<div class="paginationDiv">';
+    $pages = ceil($disposCount/10);
+    for ($p=1;$p<=$pages;$p++) {
+        echo '<a href="?page='.$p.'" class="pagination">'.$p.'</a>';
+    }
+    echo '</div>';
+}
+?>
 
 </section>
 <?php

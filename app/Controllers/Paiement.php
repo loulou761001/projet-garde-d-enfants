@@ -20,7 +20,6 @@ class Paiement extends BaseController
 
     public function index()
     {
-        debug($_POST);
         $i = 0;
         $d = 0;
         $enfants=[];

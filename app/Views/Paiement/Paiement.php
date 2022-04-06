@@ -136,6 +136,7 @@ if (!empty($_POST['stripeToken'])){
                 foreach ($_POST as $key => $value) {
                     echo '<input type="text" class="hidden" value="'. $value .'" name="'. $key .'" id="'. $key .'">';
                 } ?>
+            <button class="factureBtn">Cliquez ici pour télécharger votre facture.</button>
 
             <div class="success_paiement"><h1>Paiement accepté !</h1><h2><input type="submit" value="Cliquez ici pour accéder à vos réservations"></h2></div>
             </form>
@@ -148,8 +149,17 @@ if (!empty($_POST['stripeToken'])){
 <?php
 $this->endSection() ;
 $this->section('js');?>
+<script
+        src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous">
+</script>
+<script src="../assets/js/pdf/jspdf.debug.js"></script>
+<script src="../assets/js/pdf/html2canvas.min.js"></script>
+<script src="../assets/js/pdf/html2pdf.min.js"></script>
+<script src="../assets/js/pdf/domtopdf.js"></script>
 
-<?php $this->endSection() ;
+<?php $this->endSection();
 ?>
 
 

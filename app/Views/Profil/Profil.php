@@ -112,7 +112,7 @@
 
                      <?php   }}?>
                     <?php if($_SESSION['user']['status']=='parent'){ ?>
-                        <i id="js_btn" style="font-size:3rem;" class="fa-solid fa-circle-plus"></i>
+                        <i id="js_btn" style="font-size:3rem; cursor:pointer;"class="fa-solid fa-circle-plus"></i>
                   <?php  } ?>
 
 

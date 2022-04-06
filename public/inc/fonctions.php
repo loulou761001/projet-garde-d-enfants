@@ -135,7 +135,7 @@ function isLogged()
 function isAdmin()
 {
     if(isLogged()) {
-        if($_SESSION['user']['status'] == 'admin') {
+        if($_SESSION['user']['admin'] == '1') {
             return true;
         }
     }

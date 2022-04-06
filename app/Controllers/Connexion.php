@@ -34,7 +34,13 @@ class Connexion extends BaseController
             if ($parent['parent_email'] == $_POST['email'] AND password_verify($_POST['mdp'], $parent['parent_password'])) {
                 $check = 1;
                 $utilActuel = $parent;
-                $status = 'parent';
+
+                if (!empty($parent['est_admin']) && $parent['est_admin']==1){
+                    $status = 'admin';
+                }else{
+                    $status='parent';
+                }
+
             }
         }
         if ($check != 1)  {
@@ -52,7 +58,7 @@ class Connexion extends BaseController
 
             echo 'success';
                 if ($status == 'parent') {
-                    var_dump($utilActuel);
+
 
                     $_SESSION['user']=array(
                         'status'=>'parent',
@@ -70,7 +76,26 @@ class Connexion extends BaseController
                         'nom' =>$utilActuel['parent_nom'],
                         'prenom' =>$utilActuel['parent_prenom'],
                     );
-                } else {
+                }elseif ($status=='admin'){
+                    $_SESSION['user']=array(
+                        'status'=>'parent',
+                        'admin'=>'1',
+                        'id'    =>$utilActuel['id'],
+                        'email' =>$utilActuel['parent_email'],
+                        'ip'     =>$_SERVER['REMOTE_ADDR'],
+                        'adresse' =>$utilActuel['parent_adresse'],
+                        'numAdresse' =>$utilActuel['parent_numAdresse'],
+                        'infosAdresse' =>$utilActuel['parent_infosAdresse'],
+                        'ville' =>$utilActuel['parent_ville'],
+                        'postal' =>$utilActuel['parent_postal'],
+                        'telephone' =>$utilActuel['parent_tel'],
+                        'photo' =>$utilActuel['parent_photo'],
+                        'naissance' =>$utilActuel['parent_naissance'],
+                        'nom' =>$utilActuel['parent_nom'],
+                        'prenom' =>$utilActuel['parent_prenom'],
+                    );
+                }
+                else {
                     $_SESSION['user']=array(
                         'status'=>'professionnel',
                         'id'    =>$utilActuel['id'],

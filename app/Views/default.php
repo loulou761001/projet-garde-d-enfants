@@ -34,7 +34,10 @@ session()->start();
                 <?php } else {?>
                     <a href="/profil">Mon profil</a>
                     <a href="/deconnexion">Déconnexion</a>
-                <?php } ?>
+                    <?php if (!empty($_SESSION['user']['admin']) && $_SESSION['user']['admin']==1){ ?>
+                        <a href="/admin">Admin</a>
+                <?php }
+                } ?>
             </div>
         </li>
     </ul>

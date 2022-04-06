@@ -26,7 +26,6 @@ for ($i = 0; $i < count($dispos); $i++) {
     }
 }
 foreach ($dispoTotale as $dispo) {
-
     ?>
 
 <div class="dispo">
@@ -36,7 +35,23 @@ foreach ($dispoTotale as $dispo) {
     <h2><?= date('l d/m/Y',strtotime($dispo[$i]['dispo_jour']))  ?></h2>
     <?php } ?>
     <div class="flex sb">
-        <h2><?= date('H',strtotime($dispo[$i]['dispo_heure_debut']))  ?>h - <?= date('H',strtotime($dispo[$i]['dispo_heure_fin'])) ?>h</h2>
+        <div>
+            <h2><?= date('H',strtotime($dispo[$i]['dispo_heure_debut']))  ?>h - <?= date('H',strtotime($dispo[$i]['dispo_heure_fin'])) ?>h</h2>
+            <?php if(!empty($enfants[$dispo[$i]['id']])) {
+                echo '<h2>enfants inscrits :</h2>';
+                foreach ($enfants[$dispo[$i]['id']] as $enfant) {
+                    debug($enfant);
+                    ?>
+                    <p><?= $enfant['enfant_infos']['enfant_prenom'] ?> <?= $enfant['enfant_infos']['enfant_nom'] ?></p>
+                    <p><?= $enfant['enfant_infos']['enfants_infos'] ?></p>
+                    <?php if (!empty($enfant['enfant_infos']['enfant_carnet'])) {?>
+                    <a href="<?= base_url('uploads/carnets/').'/'.$enfant['enfant_infos']['enfant_carnet']; ?>" download>Télécharger le carnet de santé de l'enfant</a>
+                    <?php } ?>
+                    <a href="/profil/parent/<?= $enfant['enfant_infos']['enfant_parent'] ?>">Voir le profil du parent</a>
+            <?php }
+            } ?>
+        </div>
+
         <p>
             Places disponibles : <?= $dispo[$i]['dispo_places'] ?>
         </p>

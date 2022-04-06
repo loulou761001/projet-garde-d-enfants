@@ -30,15 +30,28 @@ class Dispo extends BaseController
         foreach ($dispos as $dispo) {
             if (!empty($this->contratsDispoModel->recupUnContratParDispo($dispo['id']))) {
                 $contrat =$this->contratsDispoModel->recupUnContratParDispo($dispo['id'])[0];
-                $enfants[$i] = $this->contratsEnfantsModel->recupContratsEnfantParContrat($contrat['id_contrat']);
+                $enfants[$dispo['id']] = $this->contratsEnfantsModel->recupContratsEnfantParContrat($contrat['id_contrat']);
+
+
+                for ($e = 0; $e < count($enfants[$dispo['id']]);$e++) {
+                    $enfants[$dispo['id']][$e]['enfant_infos'] = $this->enfantsModel->recupUnEnfant($enfants[$dispo['id']][$e]['id_enfant'])[0];
+                }
                 $i++;
             }
+
+        };
+        if (!empty($enfants)) {
+            debug($enfants);
+
         }
+
+
 
         $data = [
             'parents' => $this->parentsModel->recupParents(),
             'pro' => $this->proModel->recupPro(),
             'dispos' => $this->dispoModel->recupPropreDispos(),
+            'enfants' => $enfants,
         ];
         if(empty($data["dispos"])) {
             return redirect()->to('/gestionDispo/ajout');

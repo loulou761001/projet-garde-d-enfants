@@ -1006,9 +1006,14 @@ display:flex;
     font-size: 16px;
 }
 .profil_mid .modif_box textarea{
-    border:solid 1px black;
     resize: none;
-    padding:1Rem;
+    padding: 1Rem;
+    box-sizing: border-box;
+    border: 2px solid var(--vertclair);
+    border-radius: 4px;
+    color: var(--verthover);
+    background-color: white;
+    font-size: 16px;
 }
 .profil_mid .tauxHoraire_modif{
     display:flex;

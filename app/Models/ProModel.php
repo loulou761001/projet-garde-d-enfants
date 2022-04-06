@@ -39,11 +39,11 @@ class ProModel extends Model
             ->join('classes', 'eleves.id_classe = classes.id')
             ->find();
     }
-    public function suppUnParent($id) {
+    public function suppUnPro($id) {
         if (empty($id)) {
-            return redirect()->to('');
+            return redirect()->to('/admin');
         } else {
-            return $this->select('eleves.*')
+            return $this->select('professionnels')
                 ->where('id', $id)
                 ->delete();
         }
@@ -55,6 +55,7 @@ class ProModel extends Model
     public function editPro(array $data, $id)
     {
         var_dump($data);
+
         return $this->select('professionnels')
             ->where('id', $id)
             ->set($data)

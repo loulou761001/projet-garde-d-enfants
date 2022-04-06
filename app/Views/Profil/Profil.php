@@ -193,6 +193,7 @@
 $this->endSection() ;
 $this->section('js');?>
 <script src="../assets/js/profil.js"></script>
+
 <?php $this->endSection() ;
 ?>
 

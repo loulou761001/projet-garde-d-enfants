@@ -38,14 +38,7 @@ class Dispo extends BaseController
                 }
                 $i++;
             }
-
-        };
-        if (!empty($enfants)) {
-            debug($enfants);
-
         }
-
-
 
         $data = [
             'parents' => $this->parentsModel->recupParents(),
@@ -100,9 +93,7 @@ class Dispo extends BaseController
                 $finalArray[$i]['places'] = $places;
             }
             $i++;
-
         }
-        debug($finalArray);
         for ($n = 1; $n <= count($finalArray)-2; $n++) {
             $dispo = [
                 'dispo_id_pro' => $_SESSION['user']['id'],
@@ -117,7 +108,6 @@ class Dispo extends BaseController
                     $idGroupe=generateRandomNumber(8);
                 }
             }
-            debug($idGroupe);
             $this->dispoModel->inserDispo($dispo);
         }
     return redirect()->to('/gestionDispo');
@@ -226,7 +216,6 @@ class Dispo extends BaseController
         ];
         return view('dispos/parents/mesDispos',$data);
     }
-
     public function noDispo() {
         return view('dispos/parents/noDispos');
 
@@ -313,8 +302,7 @@ class Dispo extends BaseController
                 "id_contrat" => $dernierId,
             ];
             $this->contratsDispoModel->insertContratDispo($contratDispo[$i]);
-        };
-
+        }
 
         foreach ($dispos as $dispo) {
             $places = [
@@ -322,10 +310,8 @@ class Dispo extends BaseController
             ];
             $this->dispoModel->editDispo($places,$dispo);
         }
-
         return redirect()->to('/mesDispos');
     }
-
     public function deleteDispo($idGroupe){
         $data = [
             'dispo_suppr' => 1

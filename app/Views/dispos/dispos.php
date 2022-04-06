@@ -40,7 +40,6 @@ foreach ($dispoTotale as $dispo) {
             <?php if(!empty($enfants[$dispo[$i]['id']])) {
                 echo '<h2>enfants inscrits :</h2>';
                 foreach ($enfants[$dispo[$i]['id']] as $enfant) {
-                    debug($enfant);
                     ?>
                     <p><?= $enfant['enfant_infos']['enfant_prenom'] ?> <?= $enfant['enfant_infos']['enfant_nom'] ?></p>
                     <p><?= $enfant['enfant_infos']['enfants_infos'] ?></p>

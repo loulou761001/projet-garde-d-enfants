@@ -97,6 +97,12 @@
                             <p><strong>Informations :</strong> <?= $enfant['enfants_infos'] ?></p>
                         </div>
 
+                        <?php if (!empty($enfant['enfant_carnet'])) {?>
+                        <div class="link">
+                            <a href="<?= base_url('uploads/carnets/').'/'.$enfant['enfant_carnet']; ?>" download>Télécharger le carnet de santé de l'enfant</a>
+                        </div>
+                        <?php } ?>
+
                         <div class="link">
                             <a href="/profil/supprimer/<?= $enfant['id'] ?>">Supprimer</a>
                         </div>
@@ -121,7 +127,7 @@
     </section>
 
 <div id="popup" class="popup hidden">
-    <form action="" method="post" class="wrapform" novalidate>
+    <form enctype="multipart/form-data" action="" method="post" class="wrapform" novalidate>
 
         <i id="close" class="fa-solid fa-circle-xmark"></i>
 
@@ -162,11 +168,9 @@
 
 
         <div class="popup_box">
-            <label for="carnet">Carnet de santé* : </label>
-            <input type="file"  class="custom-file-input" id="carnet" name="carnet" value="">
-            <?php if(!empty($erreurs['carnet'])){ ?>
-                <span class="erreur"> <?= $erreurs['carnet'] ?></span>
-            <?php } ?>
+            <label for="carnet">Carnet de santé (pdf ou image) (facultatif) : </label>
+            <input type="file"  class="custom-file-input" id="carnet" name="carnet">
+            <span class="erreur carnetErreur"></span>
         </div>
 
 
@@ -192,6 +196,8 @@
 <?php
 $this->endSection() ;
 $this->section('js');?>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
 <script src="../assets/js/profil.js"></script>
 
 <?php $this->endSection() ;

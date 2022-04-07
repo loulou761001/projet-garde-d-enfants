@@ -213,7 +213,7 @@ function validErreurs() {
         console.log(parts)
         if(fileName.length===0) {
             erreurs['identite'] = 'Veuillez fournir une pièce d\'identité.'
-        } else if (parts['1'] !== 'pdf' || parts['1'] !== 'jpg' || parts['1'] !== 'jpeg' || parts['1'] !== 'png'){
+        } else if (parts['1'] !== 'pdf' && parts['1'] !== 'jpg' && parts['1'] !== 'jpeg' && parts['1'] !== 'png'){
             erreurs['identite'] = 'Veuillez fournir un fichier valide'
         } else {
             erreurs['identite'] = ''

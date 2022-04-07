@@ -128,7 +128,7 @@ if (isLogged()==true){
                         <label for="identite">Pièce d'identité (image ou pdf) :</label>
                         <input type="file" placeholder="" id="identite" name="identite">
                     </div>
-                    <span data-champ="entreprise"></span>
+                    <span data-champ="identite"></span>
 
                     <div class="info_box entreprise hidden">
                         <label for="entreprise">Nom de l'entreprise :</label>

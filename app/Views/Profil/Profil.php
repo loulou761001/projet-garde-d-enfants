@@ -99,7 +99,7 @@
 
                         <?php if (!empty($enfant['enfant_carnet'])) {?>
                         <div class="link">
-                            <a href="<?= base_url('uploads/carnets/').'/'.$enfant['enfant_carnet']; ?>" download>Télécharger le carnet de santé de l'enfant</a>
+                            <a href="<?= base_url('uploads/carnets/').'/'.$enfant['enfant_carnet']; ?>" class="carnetEnfant" download>Télécharger le carnet de santé de l'enfant</a>
                         </div>
                         <?php } ?>
 

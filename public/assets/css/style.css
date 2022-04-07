@@ -775,9 +775,11 @@ footer .reseauxFooter i{
     gap:5rem;
 }
 #profil .profil_top{
-    display:flex;
-    align-items: center;
-    gap:5rem;
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    text-align: center;
 }
 #profil .titre{
     font-size:1.5rem;
@@ -789,8 +791,8 @@ footer .reseauxFooter i{
 }
 
 #profil .profil_pp .img{
-    width:200px;
-    height:200px;
+    width:250px;
+    height:250px;
     border-radius:50%;
     background-color:white;
 }
@@ -1884,6 +1886,12 @@ display:flex;
     .detailp p{
         font-size: 20px;
     }
+    #profil .profil_mid .mid_txt{
+        width: auto;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
     
 }
 

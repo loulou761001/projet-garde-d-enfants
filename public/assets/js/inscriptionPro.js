@@ -213,15 +213,29 @@ function validErreurs() {
         console.log(parts)
         if(fileName.length===0) {
             erreurs['identite'] = 'Veuillez fournir une pièce d\'identité.'
-        } else if (parts['1'] !== 'pdf' || parts['1'] !== 'jpg' || parts['1'] !== 'jpeg' || parts['1'] !== 'png'){
+        } else if (parts['1'] !== 'pdf' && parts['1'] !== 'jpg' && parts['1'] !== 'jpeg' && parts['1'] !== 'png'){
             erreurs['identite'] = 'Veuillez fournir un fichier valide'
         } else {
             erreurs['identite'] = ''
         }
     }
+    //VERIF IBAN
+    if(/[a-zA-Z][a-zA-Z]\d\d\s.{4}\s.*\s.{4}\s.{4}\s.{4}\s.{3}/i.test(document.querySelector('input#iban').value)) {
+        erreurs['iban'] = ''
+    } else {
+        erreurs['iban'] = 'Veuillez entrer un IBAN valide.'
+    }
+
     return erreurs
 }
 
+document.querySelector('input#iban').oninput = function () {
+    let foo = this.value.split(" ").join("");
+    if (foo.length > 0) {
+        foo = foo.match(new RegExp('.{1,4}', 'g')).join(" ");
+    }
+    this.value = foo;
+};
 
 btnDernier.addEventListener('click',function (){
         let aErreurs = 0

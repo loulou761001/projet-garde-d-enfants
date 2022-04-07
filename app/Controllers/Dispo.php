@@ -30,16 +30,31 @@ class Dispo extends BaseController
         foreach ($dispos as $dispo) {
             if (!empty($this->contratsDispoModel->recupUnContratParDispo($dispo['id']))) {
                 $contrat =$this->contratsDispoModel->recupUnContratParDispo($dispo['id'])[0];
-                $enfants[$i] = $this->contratsEnfantsModel->recupContratsEnfantParContrat($contrat['id_contrat']);
+                $enfants[$dispo['id']] = $this->contratsEnfantsModel->recupContratsEnfantParContrat($contrat['id_contrat']);
+
+
+                for ($e = 0; $e < count($enfants[$dispo['id']]);$e++) {
+                    $enfants[$dispo['id']][$e]['enfant_infos'] = $this->enfantsModel->recupUnEnfant($enfants[$dispo['id']][$e]['id_enfant'])[0];
+                }
                 $i++;
             }
         }
+        if (!empty($enfants)) {
+            $data = [
+                'parents' => $this->parentsModel->recupParents(),
+                'pro' => $this->proModel->recupPro(),
+                'dispos' => $this->dispoModel->recupPropreDispos(),
+                'enfants' => $enfants,
+            ];
+        } else {
+            $data = [
+                'parents' => $this->parentsModel->recupParents(),
+                'pro' => $this->proModel->recupPro(),
+                'dispos' => $this->dispoModel->recupPropreDispos(),
+            ];
+        }
 
-        $data = [
-            'parents' => $this->parentsModel->recupParents(),
-            'pro' => $this->proModel->recupPro(),
-            'dispos' => $this->dispoModel->recupPropreDispos(),
-        ];
+
         if(empty($data["dispos"])) {
             return redirect()->to('/gestionDispo/ajout');
         }
@@ -87,9 +102,7 @@ class Dispo extends BaseController
                 $finalArray[$i]['places'] = $places;
             }
             $i++;
-
         }
-        debug($finalArray);
         for ($n = 1; $n <= count($finalArray)-2; $n++) {
             $dispo = [
                 'dispo_id_pro' => $_SESSION['user']['id'],
@@ -104,7 +117,6 @@ class Dispo extends BaseController
                     $idGroupe=generateRandomNumber(8);
                 }
             }
-            debug($idGroupe);
             $this->dispoModel->inserDispo($dispo);
         }
     return redirect()->to('/gestionDispo');
@@ -213,7 +225,6 @@ class Dispo extends BaseController
         ];
         return view('dispos/parents/mesDispos',$data);
     }
-
     public function noDispo() {
         return view('dispos/parents/noDispos');
 
@@ -300,8 +311,7 @@ class Dispo extends BaseController
                 "id_contrat" => $dernierId,
             ];
             $this->contratsDispoModel->insertContratDispo($contratDispo[$i]);
-        };
-
+        }
 
         foreach ($dispos as $dispo) {
             $places = [
@@ -309,10 +319,8 @@ class Dispo extends BaseController
             ];
             $this->dispoModel->editDispo($places,$dispo);
         }
-
         return redirect()->to('/mesDispos');
     }
-
     public function deleteDispo($idGroupe){
         $data = [
             'dispo_suppr' => 1

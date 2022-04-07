@@ -567,6 +567,10 @@ footer .reseauxFooter i{
     flex-flow:column;
     align-items: center;
 }
+#formulaire .wrap form div span{
+    color:red;
+}
+
 #formulaire .filAriane {
     width: 50%;
     margin: 0 auto;
@@ -775,9 +779,11 @@ footer .reseauxFooter i{
     gap:5rem;
 }
 #profil .profil_top{
-    display:flex;
-    align-items: center;
-    gap:5rem;
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    text-align: center;
 }
 #profil .titre{
     font-size:1.5rem;
@@ -789,8 +795,8 @@ footer .reseauxFooter i{
 }
 
 #profil .profil_pp .img{
-    width:200px;
-    height:200px;
+    width:250px;
+    height:250px;
     border-radius:50%;
     background-color:white;
 }
@@ -1007,9 +1013,14 @@ display:flex;
     font-size: 16px;
 }
 .profil_mid .modif_box textarea{
-    border:solid 1px black;
     resize: none;
-    padding:1Rem;
+    padding: 1Rem;
+    box-sizing: border-box;
+    border: 2px solid var(--vertclair);
+    border-radius: 4px;
+    color: var(--verthover);
+    background-color: white;
+    font-size: 16px;
 }
 .profil_mid .tauxHoraire_modif{
     display:flex;
@@ -1885,6 +1896,12 @@ display:flex;
     .detailp p{
         font-size: 20px;
     }
+    #profil .profil_mid .mid_txt{
+        width: auto;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
     
 }
 

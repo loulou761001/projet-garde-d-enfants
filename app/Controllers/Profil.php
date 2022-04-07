@@ -41,6 +41,16 @@ class Profil extends BaseController
         ];
         echo view('/Profil/ProfilAutre', $data);
     }
+    public function autreProfilParent($id)
+    {
+        if (empty($this->parentsModel->recupUnParents($id))) {
+            return redirect()->to('');
+        }
+        $data = [
+            'parent' =>$this->parentsModel->recupUnParents($id)[0]
+        ];
+        echo view('/Profil/ProfilAutreParent', $data);
+    }
 
 
     public function modifProfil()
@@ -159,7 +169,6 @@ class Profil extends BaseController
             'nom'=> 'required|min_length[2]',
             'prenom'=> 'required|min_length[2]',
             'naissance'=> 'required',
-            'carnet'=> 'required',
             'infos'=> 'required',
         ]);
 
@@ -169,23 +178,38 @@ class Profil extends BaseController
             $parent = $this->parentsModel->recupUnParents($_SESSION['user']['id']);
             echo view('Profil/Profil', ["parent" => $parent,"enfants"=>$enfants,'erreurs'=>$erreurs,'form'=>$data]);
         }else{
+            debug($_FILES);
+            if(!empty($_FILES['carnet']['name'])) {
+                helper(['form', 'url']);
+                $File = $this->request->getFile('carnet');
+                debug($File);
+                $File->move(PUBLIC_PATH . '/uploads/carnets');
+                $dataFile = [
+                    'enfant_carnet' => $File->getName()
+                ];
+                var_dump($dataFile);
+
+                $data['enfant_carnet'] = $File->getName();
+            }
+
             $this->enfantsModel->insert($data);
             return redirect()->to('/profil');
         }
-
     }
 
     private function generateActualiteFromPost(IncomingRequest $request, string $type): array
     {
+        debug($_POST);
         $data = [
             'enfant_nom' => $request->getPost("nom"),
             'enfant_prenom' => $request->getPost("prenom"),
             'enfant_sexe' => $request->getPost("sexe"),
             'enfant_parent' => $_SESSION['user']['id'],
-            'enfant_carnet'=>$request->getPost("carnet"),
             'enfant_naissance' => $request->getPost("naissance"),
+            'enfant_carnet' => '',
             'enfants_infos' => $request->getPost("infos"),
         ];
+        debug($data);
 
         return $data;
     }

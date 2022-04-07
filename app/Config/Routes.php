@@ -50,6 +50,7 @@ $routes->post('/uploadEmailParent', 'Inscription::uploadEmailParent');
 
 $routes->get('/profil', 'Profil::index');
 $routes->get('/profil/pro/(:num)', 'Profil::autreProfilPro/$1');
+$routes->get('/profil/parent/(:num)', 'Profil::autreProfilParent/$1');
 $routes->get('/profil/modifier', 'Profil::modifProfil');
 $routes->post('/profil/modifier', 'Profil::modifiedProfil');
 $routes->post('/profil', 'Profil::ajoutEnfant');

@@ -40,7 +40,7 @@ if (!empty($_POST['stripeToken'])){
             <div>
                 <p>Numéro de facture :</p>
                 <p>Date d'envoi :</p>
-                <p>Date de paiement</p>
+                <p>Date de paiement :</p>
             </div>
             <div>
                 <p>Numéro de facture</p>

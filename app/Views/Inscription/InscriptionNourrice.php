@@ -128,7 +128,7 @@ if (isLogged()==true){
                         <label for="identite">Pièce d'identité (image ou pdf) :</label>
                         <input type="file" placeholder="" id="identite" name="identite">
                     </div>
-                    <span data-champ="entreprise"></span>
+                    <span data-champ="identite"></span>
 
                     <div class="info_box entreprise hidden">
                         <label for="entreprise">Nom de l'entreprise :</label>
@@ -157,7 +157,15 @@ if (isLogged()==true){
                     </div>
                     <span data-champ="description"></span>
 
+                    <div class="info_box iban">
+                        <label for="iban">IBAN :</label>
+                        <input type="text" placeholder="" id="iban" name="iban" value="<?= recupInputValue('iban');?>">
+                    </div>
+                    <span data-champ="iban"></span>
+
                     <input id="dernierSubmit" class="button" type="submit" name="submitted" value="ENVOYER">
+
+
 
                 </div>
 

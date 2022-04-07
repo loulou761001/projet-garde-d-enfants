@@ -1462,9 +1462,6 @@ footer .reseauxFooter i{
 .dispoDetails .detailp a{
     color: var(--vertclair);
 }
-/*.dispoDetails .detailp a:hover{
-    color: var(--verthover);
-}*/
 
 .detailsSuivantBtn {
     width: 140px;
@@ -1699,6 +1696,15 @@ footer .reseauxFooter i{
     display: flex;
     justify-content: center;
 }
+
+
+/* page des reservation */
+#mesContrats h1{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 20px
+}
+
 
 /* page vie privée */
 .vieprivée{

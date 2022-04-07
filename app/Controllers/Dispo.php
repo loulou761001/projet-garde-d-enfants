@@ -39,13 +39,22 @@ class Dispo extends BaseController
                 $i++;
             }
         }
+        if (!empty($enfants)) {
+            $data = [
+                'parents' => $this->parentsModel->recupParents(),
+                'pro' => $this->proModel->recupPro(),
+                'dispos' => $this->dispoModel->recupPropreDispos(),
+                'enfants' => $enfants,
+            ];
+        } else {
+            $data = [
+                'parents' => $this->parentsModel->recupParents(),
+                'pro' => $this->proModel->recupPro(),
+                'dispos' => $this->dispoModel->recupPropreDispos(),
+            ];
+        }
 
-        $data = [
-            'parents' => $this->parentsModel->recupParents(),
-            'pro' => $this->proModel->recupPro(),
-            'dispos' => $this->dispoModel->recupPropreDispos(),
-            'enfants' => $enfants,
-        ];
+
         if(empty($data["dispos"])) {
             return redirect()->to('/gestionDispo/ajout');
         }

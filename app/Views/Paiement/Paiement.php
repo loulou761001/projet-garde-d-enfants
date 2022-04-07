@@ -25,7 +25,15 @@ if (!empty($_POST['stripeToken'])){
     ));
 
 }
-
+$fmt = datefmt_create(
+    'fr_FR',
+    IntlDateFormatter::LONG,
+    IntlDateFormatter::NONE,
+    'Europe/Paris',
+    IntlDateFormatter::GREGORIAN
+);
+$date1 = datefmt_format($fmt, time());
+debug($date1);
 ?>
 
 <section id="facture">
@@ -47,8 +55,8 @@ if (!empty($_POST['stripeToken'])){
                 <p><?php
                     $date1 = date('Y-m-d');
                     setlocale(LC_TIME, "fr_FR", "French");
-                    echo strtoupper(strftime("%A %d %B %G", strtotime($date1))); ?></p>
-                <p><?= strtoupper(strftime("%A %d %B %G", strtotime($date1))); ?></p>
+                    echo strtoupper(datefmt_format($fmt, time())); ?></p>
+                <p><?= strtoupper(datefmt_format($fmt, time())); ?></p>
             </div>
         </div>
 
@@ -64,7 +72,7 @@ if (!empty($_POST['stripeToken'])){
         </div>
 
         <div class="prix">
-           <h2><?= $prix ?>€ payé le <?= strtoupper(strftime("%A %d %B %G", strtotime($date1))); ?></h2>
+           <h2><?= $prix ?>€ payé le <?= strtoupper(datefmt_format($fmt, time())); ?></h2>
             <p>Merci d'avoir choisi les Ticrocos pour la garde de vos enfants, nous vous en somme très reconnaissant !</p>
         </div>
 
@@ -103,7 +111,7 @@ if (!empty($_POST['stripeToken'])){
             <div class="info">
                 <p>Numéro facture </p>
                 <p> - <?= $prix ?>€</p>
-                <p> payé le <?= strtoupper(strftime("%A %d %B %G", strtotime($date1))); ?></p>
+                <p> payé le <?= strtoupper(datefmt_format($fmt, time())); ?></p>
             </div>
         </div>
 

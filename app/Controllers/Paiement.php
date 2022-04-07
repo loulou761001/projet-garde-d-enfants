@@ -40,7 +40,8 @@ class Paiement extends BaseController
             'enfants' => $this->enfantsModel->recupEnfantsDeParent($_SESSION['user']['id']),
             'dispos' => $this->dispoModel->recupDispos(),
             'pro' => $_POST['pro_id'],
+            'prix'=>$prix
         ];
-        return view('Paiement/Paiement',['prix'=>$prix]);
+        return view('Paiement/Paiement',$data);
     }
 }

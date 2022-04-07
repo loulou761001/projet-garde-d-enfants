@@ -901,6 +901,7 @@ display:flex;
     padding:1Rem;
     gap:2Rem;
     width:25%;
+    min-width:300px;
 }
 #popup .popup_box{
     display:flex;

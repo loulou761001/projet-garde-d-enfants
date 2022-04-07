@@ -567,6 +567,10 @@ footer .reseauxFooter i{
     flex-flow:column;
     align-items: center;
 }
+#formulaire .wrap form div span{
+    color:red;
+}
+
 #formulaire .filAriane {
     width: 50%;
     margin: 0 auto;

@@ -178,8 +178,8 @@ class Profil extends BaseController
             $parent = $this->parentsModel->recupUnParents($_SESSION['user']['id']);
             echo view('Profil/Profil', ["parent" => $parent,"enfants"=>$enfants,'erreurs'=>$erreurs,'form'=>$data]);
         }else{
-            debug($this->request->getFile('carnet'));
-            if(!empty($this->request->getFile('carnet')['path'])) {
+            debug($_FILES);
+            if(!empty($_FILES['carnet']['name'])) {
                 helper(['form', 'url']);
                 $File = $this->request->getFile('carnet');
                 debug($File);
@@ -193,7 +193,7 @@ class Profil extends BaseController
             }
 
             $this->enfantsModel->insert($data);
-//            return redirect()->to('/profil');
+            return redirect()->to('/profil');
         }
     }
 

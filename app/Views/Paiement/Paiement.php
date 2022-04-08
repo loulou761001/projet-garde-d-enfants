@@ -72,7 +72,7 @@ debug($date1);
         </div>
 
         <div class="prix">
-           <h2><?= $prix ?>€ payé le <?= strtoupper(datefmt_format($fmt, time())); ?></h2>
+           <h2><?= $prix ?>€ payé le <?= (datefmt_format($fmt, time())); ?></h2>
             <p>Merci d'avoir choisi les Ticrocos pour la garde de vos enfants, nous vous en somme très reconnaissant !</p>
         </div>
 
@@ -83,24 +83,20 @@ debug($date1);
 
                 <div class="col">
                     <p>Qté</p>
-                    <p>Prix à l'unité</p>
-                    <p>Montant </p>
+                    <p>Prix unitaire : <?= $prix_unite ?>€</p>
+                    <p>Quantité : <?= $quantite ?></p>
                 </div>
 
                 <div class="col">
-                    <p>Sous-total</p>
-                    <p>prix</p>
+                    <p>Hors taxes</p>
+                    <p><?= round($prix/1.07,2)  ?>€</p>
                 </div>
 
                 <div class="col">
-                    <p>Total</p>
-                    <p>Prix</p>
+                    <p>Total TTC</p>
+                    <p><?= $prix ?>€</p>
                 </div>
 
-                <div class="col">
-                    <p>Montant payé</p>
-                    <p>Prix</p>
-                </div>
 
             </div>
 
@@ -109,9 +105,9 @@ debug($date1);
         <div class="footer">
             <div class="separator"></div>
             <div class="info">
-                <p>Numéro facture </p>
-                <p> - <?= $prix ?>€</p>
-                <p> payé le <?= strtoupper(datefmt_format($fmt, time())); ?></p>
+                <p>Numéro facture : <?= $facture ?> </p>
+                <p> - <?= $prix ?>€ | </p>
+                <p>| payé le <?= datefmt_format($fmt, time()); ?></p>
             </div>
         </div>
 

@@ -19,6 +19,13 @@ class ContratsModel extends Model
             ->limit(1)
             ->find();
     }
+    public function recupDernierNumFacture()
+    {
+        return $this->select('contrats.contrat_facture')
+            ->orderBy('contrat_facture',"desc")
+            ->limit(1)
+            ->find();
+    }
     public function recupContratParID($id)
     {
         return $this->select('contrats.*')

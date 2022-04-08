@@ -1753,7 +1753,7 @@ footer .reseauxFooter i{
 @media screen and (max-width: 1000px) {
    #sectionCentrale .boite {
        margin:20px auto 0 auto;
-       width: 60%;
+       width: 80%;
        height: auto;
    }
     #sectionCentrale .flex .sb{
@@ -1785,6 +1785,7 @@ footer .reseauxFooter i{
     .avis .flex {
         display: block;
         margin: 1rem;
+        text-align: center;
     }
     .textAvis{
         font-size: 1.3rem;
@@ -1793,7 +1794,16 @@ footer .reseauxFooter i{
     body > section > div.avisParents > div > div > ul > li.avis.flex-active-slide > div > div {
         text-align: center;
     }
+    body > section > div.avisNounous > div > div > ul > li.avis.flex-active-slide > div > div > p {
+        text-align: center;
+        font-size: 1.3rem;
+    }
+    body > section > div.avisNounous > div > div > ul > li.avis.flex-active-slide > div > div > p:nth-child(1) {
+        font-size: 32px;
+    }
+
     .avis img{
+
         width: 20%;
         display: flex;
         margin: 0 auto;
@@ -1812,7 +1822,14 @@ footer .reseauxFooter i{
     #sectionCentrale .boite p{
         font-size: 1rem;
     }
-    
+    #flexsliderTexte .moitieTexte a p {
+        width: 11rem;
+    }
+    img {
+        width: 130%;
+    }
+
+
 }
 
 /* Connexion */
@@ -1874,6 +1891,7 @@ footer .reseauxFooter i{
     header li .flex a{
         padding: 20px;
         width: 70%;
+
     }
 
     footer .separator {
@@ -1903,7 +1921,7 @@ footer .reseauxFooter i{
         width: 40%;
     }
     header li .flex a {
-        padding: 6px;
+        padding: 10px;
         font-size: 10px;
         margin: 0 2px;
     }

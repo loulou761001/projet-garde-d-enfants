@@ -2,8 +2,10 @@
 
 <?= $this->section('content'); ?>
 
+
 <?php
 ?>
+
     <section id="profil">
         <div class="wrap">
             <?php

@@ -37,6 +37,10 @@ class Paiement extends BaseController
             $quantite = count($enfants)+count($dispos)-1;
 
         }
+<<<<<<< HEAD
+        $facture = $this->contratsModel->recupDernierNumFacture()[0]['contrat_facture']+1;
+
+=======
         if (!empty($this->contratsModel->recupDernierNumFacture())) {
             $facture = $this->contratsModel->recupDernierNumFacture()[0]['contrat_facture']+1;
         } else {
@@ -44,6 +48,7 @@ class Paiement extends BaseController
         }
 
 //        debug($facture);
+>>>>>>> 6b8b75fd5bb042a2e099846566728955e3476ac6
         $data = [
             'parents' => $this->parentsModel->recupParents(),
             'enfants' => $this->enfantsModel->recupEnfantsDeParent($_SESSION['user']['id']),
@@ -58,7 +63,7 @@ class Paiement extends BaseController
     }
     public function saveFacture() {
 
-        debug($_POST);
+
 //        debug($_FILES);
 //        get_file_data($_POST['data']);
 

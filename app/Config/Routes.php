@@ -40,7 +40,7 @@ $routes->post('/profil/photo/(:num)', 'Inscription::handlePhoto/$1');
 $routes->get('/inscription/nourrice', 'Inscription::indexNourrice');
 $routes->post('/inscription/nourrice', 'Inscription::handlePostNourrice');
 $routes->get('/errors', 'errors::index');
-$routes->get('/inscription/utilisateur', 'InscriptionUtilisateur::index');
+$routes->get('/inscription/utilisateur', 'Inscription::index');
 $routes->get('/vieprive', 'vieprive::index');
 $routes->get('conditions', 'conditions::index');
 $routes->post('/connexion', 'Connexion::loginVerif');

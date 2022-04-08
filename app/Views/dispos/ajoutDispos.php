@@ -2,7 +2,21 @@
 $this->extend('default');
 $this->section('content');
 ?>
-<section class="wrap">
+
+<?php if($_SESSION['user']['approuve']==0){ ?>
+        <div class="wrap">
+            <div class="msg_approuve">
+                <p>Votre compte n'a pas encore été validé, il le sera dans les plus brefs délais s'il respecte nos conditions. Vous ne pouvez pas encore créer des disponibilités pour garder des enfants.</p>
+            </div>
+        </div>
+
+<?php }else{ ?>
+
+
+<section id="ajoutDispo">
+    <div class="wrap">
+
+
     <form action="" method="post" class="formAjoutDispo">
         <label for="date">Date de disponibilité :</label>
         <input type="date" id="date" name="date" required>
@@ -68,8 +82,9 @@ $this->section('content');
         <input type="number" min="1" name="places" id="places" placeholder="nombre de place" required>
         <input type="submit" class="envoieDispo">
     </form>
-
+    </div>
 </section>
+<?php }?>
 
 <?php
 $this->endSection() ;

@@ -37,7 +37,7 @@ img {
 
 
 .wrap {
-    max-width: 1440px;
+    max-width:1300px;
     margin: auto;
     width: 100%;
 }
@@ -82,6 +82,16 @@ header li .flex a:hover{
 
 
 /*FOOTER*/
+
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;            /* Footer height */
+}
+
+
 footer .separator {
     border-left:solid 1px white;
     height:70px;
@@ -772,6 +782,12 @@ footer .reseauxFooter i{
 #profil{
     padding:5rem 0;
 }
+.msg_approuve{
+    color:red;
+    padding:3rem;
+    font-size:1.5rem;
+}
+
 #profil .wrap{
     display:flex;
     flex-flow:column;
@@ -815,7 +831,7 @@ footer .reseauxFooter i{
 }
 
 #profil .profil_mid .mid_txt{
-    border:solid 1px #eee3d3;
+    border:solid 1px #2bc0002e;
     padding:1rem ;
     background-color:#2bc0002e;
     border-radius: 10px;
@@ -1046,6 +1062,10 @@ display:flex;
 }
 
 /*FORMULAIRE AJOUT DE DISPO*/
+#ajoutDispo{
+    padding:5rem;
+}
+
 .formAjoutDispo input[type='radio'],.formAjoutDispo input[type='checkbox'] {
     opacity: 0;
     position: fixed;

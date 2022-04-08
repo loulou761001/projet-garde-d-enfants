@@ -294,7 +294,7 @@ class Profil extends BaseController
             }
 
         }elseif (!empty($pro)){
-            if ($_GET['token'] == $pro[0]['parent_token']){
+            if ($_GET['token'] == $pro[0]['pro_token']){
                 echo view('Profil/ModifMdp');
             }else{
                 return redirect()->to('');
@@ -323,7 +323,7 @@ class Profil extends BaseController
 
             }elseif (!empty($pro)){
                 $mdp = password_hash($_POST['mdp'],PASSWORD_DEFAULT);
-                $this->proModel->update($pro[0]['id'],['pro_password'=>$mdp,'parent_token'=>'']);
+                $this->proModel->update($pro[0]['id'],['pro_password'=>$mdp,'pro_token'=>'']);
                 return redirect()->to('/connexion');
             }
         }

@@ -87,6 +87,7 @@ header li .flex a:hover{
 
 
 
+
 footer .separator {
     border-left:solid 1px white;
     height:70px;
@@ -1429,7 +1430,7 @@ footer .reseauxFooter i{
 
 .dispo {
     padding: 2rem;
-    margin-bottom: 4rem;
+    margin-bottom: 6rem;
     border-radius: 10px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;

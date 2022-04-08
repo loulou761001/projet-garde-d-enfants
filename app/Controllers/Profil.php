@@ -178,9 +178,17 @@ class Profil extends BaseController
             $parent = $this->parentsModel->recupUnParents($_SESSION['user']['id']);
             echo view('Profil/Profil', ["parent" => $parent,"enfants"=>$enfants,'erreurs'=>$erreurs,'form'=>$data]);
         }else{
+<<<<<<< HEAD
+
             if(!empty($_FILES['carnet']['name'])) {
                 helper(['form', 'url']);
                 $File = $this->request->getFile('carnet');
+
+=======
+            if(!empty($_FILES['carnet']['name'])) {
+                helper(['form', 'url']);
+                $File = $this->request->getFile('carnet');
+>>>>>>> 6b8b75fd5bb042a2e099846566728955e3476ac6
                 $File->move(PUBLIC_PATH . '/uploads/carnets');
                 $dataFile = [
                     'enfant_carnet' => $File->getName()
@@ -197,6 +205,10 @@ class Profil extends BaseController
 
     private function generateActualiteFromPost(IncomingRequest $request, string $type): array
     {
+<<<<<<< HEAD
+
+=======
+>>>>>>> 6b8b75fd5bb042a2e099846566728955e3476ac6
         $data = [
             'enfant_nom' => $request->getPost("nom"),
             'enfant_prenom' => $request->getPost("prenom"),
@@ -206,6 +218,10 @@ class Profil extends BaseController
             'enfant_carnet' => '',
             'enfants_infos' => $request->getPost("infos"),
         ];
+<<<<<<< HEAD
+
+=======
+>>>>>>> 6b8b75fd5bb042a2e099846566728955e3476ac6
 
         return $data;
     }
@@ -295,9 +311,7 @@ class Profil extends BaseController
             }else{
                 return redirect()->to('');
             }
-
         }
-        return redirect()->to('');
     }
     public function motDePasseModifPost(){
         $input=$this->validate([
@@ -365,6 +379,10 @@ class Profil extends BaseController
 
        }elseif($_SESSION['user']['status']=='professionnel'){
            $pro=$this->proModel->recupUnPro($_SESSION['user']['id']);
+<<<<<<< HEAD
+
+=======
+>>>>>>> 6b8b75fd5bb042a2e099846566728955e3476ac6
            if (password_verify($_POST['mdp'],$pro[0]['pro_password'])){
                $input=$this->validate([
                    'newmdp'=> 'required|min_length[8]',

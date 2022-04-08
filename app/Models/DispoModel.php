@@ -20,9 +20,10 @@ class DispoModel extends Model
     public function recupDisposFutur() {
         if (!empty($_GET['limit'])) {
             return $this->where('dispo_suppr', 0)->limit($_GET['limit'])->find();
-        } else {
+        } else{
             return $this->where('dispo_suppr', 0)->where('dispo_jour >', date('Y-m-d'))->where('dispo_places >', 0)->find();
         }
+
     }
     public function recupDisposParIDString($id) {
         return $this->select('disponibilites.*')

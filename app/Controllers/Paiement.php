@@ -34,14 +34,38 @@ class Paiement extends BaseController
                 $d++;
             }
             $prix = ($_POST['taux']*count($enfants))*count($dispos);
+            $quantite = count($enfants)+count($dispos)-1;
+
         }
+        $facture = $this->contratsModel->recupDernierNumFacture()[0]['contrat_facture']+1;
+        debug($facture);
         $data = [
             'parents' => $this->parentsModel->recupParents(),
             'enfants' => $this->enfantsModel->recupEnfantsDeParent($_SESSION['user']['id']),
             'dispos' => $this->dispoModel->recupDispos(),
             'pro' => $_POST['pro_id'],
-            'prix'=>$prix
+            'prix'=>$prix,
+            'quantite'=>$quantite,
+            'prix_unite'=>$_POST['taux'],
+            'facture'=>$facture
         ];
         return view('Paiement/Paiement',$data);
     }
+    public function saveFacture() {
+
+        debug($_POST);
+//        debug($_FILES);
+//        get_file_data($_POST['data']);
+
+//        $File = $this->request->getFile($_POST['data']);
+//        debug($File);
+//        $File->move(PUBLIC_PATH . '/uploads/factures');
+
+
+//        $File->move(PUBLIC_PATH . '/uploads/factures');
+//        return $File;
+    }
 }
+
+
+

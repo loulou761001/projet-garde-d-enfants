@@ -38,7 +38,7 @@ class Paiement extends BaseController
 
         }
         $facture = $this->contratsModel->recupDernierNumFacture()[0]['contrat_facture']+1;
-        debug($facture);
+//        debug($facture);
         $data = [
             'parents' => $this->parentsModel->recupParents(),
             'enfants' => $this->enfantsModel->recupEnfantsDeParent($_SESSION['user']['id']),

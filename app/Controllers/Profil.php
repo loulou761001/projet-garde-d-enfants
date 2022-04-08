@@ -178,11 +178,9 @@ class Profil extends BaseController
             $parent = $this->parentsModel->recupUnParents($_SESSION['user']['id']);
             echo view('Profil/Profil', ["parent" => $parent,"enfants"=>$enfants,'erreurs'=>$erreurs,'form'=>$data]);
         }else{
-            debug($_FILES);
             if(!empty($_FILES['carnet']['name'])) {
                 helper(['form', 'url']);
                 $File = $this->request->getFile('carnet');
-                debug($File);
                 $File->move(PUBLIC_PATH . '/uploads/carnets');
                 $dataFile = [
                     'enfant_carnet' => $File->getName()
@@ -199,7 +197,6 @@ class Profil extends BaseController
 
     private function generateActualiteFromPost(IncomingRequest $request, string $type): array
     {
-        debug($_POST);
         $data = [
             'enfant_nom' => $request->getPost("nom"),
             'enfant_prenom' => $request->getPost("prenom"),
@@ -209,7 +206,6 @@ class Profil extends BaseController
             'enfant_carnet' => '',
             'enfants_infos' => $request->getPost("infos"),
         ];
-        debug($data);
 
         return $data;
     }
@@ -369,7 +365,6 @@ class Profil extends BaseController
 
        }elseif($_SESSION['user']['status']=='professionnel'){
            $pro=$this->proModel->recupUnPro($_SESSION['user']['id']);
-        debug($mdp);
            if (password_verify($_POST['mdp'],$pro[0]['pro_password'])){
                $input=$this->validate([
                    'newmdp'=> 'required|min_length[8]',

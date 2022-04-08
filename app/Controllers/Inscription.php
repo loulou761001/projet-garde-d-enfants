@@ -107,6 +107,7 @@ class Inscription extends BaseController
             'pro_siret' => $_POST['siret'],
             'pro_identite' => $File->getName(),
         ];
+        debug($_POST);
         $this->prosModel->inserPro($data);
 
         return redirect()->to('/connexion');

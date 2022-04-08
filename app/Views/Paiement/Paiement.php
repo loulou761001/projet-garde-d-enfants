@@ -33,7 +33,6 @@ $fmt = datefmt_create(
     IntlDateFormatter::GREGORIAN
 );
 $date1 = datefmt_format($fmt, time());
-debug($date1);
 ?>
 
 <section id="facture">

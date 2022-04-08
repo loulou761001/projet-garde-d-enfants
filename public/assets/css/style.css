@@ -86,7 +86,6 @@ header li .flex a:hover{
 
 
 footer {
-    position: absolute;
     bottom: 0;
     width: 100%;
     height: 2.5rem;            /* Footer height */
@@ -1435,7 +1434,7 @@ footer .reseauxFooter i{
 
 .dispo {
     padding: 2rem;
-    margin-bottom: 4rem;
+    margin-bottom: 6rem;
     border-radius: 10px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
@@ -1793,9 +1792,18 @@ footer .reseauxFooter i{
     }
     .textAvis{
         font-size: 1.3rem;
+
+    }
+    body > section > div.avisParents > div > div > ul > li.avis.flex-active-slide > div > div {
+        text-align: center;
     }
     .avis img{
         width: 20%;
+        display: flex;
+        margin: 0 auto;
+    }
+    body > section > div.avisParents > div > div > ul > li.avis.flex-active-slide > div > div > p:nth-child(1) {
+        text-align: center;
     }
 }
 @media screen and (max-width: 380px) {
@@ -1854,6 +1862,8 @@ footer .reseauxFooter i{
 @media screen and (max-width: 1100px){
     #flexsliderTexte{
         padding: 3rem;
+        margin-left: 3px;
+        margin-right: 3px;
     }
 }
 @media screen and (max-width: 915px){
@@ -1897,9 +1907,9 @@ footer .reseauxFooter i{
         width: 40%;
     }
     header li .flex a {
-        padding: 5px;
-        font-size: 6px;
-        margin-right: 10px;
+        padding: 6px;
+        font-size: 10px;
+        margin: 0 2px;
     }
     .spring {
         width: 20rem;

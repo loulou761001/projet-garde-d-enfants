@@ -23,6 +23,7 @@ btn1.addEventListener('click',function (){
     form2.classList.toggle('hidden')
     // btn2.classList.toggle('hidden')
     ariane2Status = 1
+    window.scrollTo(0, 0);
     activeBtnAriane(ariane2)
 })
 ariane1.addEventListener('click',function (){
@@ -39,6 +40,7 @@ btn2.addEventListener('click',function (){
     form2.classList.toggle('hidden')
     form3.classList.toggle('hidden')
     ariane3Status = 1
+    window.scrollTo(0, 0);
     activeBtnAriane(ariane3)
 
 })

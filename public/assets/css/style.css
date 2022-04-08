@@ -1766,9 +1766,18 @@ footer .reseauxFooter i{
     }
     .textAvis{
         font-size: 1.3rem;
+
+    }
+    body > section > div.avisParents > div > div > ul > li.avis.flex-active-slide > div > div {
+        text-align: center;
     }
     .avis img{
         width: 20%;
+        display: flex;
+        margin: 0 auto;
+    }
+    body > section > div.avisParents > div > div > ul > li.avis.flex-active-slide > div > div > p:nth-child(1) {
+        text-align: center;
     }
 }
 @media screen and (max-width: 380px) {
@@ -1827,6 +1836,8 @@ footer .reseauxFooter i{
 @media screen and (max-width: 1100px){
     #flexsliderTexte{
         padding: 3rem;
+        margin-left: 3px;
+        margin-right: 3px;
     }
 }
 @media screen and (max-width: 915px){
@@ -1870,9 +1881,9 @@ footer .reseauxFooter i{
         width: 40%;
     }
     header li .flex a {
-        padding: 5px;
-        font-size: 6px;
-        margin-right: 10px;
+        padding: 6px;
+        font-size: 10px;
+        margin: 0 2px;
     }
     .spring {
         width: 20rem;

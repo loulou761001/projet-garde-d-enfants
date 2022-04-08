@@ -22,6 +22,7 @@ $this->extend('default') ?>
 
         <div class="absolute" id="flexsliderTexte">
             <?php if (!isLogged()) {?>
+
             <h2><i class="fa-solid fa-magnifying-glass"></i> Que recherchez-vous?</h2>
             <div class="flex sb">
                 <div class="moitieTexte">
@@ -34,8 +35,11 @@ $this->extend('default') ?>
                 </div>
             </div>
             <?php } elseif(isParent()) { ?>
+
                 <h2>Je cherche des profils pour garder mes enfants :</h2>
                 <a href="/voirDispos">Voir les créneaux disponibles</a>
+                <a href="/mesDispos">Mes Résérvations</a>
+
             <?php } elseif(isPro()) { ?>
                 <h2>Je mets à jour mes disponibilités :</h2>
                 <a href="/gestionDispo">Gestion des disponibilités</a>

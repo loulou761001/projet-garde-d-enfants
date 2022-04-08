@@ -75,6 +75,9 @@ $routes->get('/voirDispos', 'Dispo::disposParents');
 $routes->get('/dispoDetails', 'Dispo::dispoDetails');
 $routes->post('/dispoDetails', 'Dispo::postChoix');
 $routes->get('/dispoErreur', 'Dispo::noDispo');
+
+
+
 $routes->get('/admin', 'Admin::index');
 $routes->get('/admin/approuve/(:num)', 'Admin::approuve/$1');
 $routes->get('/admin/supprimer/(:num)', 'Admin::supprimer/$1');
@@ -82,6 +85,7 @@ $routes->get('/admin/supprimer/(:num)', 'Admin::supprimer/$1');
 
 //$routes->get('/paiement', 'Paiement::index');
 $routes->post('/paiement', 'Paiement::index');
+$routes->post('/saveFacture', 'Paiement::saveFacture');
 
 
 /*

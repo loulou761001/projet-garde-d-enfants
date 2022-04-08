@@ -170,7 +170,7 @@ if (isLogged()==true){
                 </div>
 
                 <p>Les champs avec * sont requis</p>
-                <a href="/inscription"><p>Vous êtes un parent et vous voulez faire garder vos enfants ? Inscrivez-vous <strong>ici</strong> !</p></a>
+                <a href="parent"><p>Vous êtes un parent et vous voulez faire garder vos enfants ? Inscrivez-vous <strong>ici</strong> !</p></a>
             </form>
         </div>
     </section>

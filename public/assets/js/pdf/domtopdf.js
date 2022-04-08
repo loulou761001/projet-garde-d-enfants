@@ -26,6 +26,24 @@ document.querySelector('.factureBtn').addEventListener("click",function(e){
     e.preventDefault();
     const facture = document.querySelector('#facture')
     html2pdf().from(facture).set(options).save();
+c    // let formData = new FormData();
+    // let doc = html2pdf().from(facture).set(options).output('blob').then(function() {
+    //     formData.append('file', doc);
+    //     $.ajax({
+    //         method: "POST",
+    //         url: "/saveFacture",
+    //         data: {data: formData},
+    //     }).done(function(data){
+    //         console.log(data);
+    //     });
+    // })
+    // console.log(doc)
+
+
+
+
+
+
 });
 
 

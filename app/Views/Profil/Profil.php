@@ -2,7 +2,8 @@
 
 <?= $this->section('content'); ?>
 
-
+<?php
+?>
     <section id="profil">
         <div class="wrap">
             <?php
@@ -32,7 +33,14 @@
                    <?php }elseif ($_SESSION['user']['status']=='professionnel'){ ?>
 
                        <h2 class="titre">Bienvenue sur votre profil <?= $pro[0]['pro_prenom']?> !</h2>
-                   <?php } ?>
+                       <?php if($_SESSION['user']['approuve']==0){ ?>
+
+                           <div class="msg_approuve">
+                               <p>Votre compte n'a pas encore été validé, il le sera dans les plus brefs délais s'il respecte nos conditions. Vous ne pouvez pas encore créer des disponibilités pour garder des enfants.</p>
+                           </div>
+                   <?php
+                       }
+                   } ?>
                </div>
            </div>
 

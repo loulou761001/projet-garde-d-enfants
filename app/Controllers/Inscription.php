@@ -20,6 +20,9 @@ class Inscription extends BaseController
 
     public function index()
     {
+        if(isLogged()){
+            return redirect()->to('');
+        }
         $data = [
             'parents' => $this->parentsModel->recupParents()
         ];
@@ -76,11 +79,11 @@ class Inscription extends BaseController
 
     public function handlePostNourrice()
     {
-        debug($_POST);
+
         if ($_POST['categorie'] == "Nourrice") {
             helper(['form', 'url']);
             $File = $this->request->getFile('identite');
-            debug($File);
+
             $File->move(PUBLIC_PATH . '/uploads/identite');
             $dataFile = [
                 'pro_identite' => $File->getName()

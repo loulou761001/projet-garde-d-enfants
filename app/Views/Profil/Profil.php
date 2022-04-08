@@ -2,9 +2,7 @@
 
 <?= $this->section('content'); ?>
 
-<?php
-debug($_SESSION);
-?>
+
     <section id="profil">
         <div class="wrap">
             <?php

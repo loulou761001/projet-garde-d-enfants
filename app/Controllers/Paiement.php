@@ -38,7 +38,7 @@ class Paiement extends BaseController
 
         }
         $facture = $this->contratsModel->recupDernierNumFacture()[0]['contrat_facture']+1;
-        debug($facture);
+
         $data = [
             'parents' => $this->parentsModel->recupParents(),
             'enfants' => $this->enfantsModel->recupEnfantsDeParent($_SESSION['user']['id']),
@@ -53,7 +53,7 @@ class Paiement extends BaseController
     }
     public function saveFacture() {
 
-        debug($_POST);
+
 //        debug($_FILES);
 //        get_file_data($_POST['data']);
 

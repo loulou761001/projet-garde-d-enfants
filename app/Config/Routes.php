@@ -79,6 +79,7 @@ $routes->get('/dispoErreur', 'Dispo::noDispo');
 
 
 $routes->get('/admin', 'Admin::index');
+$routes->post('/admin', 'Admin::postAdd');
 $routes->get('/admin/approuve/(:num)', 'Admin::approuve/$1');
 $routes->get('/admin/supprimer/(:num)', 'Admin::supprimer/$1');
 

@@ -27,6 +27,23 @@ class Admin extends BaseController
             return redirect()->to('');
         }
     }
+    public function postAdd()
+    {
+        if (isAdmin()){
+            $result = 1;
+            $this->parentsModel->rechercheAdmin();
+            if ($this->parentsModel->rechercheAdmin() === 'null') {
+                $result = 0;
+            }
+            $data = [
+                'result' => $result,
+                'pro' => $this->proModel->where('pro_approuve',0)->recupPro()
+            ];
+            return view('admin/Admin',$data);
+        }else{
+            return redirect()->to('');
+        }
+    }
 
     public function approuve($id){
         if(isAdmin()){

@@ -4,7 +4,19 @@
 
 <section id="admin">
     <div class="wrap">
-
+        <h1>Ajouter un administrateur :</h1>
+        <form action="" method="post">
+            <label for="nom">Nom de l'utilisateur</label>
+            <input type="text" name="nom" id="nom">
+            <label for="prenom">Prénom de l'utilisateur</label>
+            <input type="text" name="prenom" id="prenom">
+            <label for="email">Email de l'utilisateur</label>
+            <input type="text" name="email" id="email">
+            <input type="submit" value="Valider">
+        </form>
+        <?php if(!empty($result) && $result == 0) { ?>
+            <p>Aucun compte trouvé avec ces identifiants.</p>
+        <?php }  ?>
         <h1>Il y a <?php echo count($pro) ?> compte à vérifier.</h1>
         <div class="liste_pro">
             <?php foreach ($pro as $single){ ?>

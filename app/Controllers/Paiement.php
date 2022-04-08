@@ -37,7 +37,12 @@ class Paiement extends BaseController
             $quantite = count($enfants)+count($dispos)-1;
 
         }
-        $facture = $this->contratsModel->recupDernierNumFacture()[0]['contrat_facture']+1;
+        if (!empty($this->contratsModel->recupDernierNumFacture())) {
+            $facture = $this->contratsModel->recupDernierNumFacture()[0]['contrat_facture']+1;
+        } else {
+            $facture = 0;
+        }
+
 //        debug($facture);
         $data = [
             'parents' => $this->parentsModel->recupParents(),

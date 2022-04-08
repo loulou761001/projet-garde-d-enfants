@@ -124,15 +124,17 @@ class Dispo extends BaseController
 
 
     public function disposParents() {
+        $dispos = [];
         if (!isParent()) {
             return redirect()->to('');
         }
         if (!empty($_GET['page'])) {
             $offset = intval(10*$_GET['page']-10) ;
+            $dispos = $this->dispoModel->recupDisposLibres($offset);
         } else {
             $offset =0;
+            $dispos = $this->dispoModel->recupDisposLibres($offset);
         }
-        $dispos = $this->dispoModel->recupDisposLibres($offset);
 
 
         $distance = [];

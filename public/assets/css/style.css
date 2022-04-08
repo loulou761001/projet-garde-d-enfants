@@ -5,6 +5,7 @@
     --bleu:#DDEEFFFF;
     --bleuclair: #DDEEFFFF;
     --red: rgb(255, 0, 0);
+    --redhover: rgb(194, 0, 0);
 }
 * {
     margin: 0; padding: 0;
@@ -780,7 +781,7 @@ footer .reseauxFooter i{
 
 /*PROFIL*/
 #profil{
-    padding:5rem 0;
+    padding:2rem 0;
 }
 .msg_approuve{
     color:red;
@@ -873,9 +874,12 @@ footer .reseauxFooter i{
     width:10%;
 }
 #profil .box_enfant .right_part{
-display:flex;
+    display:flex;
     flex-flow:column;
     gap:1rem;
+}
+#profil .box_enfant .right_part strong{
+    color: var(--vertclair);
 }
 #profil .box_enfant .link{
     display:flex;
@@ -884,6 +888,15 @@ display:flex;
 }
 #profil .box_enfant .link a{
     color: var(--red);
+}
+#profil .box_enfant .link .carnetEnfant{
+    color: #00b312;
+}
+#profil .box_enfant .link .carnetEnfant:hover{
+    color: var(--verthover);
+}
+#profil .box_enfant .link a:hover{
+    color: var(--redhover);
 }
 #profil .erreur_enfant{
     color:red;
@@ -899,6 +912,66 @@ display:flex;
 #profil .modif_button:hover{
     background-color:var(--verthover);
     color:white;
+}
+
+#profil .factureBtn{
+    width: 405px;
+    height: 45px;
+    font-size: 11px;
+    font-family: "Source Sans Pro" , sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgb(0 0 0 / 10%);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+#profil .factureBtn:hover {
+    background-color: var(--vertclair);
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+}
+#profil .success_paiement{
+    text-align: center;
+}
+#profil .success_paiement input{
+    width: 405px;
+    height: 45px;
+    font-size: 11px;
+    font-family: "Source Sans Pro" , sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgb(0 0 0 / 10%);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    margin: 0 auto;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+}
+#profil .success_paiement input:hover {
+    background-color: var(--vertclair);
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
 }
 
  /*POPUP PROFIL*/
@@ -1355,6 +1428,11 @@ display:flex;
     transform: translateY(-7px);
 }
 
+#ajoutdispo .btninfoInscrit:hover{
+    background-color: white;
+    transform: none;
+}
+
 .dispo {
     padding: 2rem;
     margin-bottom: 4rem;
@@ -1366,8 +1444,6 @@ display:flex;
 
 
 }
-
-
 
 .dispoDetails h1 {
     margin-top: 100px;
@@ -1403,6 +1479,9 @@ display:flex;
     margin: 0 auto;
     margin-bottom: 3rem;
     width: 55%;
+}
+.dispoDetails .detailp a{
+    color: var(--vertclair);
 }
 
 .detailsSuivantBtn {
@@ -1474,6 +1553,8 @@ display:flex;
     font-family: "Source Sans Pro", sans-serif;
     border: 2px solid var(--vertclair);
     border-radius: 4px;
+    margin-right: 10px;
+    margin-left: 10px;
 
 }
 
@@ -1638,6 +1719,15 @@ display:flex;
     display: flex;
     justify-content: center;
 }
+
+
+/* page des reservation */
+#mesContrats h1{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 20px
+}
+
 
 /* page vie privée */
 .vieprivée{

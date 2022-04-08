@@ -248,7 +248,7 @@ class Profil extends BaseController
                 'pro_postal' => $request->getPost("codePostal"),
                 'pro_telephone' => $request->getPost("tel"),
                 'pro_email' => $request->getPost("email"),
-                'pro_taux_horaire' => $request->getPost("infosAdresse"),
+                'pro_taux_horaire' => $request->getPost("tauxHorraire"),
                 'pro_siret' => $request->getPost("siret"),
             ];
             return $data;

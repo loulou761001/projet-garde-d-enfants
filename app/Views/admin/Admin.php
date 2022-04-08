@@ -121,6 +121,7 @@
                             <?= $single['pro_taux_horaire'].'€/h' ?>
                         </div>
                     </div>
+                    <?php if (!empty($pro[0]['pro_identite'])) { ?>
                     <div class="row">
                         <div class="cell" >
                             Pièce d'identité
@@ -129,6 +130,7 @@
                             <a href="<?= base_url('uploads/identite/').'/'.$pro[0]['pro_identite']; ?>" download="  <?= $single['pro_nom'].' / '. $single['pro_prenom'] ?>">Télécharger</a>
                         </div>
                     </div>
+                    <?php } ?>
                     <div class="row">
                         <div class="cell" >
                             Action

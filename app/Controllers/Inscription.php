@@ -90,30 +90,53 @@ class Inscription extends BaseController
             ];
             var_dump($dataFile);
         }
-
-        $data = [
-            'pro_nom' => $_POST['nom'],
-            'pro_prenom' => $_POST['prenom'],
-            'pro_email' => $_POST['email'],
-            'pro_password' => password_hash($_POST['password'], PASSWORD_DEFAULT ),
-            'pro_telephone' => $_POST['phone'],
-            'pro_naissance' => $_POST['naissance'],
-            'pro_numAdresse' => $_POST['numAdresse'],
-            'pro_adresse' => $_POST['adresse'],
-            'pro_infosAdresse' => $_POST['infosAdresse'],
-            'pro_postal' => $_POST['codePostal'],
-            'pro_ville' => $_POST['ville'],
-            'pro_categorie' => $_POST['categorie'],
-            'pro_description' => $_POST['description'],
-            'pro_taux_horaire' => $_POST['tauxHorraire'],
-            'pro_entreprise' => $_POST['entreprise'],
-            'pro_siret' => $_POST['siret'],
-            'pro_identite' => $File->getName(),
-        ];
         debug($_POST);
-        $this->prosModel->inserPro($data);
 
-        return redirect()->to('/connexion');
+        if ($_POST['categorie'] == "nourrice") {
+            $data = [
+                'pro_nom' => $_POST['nom'],
+                'pro_prenom' => $_POST['prenom'],
+                'pro_email' => $_POST['email'],
+                'pro_password' => password_hash($_POST['password'], PASSWORD_DEFAULT ),
+                'pro_telephone' => $_POST['phone'],
+                'pro_naissance' => $_POST['naissance'],
+                'pro_numAdresse' => $_POST['numAdresse'],
+                'pro_adresse' => $_POST['adresse'],
+                'pro_infosAdresse' => $_POST['infosAdresse'],
+                'pro_postal' => $_POST['codePostal'],
+                'pro_ville' => $_POST['ville'],
+                'pro_categorie' => $_POST['categorie'],
+                'pro_description' => $_POST['description'],
+                'pro_taux_horaire' => $_POST['tauxHorraire'],
+                'pro_entreprise' => $_POST['entreprise'],
+                'pro_siret' => $_POST['siret'],
+                'pro_identite' => $File->getName(),
+            ];
+        } else {
+            $data = [
+                'pro_nom' => $_POST['nom'],
+                'pro_prenom' => $_POST['prenom'],
+                'pro_email' => $_POST['email'],
+                'pro_password' => password_hash($_POST['password'], PASSWORD_DEFAULT ),
+                'pro_telephone' => $_POST['phone'],
+                'pro_naissance' => $_POST['naissance'],
+                'pro_numAdresse' => $_POST['numAdresse'],
+                'pro_adresse' => $_POST['adresse'],
+                'pro_infosAdresse' => $_POST['infosAdresse'],
+                'pro_postal' => $_POST['codePostal'],
+                'pro_ville' => $_POST['ville'],
+                'pro_categorie' => $_POST['categorie'],
+                'pro_description' => $_POST['description'],
+                'pro_taux_horaire' => $_POST['tauxHorraire'],
+                'pro_entreprise' => $_POST['entreprise'],
+                'pro_siret' => $_POST['siret'],
+            ];
+        }
+
+        debug($_POST);
+//        $this->prosModel->inserPro($data);
+
+//        return redirect()->to('/connexion');
     }
 
     public function photo($id){

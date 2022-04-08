@@ -202,6 +202,7 @@ class Dispo extends BaseController
                         $contratID = $this->contratsDispoModel->recupUnContratParDispo($value['id_dispo'])[0]['id_contrat'];
                         $mesDispos[$e] = $this->dispoModel->recupDisposParID($value['id_dispo']);
                         $mesDispos[$e]['enfants'] = $this->contratsEnfantsModel->recupContratsEnfantParContrat($contratID);
+                        $mesDispos[$e]['pro'] = $this->proModel->recupUnPro($mesDispos[$e][0]['dispo_id_pro']);
                         $e++;
                     }
                 }

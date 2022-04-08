@@ -1,6 +1,5 @@
 <?=
 $this->extend('default') ?>
-
 <?= $this->section('content');
 setlocale(LC_TIME, "fr_FR");
 

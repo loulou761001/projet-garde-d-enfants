@@ -26,19 +26,23 @@ for ($i = 0; $i < count($dispos); $i++) {
 }
 foreach ($dispoTotale as $dispo) {
     if($dispo[0][0]['dispo_suppr']==0) {
-        $classes = 'dispo flex';
+        $classes = 'dispo flex sb';
     } else {
-        $classes = 'dispo flex redBG';
+        $classes = 'dispo flex redBG sb';
     }?>
     <div class="<?= $classes ?>">
         <?php for ($i = 0; $i < count($dispo); $i++) {
             if ($i == 0) {
         ?>
         <div>
+            <a href="profil/pro/<?= $dispo[$i]['pro'][0]['id'] ?>"><h1><?= $dispo[$i]['pro'][0]['pro_nom'] ?> <?= $dispo[$i]['pro'][0]['pro_prenom'] ?></h1></a>
+            <h2><?= $dispo[$i]['pro'][0]['pro_numAdresse'] ?> <?= $dispo[$i]['pro'][0]['pro_adresse']; if(!empty($dispo[$i]['pro'][0]['pro_infosAdresse'])) { echo ', '.$dispo[$i]['pro'][0]['pro_infosAdresse']; } echo ' | '.$dispo[$i]['pro'][0]['pro_ville'].', '.$dispo[$i]['pro'][0]['pro_postal'] ?></h2>
             <h2><?= date('l d/m/Y',strtotime($dispo[$i][0]['dispo_jour']))  ?></h2>
             <div class="flex sb">
                 <h2><?= date('H',strtotime($dispo[$i][0]['dispo_heure_debut']))  ?>h - <?= date('H',strtotime($dispo[count($dispo)-1][0]['dispo_heure_fin'])) ?>h</h2>
             </div>
+
+
             <?php if($dispo[0][0]['dispo_suppr']==1) {?>
             <h2 class="red">Cette réservation a été annulée par le professionnel</h2>
             <?php } ?>

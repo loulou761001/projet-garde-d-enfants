@@ -50,7 +50,7 @@ $date1 = datefmt_format($fmt, time());
                 <p>Date de paiement :</p>
             </div>
             <div>
-                <p>Numéro de facture</p>
+                <p><?= $facture ?></p>
                 <p><?php
                     $date1 = date('Y-m-d');
                     setlocale(LC_TIME, "fr_FR", "French");
